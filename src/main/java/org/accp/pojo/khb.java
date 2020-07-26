@@ -10,7 +10,9 @@ public class khb {
     private Integer id;
 
     private String kname;
-
+    private  String hh;
+		
+	
     private String kphone;
     private Integer ksex;
     public Integer getKsex() {
