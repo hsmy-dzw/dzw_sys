@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.tl.ProotMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Proot" >
+    <id column="prootid" property="prootid" jdbcType="INTEGER" />
+    <result column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="ppid" property="ppid" jdbcType="INTEGER" />
+    <result column="prboolean" property="prboolean" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    prootid, rid, ppid, prboolean
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from proot
+    where prootid = #{prootid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from proot
+    where prootid = #{prootid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Proot" >
+    insert into proot (prootid, rid, ppid, 
+      prboolean)
+    values (#{prootid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{ppid,jdbcType=INTEGER}, 
+      #{prboolean,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Proot" >
+    insert into proot
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="prootid != null" >
+        prootid,
+      </if>
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="ppid != null" >
+        ppid,
+      </if>
+      <if test="prboolean != null" >
+        prboolean,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="prootid != null" >
+        #{prootid,jdbcType=INTEGER},
+      </if>
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="ppid != null" >
+        #{ppid,jdbcType=INTEGER},
+      </if>
+      <if test="prboolean != null" >
+        #{prboolean,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Proot" >
+    update proot
+    <set >
+      <if test="rid != null" >
+        rid = #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="ppid != null" >
+        ppid = #{ppid,jdbcType=INTEGER},
+      </if>
+      <if test="prboolean != null" >
+        prboolean = #{prboolean,jdbcType=BIT},
+      </if>
+    </set>
+    where prootid = #{prootid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Proot" >
+    update proot
+    set rid = #{rid,jdbcType=INTEGER},
+      ppid = #{ppid,jdbcType=INTEGER},
+      prboolean = #{prboolean,jdbcType=BIT}
+    where prootid = #{prootid,jdbcType=INTEGER}
+  </update>
+</mapper>

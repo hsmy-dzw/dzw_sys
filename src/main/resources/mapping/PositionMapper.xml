@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.tl.PositionMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Position" >
+    <id column="ppid" property="ppid" jdbcType="INTEGER" />
+    <result column="peptid" property="peptid" jdbcType="INTEGER" />
+    <result column="ppnamne" property="ppnamne" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ppid, peptid, ppnamne
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from position
+    where ppid = #{ppid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from position
+    where ppid = #{ppid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Position" >
+    insert into position (ppid, peptid, ppnamne
+      )
+    values (#{ppid,jdbcType=INTEGER}, #{peptid,jdbcType=INTEGER}, #{ppnamne,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Position" >
+    insert into position
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ppid != null" >
+        ppid,
+      </if>
+      <if test="peptid != null" >
+        peptid,
+      </if>
+      <if test="ppnamne != null" >
+        ppnamne,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ppid != null" >
+        #{ppid,jdbcType=INTEGER},
+      </if>
+      <if test="peptid != null" >
+        #{peptid,jdbcType=INTEGER},
+      </if>
+      <if test="ppnamne != null" >
+        #{ppnamne,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Position" >
+    update position
+    <set >
+      <if test="peptid != null" >
+        peptid = #{peptid,jdbcType=INTEGER},
+      </if>
+      <if test="ppnamne != null" >
+        ppnamne = #{ppnamne,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ppid = #{ppid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Position" >
+    update position
+    set peptid = #{peptid,jdbcType=INTEGER},
+      ppnamne = #{ppnamne,jdbcType=VARCHAR}
+    where ppid = #{ppid,jdbcType=INTEGER}
+  </update>
+</mapper>

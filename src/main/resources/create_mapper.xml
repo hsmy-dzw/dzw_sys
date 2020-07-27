@@ -9,7 +9,7 @@
             <property name="suppressAllComments" value="true"/>  
         </commentGenerator>  
         <!--数据库链接URL，用户名、密码 -->  
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/y2dzw" userId="root" password="rootrootroot">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/y2dzw?serverTimezone=Asia/Shanghai&amp;characterEncoding=utf8" userId="root" password="rootrootroot">
         </jdbcConnection>
         <javaTypeResolver>  
             <property name="forceBigDecimals" value="false"/>  
@@ -20,11 +20,11 @@
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>
         <!--映射文件生成位置-->  
-        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">  
+        <sqlMapGenerator targetPackage="mapping.tl" targetProject="src/main/resources">  
             <property name="enableSubPackages" value="true"/>  
         </sqlMapGenerator>
          <!--dao生成位置-->  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.accp.dao.wc" targetProject="src/main/java">  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.accp.dao.tl" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>    
          
@@ -33,7 +33,13 @@
 		domainObjectName是实体类名
 		-->  
 		<!--表1-->
-        <table tableName="khb" domainObjectName="khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-		
+        <!-- <table tableName="roots" domainObjectName="Roots" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="proot" domainObjectName="Proot" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="position" domainObjectName="Position" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="dept" domainObjectName="Dept" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="khb" domainObjectName="Khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="wxb" domainObjectName="Wxb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		 -->
     </context>  
 </generatorConfiguration>  

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.tl.RootsMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Roots" >
+    <id column="rid" property="rid" jdbcType="INTEGER" />
+    <result column="rname" property="rname" jdbcType="VARCHAR" />
+    <result column="rlv" property="rlv" jdbcType="INTEGER" />
+    <result column="r'boolean" property="r'boolean" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rid, rname, rlv, r'boolean
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from roots
+    where rid = #{rid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from roots
+    where rid = #{rid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Roots" >
+    insert into roots (rid, rname, rlv, 
+      r'boolean)
+    values (#{rid,jdbcType=INTEGER}, #{rname,jdbcType=VARCHAR}, #{rlv,jdbcType=INTEGER}, 
+      #{r'boolean,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Roots" >
+    insert into roots
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rid != null" >
+        rid,
+      </if>
+      <if test="rname != null" >
+        rname,
+      </if>
+      <if test="rlv != null" >
+        rlv,
+      </if>
+      <if test="r'boolean != null" >
+        r'boolean,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rid != null" >
+        #{rid,jdbcType=INTEGER},
+      </if>
+      <if test="rname != null" >
+        #{rname,jdbcType=VARCHAR},
+      </if>
+      <if test="rlv != null" >
+        #{rlv,jdbcType=INTEGER},
+      </if>
+      <if test="r'boolean != null" >
+        #{r'boolean,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Roots" >
+    update roots
+    <set >
+      <if test="rname != null" >
+        rname = #{rname,jdbcType=VARCHAR},
+      </if>
+      <if test="rlv != null" >
+        rlv = #{rlv,jdbcType=INTEGER},
+      </if>
+      <if test="r'boolean != null" >
+        r'boolean = #{r'boolean,jdbcType=BIT},
+      </if>
+    </set>
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Roots" >
+    update roots
+    set rname = #{rname,jdbcType=VARCHAR},
+      rlv = #{rlv,jdbcType=INTEGER},
+      r'boolean = #{r'boolean,jdbcType=BIT}
+    where rid = #{rid,jdbcType=INTEGER}
+  </update>
+</mapper>
