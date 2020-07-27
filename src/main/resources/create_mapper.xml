@@ -20,11 +20,11 @@
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>
         <!--映射文件生成位置-->  
-        <sqlMapGenerator targetPackage="mapping.tl" targetProject="src/main/resources">  
+        <sqlMapGenerator targetPackage="mapping" targetProject="src/main/resources">  
             <property name="enableSubPackages" value="true"/>  
         </sqlMapGenerator>
          <!--dao生成位置-->  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.accp.dao.tl" targetProject="src/main/java">  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.accp.dao.yl" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>    
          
@@ -41,5 +41,8 @@
 		<table tableName="khb" domainObjectName="Khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		<table tableName="wxb" domainObjectName="Wxb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		 -->
+		<table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+    	<table tableName="dept" domainObjectName="Dept" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+    	
     </context>  
 </generatorConfiguration>  
