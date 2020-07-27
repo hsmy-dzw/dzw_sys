@@ -24,7 +24,7 @@
             <property name="enableSubPackages" value="true"/>  
         </sqlMapGenerator>
          <!--dao生成位置-->  
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.accp.dao.wc" targetProject="src/main/java">  
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.accp.dao.yl" targetProject="src/main/java">  
             <property name="enableSubPackages" value="true"/>  
         </javaClientGenerator>    
          
@@ -32,8 +32,20 @@
 		tableName是数据库中的表名或视图名
 		domainObjectName是实体类名
 		-->  
-		<!--表1-->
-        <table tableName="khb" domainObjectName="khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<!--吴聪-->
+        <!-- <table tableName="khb" domainObjectName="khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> -->
 		
+		<!-- 汤乐 -->
+		
+		
+		<!-- 杨磊 -->
+<!-- 		<table tableName="outcar" domainObjectName="OutCar" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="outcartype" domainObjectName="OutCarType" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+ -->
+ 		<table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="dept" domainObjectName="Dept" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		
+		
+		<!-- 吴辉 -->
     </context>  
 </generatorConfiguration>  

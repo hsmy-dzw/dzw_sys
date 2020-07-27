@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.yl.OutCarMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.OutCar" >
+    <id column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="otid" property="otid" jdbcType="INTEGER" />
+    <result column="onumber" property="onumber" jdbcType="VARCHAR" />
+    <result column="ostatus" property="ostatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    oid, otid, onumber, ostatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from outcar
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from outcar
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.OutCar" >
+    insert into outcar (oid, otid, onumber, 
+      ostatus)
+    values (#{oid,jdbcType=INTEGER}, #{otid,jdbcType=INTEGER}, #{onumber,jdbcType=VARCHAR}, 
+      #{ostatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.OutCar" >
+    insert into outcar
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        oid,
+      </if>
+      <if test="otid != null" >
+        otid,
+      </if>
+      <if test="onumber != null" >
+        onumber,
+      </if>
+      <if test="ostatus != null" >
+        ostatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oid != null" >
+        #{oid,jdbcType=INTEGER},
+      </if>
+      <if test="otid != null" >
+        #{otid,jdbcType=INTEGER},
+      </if>
+      <if test="onumber != null" >
+        #{onumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ostatus != null" >
+        #{ostatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.OutCar" >
+    update outcar
+    <set >
+      <if test="otid != null" >
+        otid = #{otid,jdbcType=INTEGER},
+      </if>
+      <if test="onumber != null" >
+        onumber = #{onumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ostatus != null" >
+        ostatus = #{ostatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.OutCar" >
+    update outcar
+    set otid = #{otid,jdbcType=INTEGER},
+      onumber = #{onumber,jdbcType=VARCHAR},
+      ostatus = #{ostatus,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <select id="queryAll" resultType="org.accp.pojo.OutCar">
+  	SELECT * FROM outcar a INNER JOIN outcartype b
+	 ON a.otid = b.otid
+  </select>
+  
+  
+</mapper>

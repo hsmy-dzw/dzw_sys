@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.yl.OutCarTypeMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.OutCarType" >
+    <id column="otid" property="otid" jdbcType="INTEGER" />
+    <result column="otname" property="otname" jdbcType="VARCHAR" />
+    <result column="otprice" property="otprice" jdbcType="REAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    otid, otname, otprice
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from outcartype
+    where otid = #{otid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from outcartype
+    where otid = #{otid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.OutCarType" >
+    insert into outcartype (otid, otname, otprice
+      )
+    values (#{otid,jdbcType=INTEGER}, #{otname,jdbcType=VARCHAR}, #{otprice,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.OutCarType" >
+    insert into outcartype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="otid != null" >
+        otid,
+      </if>
+      <if test="otname != null" >
+        otname,
+      </if>
+      <if test="otprice != null" >
+        otprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="otid != null" >
+        #{otid,jdbcType=INTEGER},
+      </if>
+      <if test="otname != null" >
+        #{otname,jdbcType=VARCHAR},
+      </if>
+      <if test="otprice != null" >
+        #{otprice,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.OutCarType" >
+    update outcartype
+    <set >
+      <if test="otname != null" >
+        otname = #{otname,jdbcType=VARCHAR},
+      </if>
+      <if test="otprice != null" >
+        otprice = #{otprice,jdbcType=REAL},
+      </if>
+    </set>
+    where otid = #{otid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.OutCarType" >
+    update outcartype
+    set otname = #{otname,jdbcType=VARCHAR},
+      otprice = #{otprice,jdbcType=REAL}
+    where otid = #{otid,jdbcType=INTEGER}
+  </update>
+</mapper>
