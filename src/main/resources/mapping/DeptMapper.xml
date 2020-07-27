@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.yl.DeptMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Dept" >
+    <id column="peptid" property="peptid" jdbcType="INTEGER" />
+    <result column="peptname" property="peptname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    peptid, peptname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dept
+    where peptid = #{peptid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dept
+    where peptid = #{peptid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Dept" >
+    insert into dept (peptid, peptname)
+    values (#{peptid,jdbcType=INTEGER}, #{peptname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Dept" >
+    insert into dept
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="peptid != null" >
+        peptid,
+      </if>
+      <if test="peptname != null" >
+        peptname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="peptid != null" >
+        #{peptid,jdbcType=INTEGER},
+      </if>
+      <if test="peptname != null" >
+        #{peptname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Dept" >
+    update dept
+    <set >
+      <if test="peptname != null" >
+        peptname = #{peptname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where peptid = #{peptid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Dept" >
+    update dept
+    set peptname = #{peptname,jdbcType=VARCHAR}
+    where peptid = #{peptid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -3,8 +3,8 @@
 <mapper namespace="org.accp.dao.wc.khbMapper" >
   <resultMap id="BaseResultMap" type="org.accp.pojo.khb" >
     <id column="kid" property="kid" jdbcType="INTEGER" />
-    <result column="vid" property="vid" jdbcType="INTEGER" />
-    <result column="id" property="id" jdbcType="INTEGER" />
+   
+  
     <result column="kname" property="kname" jdbcType="VARCHAR" />
     <result column="kphone" property="kphone" jdbcType="VARCHAR" />
     <result column="kaddres" property="kaddres" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     <result column="kb6" property="kb6" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    kid, vid, id, kname, kphone, kaddres, kbirthday, kremark, kb1, kb2, kb3, kb4, kb5, 
+    kid,  kname, kphone, kaddres, kbirthday, kremark, kb1, kb2, kb3, kb4, kb5, 
     kb6
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -32,12 +32,12 @@
     where kid = #{kid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="org.accp.pojo.khb" >
-    insert into khb (kid, vid, id, 
+    insert into khb (kid,   
       kname, kphone, kaddres, 
       kbirthday, kremark, kb1, 
       kb2, kb3, kb4, kb5, 
       kb6,ksex)
-    values (#{kid,jdbcType=INTEGER}, #{vid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, 
+    values (#{kid,jdbcType=INTEGER},  
       #{kname,jdbcType=VARCHAR}, #{kphone,jdbcType=VARCHAR}, #{kaddres,jdbcType=VARCHAR}, 
       #{kbirthday,jdbcType=DATE}, #{kremark,jdbcType=VARCHAR}, #{kb1,jdbcType=VARCHAR}, 
       #{kb2,jdbcType=VARCHAR}, #{kb3,jdbcType=VARCHAR}, #{kb4,jdbcType=VARCHAR}, #{kb5,jdbcType=INTEGER}, 
@@ -49,12 +49,8 @@
       <if test="kid != null" >
         kid,
       </if>
-      <if test="vid != null" >
-        vid,
-      </if>
-      <if test="id != null" >
-        id,
-      </if>
+      
+     
       <if test="kname != null" >
         kname,
       </if>
@@ -93,12 +89,7 @@
       <if test="kid != null" >
         #{kid,jdbcType=INTEGER},
       </if>
-      <if test="vid != null" >
-        #{vid,jdbcType=INTEGER},
-      </if>
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
+     
       <if test="kname != null" >
         #{kname,jdbcType=VARCHAR},
       </if>
@@ -137,12 +128,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.khb" >
     update khb
     <set >
-      <if test="vid != null" >
-        vid = #{vid,jdbcType=INTEGER},
-      </if>
-      <if test="id != null" >
-        id = #{id,jdbcType=INTEGER},
-      </if>
+      
+     
       <if test="kname != null" >
         kname = #{kname,jdbcType=VARCHAR},
       </if>
@@ -181,8 +168,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="org.accp.pojo.khb" >
     update khb
-    set vid = #{vid,jdbcType=INTEGER},
-      id = #{id,jdbcType=INTEGER},
+    set 
+     
       kname = #{kname,jdbcType=VARCHAR},
       kphone = #{kphone,jdbcType=VARCHAR},
       kaddres = #{kaddres,jdbcType=VARCHAR},
