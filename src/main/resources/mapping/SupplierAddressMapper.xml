@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.wh.SupplierAddressMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.SupplierAddress" >
+    <id column="said" property="said" jdbcType="INTEGER" />
+    <result column="scoed" property="scoed" jdbcType="VARCHAR" />
+    <result column="saadderss" property="saadderss" jdbcType="VARCHAR" />
+    <result column="sadate" property="sadate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    said, scoed, saadderss, sadate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from supplieraddress
+    where said = #{said,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from supplieraddress
+    where said = #{said,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.SupplierAddress" >
+    insert into supplieraddress (said, scoed, saadderss, 
+      sadate)
+    values (#{said,jdbcType=INTEGER}, #{scoed,jdbcType=VARCHAR}, #{saadderss,jdbcType=VARCHAR}, 
+      #{sadate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.SupplierAddress" >
+    insert into supplieraddress
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="said != null" >
+        said,
+      </if>
+      <if test="scoed != null" >
+        scoed,
+      </if>
+      <if test="saadderss != null" >
+        saadderss,
+      </if>
+      <if test="sadate != null" >
+        sadate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="said != null" >
+        #{said,jdbcType=INTEGER},
+      </if>
+      <if test="scoed != null" >
+        #{scoed,jdbcType=VARCHAR},
+      </if>
+      <if test="saadderss != null" >
+        #{saadderss,jdbcType=VARCHAR},
+      </if>
+      <if test="sadate != null" >
+        #{sadate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.SupplierAddress" >
+    update supplieraddress
+    <set >
+      <if test="scoed != null" >
+        scoed = #{scoed,jdbcType=VARCHAR},
+      </if>
+      <if test="saadderss != null" >
+        saadderss = #{saadderss,jdbcType=VARCHAR},
+      </if>
+      <if test="sadate != null" >
+        sadate = #{sadate,jdbcType=DATE},
+      </if>
+    </set>
+    where said = #{said,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.SupplierAddress" >
+    update supplieraddress
+    set scoed = #{scoed,jdbcType=VARCHAR},
+      saadderss = #{saadderss,jdbcType=VARCHAR},
+      sadate = #{sadate,jdbcType=DATE}
+    where said = #{said,jdbcType=INTEGER}
+  </update>
+</mapper>

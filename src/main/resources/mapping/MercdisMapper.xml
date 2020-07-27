@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.wh.MercdisMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Mercdis" >
+    <id column="mdid" property="mdid" jdbcType="INTEGER" />
+    <result column="scoed" property="scoed" jdbcType="VARCHAR" />
+    <result column="mdunit" property="mdunit" jdbcType="VARCHAR" />
+    <result column="mdmoney" property="mdmoney" jdbcType="BIGINT" />
+    <result column="mdname" property="mdname" jdbcType="VARCHAR" />
+    <result column="mdweigth" property="mdweigth" jdbcType="INTEGER" />
+    <result column="mdimgs" property="mdimgs" jdbcType="VARCHAR" />
+    <result column="mdmoney2" property="mdmoney2" jdbcType="BIGINT" />
+    <result column="mdstatus" property="mdstatus" jdbcType="INTEGER" />
+    <result column="mdshop" property="mdshop" jdbcType="VARCHAR" />
+    <result column="mdcoding" property="mdcoding" jdbcType="VARCHAR" />
+    <result column="mdbrand" property="mdbrand" jdbcType="VARCHAR" />
+    <result column="mdtype" property="mdtype" jdbcType="VARCHAR" />
+    <result column="mdate" property="mdate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mdid, scoed, mdunit, mdmoney, mdname, mdweigth, mdimgs, mdmoney2, mdstatus, mdshop, 
+    mdcoding, mdbrand, mdtype, mdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from mercdis
+    where mdid = #{mdid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from mercdis
+    where mdid = #{mdid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Mercdis" >
+    insert into mercdis (mdid, scoed, mdunit, 
+      mdmoney, mdname, mdweigth, 
+      mdimgs, mdmoney2, mdstatus, 
+      mdshop, mdcoding, mdbrand, 
+      mdtype, mdate)
+    values (#{mdid,jdbcType=INTEGER}, #{scoed,jdbcType=VARCHAR}, #{mdunit,jdbcType=VARCHAR}, 
+      #{mdmoney,jdbcType=BIGINT}, #{mdname,jdbcType=VARCHAR}, #{mdweigth,jdbcType=INTEGER}, 
+      #{mdimgs,jdbcType=VARCHAR}, #{mdmoney2,jdbcType=BIGINT}, #{mdstatus,jdbcType=INTEGER}, 
+      #{mdshop,jdbcType=VARCHAR}, #{mdcoding,jdbcType=VARCHAR}, #{mdbrand,jdbcType=VARCHAR}, 
+      #{mdtype,jdbcType=VARCHAR}, #{mdate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Mercdis" >
+    insert into mercdis
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mdid != null" >
+        mdid,
+      </if>
+      <if test="scoed != null" >
+        scoed,
+      </if>
+      <if test="mdunit != null" >
+        mdunit,
+      </if>
+      <if test="mdmoney != null" >
+        mdmoney,
+      </if>
+      <if test="mdname != null" >
+        mdname,
+      </if>
+      <if test="mdweigth != null" >
+        mdweigth,
+      </if>
+      <if test="mdimgs != null" >
+        mdimgs,
+      </if>
+      <if test="mdmoney2 != null" >
+        mdmoney2,
+      </if>
+      <if test="mdstatus != null" >
+        mdstatus,
+      </if>
+      <if test="mdshop != null" >
+        mdshop,
+      </if>
+      <if test="mdcoding != null" >
+        mdcoding,
+      </if>
+      <if test="mdbrand != null" >
+        mdbrand,
+      </if>
+      <if test="mdtype != null" >
+        mdtype,
+      </if>
+      <if test="mdate != null" >
+        mdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mdid != null" >
+        #{mdid,jdbcType=INTEGER},
+      </if>
+      <if test="scoed != null" >
+        #{scoed,jdbcType=VARCHAR},
+      </if>
+      <if test="mdunit != null" >
+        #{mdunit,jdbcType=VARCHAR},
+      </if>
+      <if test="mdmoney != null" >
+        #{mdmoney,jdbcType=BIGINT},
+      </if>
+      <if test="mdname != null" >
+        #{mdname,jdbcType=VARCHAR},
+      </if>
+      <if test="mdweigth != null" >
+        #{mdweigth,jdbcType=INTEGER},
+      </if>
+      <if test="mdimgs != null" >
+        #{mdimgs,jdbcType=VARCHAR},
+      </if>
+      <if test="mdmoney2 != null" >
+        #{mdmoney2,jdbcType=BIGINT},
+      </if>
+      <if test="mdstatus != null" >
+        #{mdstatus,jdbcType=INTEGER},
+      </if>
+      <if test="mdshop != null" >
+        #{mdshop,jdbcType=VARCHAR},
+      </if>
+      <if test="mdcoding != null" >
+        #{mdcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="mdbrand != null" >
+        #{mdbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="mdtype != null" >
+        #{mdtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mdate != null" >
+        #{mdate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Mercdis" >
+    update mercdis
+    <set >
+      <if test="scoed != null" >
+        scoed = #{scoed,jdbcType=VARCHAR},
+      </if>
+      <if test="mdunit != null" >
+        mdunit = #{mdunit,jdbcType=VARCHAR},
+      </if>
+      <if test="mdmoney != null" >
+        mdmoney = #{mdmoney,jdbcType=BIGINT},
+      </if>
+      <if test="mdname != null" >
+        mdname = #{mdname,jdbcType=VARCHAR},
+      </if>
+      <if test="mdweigth != null" >
+        mdweigth = #{mdweigth,jdbcType=INTEGER},
+      </if>
+      <if test="mdimgs != null" >
+        mdimgs = #{mdimgs,jdbcType=VARCHAR},
+      </if>
+      <if test="mdmoney2 != null" >
+        mdmoney2 = #{mdmoney2,jdbcType=BIGINT},
+      </if>
+      <if test="mdstatus != null" >
+        mdstatus = #{mdstatus,jdbcType=INTEGER},
+      </if>
+      <if test="mdshop != null" >
+        mdshop = #{mdshop,jdbcType=VARCHAR},
+      </if>
+      <if test="mdcoding != null" >
+        mdcoding = #{mdcoding,jdbcType=VARCHAR},
+      </if>
+      <if test="mdbrand != null" >
+        mdbrand = #{mdbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="mdtype != null" >
+        mdtype = #{mdtype,jdbcType=VARCHAR},
+      </if>
+      <if test="mdate != null" >
+        mdate = #{mdate,jdbcType=DATE},
+      </if>
+    </set>
+    where mdid = #{mdid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Mercdis" >
+    update mercdis
+    set scoed = #{scoed,jdbcType=VARCHAR},
+      mdunit = #{mdunit,jdbcType=VARCHAR},
+      mdmoney = #{mdmoney,jdbcType=BIGINT},
+      mdname = #{mdname,jdbcType=VARCHAR},
+      mdweigth = #{mdweigth,jdbcType=INTEGER},
+      mdimgs = #{mdimgs,jdbcType=VARCHAR},
+      mdmoney2 = #{mdmoney2,jdbcType=BIGINT},
+      mdstatus = #{mdstatus,jdbcType=INTEGER},
+      mdshop = #{mdshop,jdbcType=VARCHAR},
+      mdcoding = #{mdcoding,jdbcType=VARCHAR},
+      mdbrand = #{mdbrand,jdbcType=VARCHAR},
+      mdtype = #{mdtype,jdbcType=VARCHAR},
+      mdate = #{mdate,jdbcType=DATE}
+    where mdid = #{mdid,jdbcType=INTEGER}
+  </update>
+</mapper>
