@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.wh.MaintenServiceMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.MaintenService" >
+    <id column="msid" property="msid" jdbcType="INTEGER" />
+    <result column="msname" property="msname" jdbcType="VARCHAR" />
+    <result column="msdate" property="msdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    msid, msname, msdate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from maintenservice
+    where msid = #{msid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from maintenservice
+    where msid = #{msid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.MaintenService" >
+    insert into maintenservice (msid, msname, msdate
+      )
+    values (#{msid,jdbcType=INTEGER}, #{msname,jdbcType=VARCHAR}, #{msdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.MaintenService" >
+    insert into maintenservice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msid != null" >
+        msid,
+      </if>
+      <if test="msname != null" >
+        msname,
+      </if>
+      <if test="msdate != null" >
+        msdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msid != null" >
+        #{msid,jdbcType=INTEGER},
+      </if>
+      <if test="msname != null" >
+        #{msname,jdbcType=VARCHAR},
+      </if>
+      <if test="msdate != null" >
+        #{msdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.MaintenService" >
+    update maintenservice
+    <set >
+      <if test="msname != null" >
+        msname = #{msname,jdbcType=VARCHAR},
+      </if>
+      <if test="msdate != null" >
+        msdate = #{msdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where msid = #{msid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.MaintenService" >
+    update maintenservice
+    set msname = #{msname,jdbcType=VARCHAR},
+      msdate = #{msdate,jdbcType=TIMESTAMP}
+    where msid = #{msid,jdbcType=INTEGER}
+  </update>
+</mapper>
