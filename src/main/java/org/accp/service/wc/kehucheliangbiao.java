@@ -23,10 +23,10 @@ public class kehucheliangbiao {
 		PageHelper.startPage(pageNum, pageSize);
 		return new PageInfo<khclb>(kehucheliangbiaomapper.qurechclByid(kid));
 	}
-
-//	public khclb getPersonById(Integer cid) {
-//		return kehub.quertAllkhbbyid(kid);
-//	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public khclb getPersonById(Integer cid) {
+		return kehucheliangbiaomapper.qurechclBycid(cid);
+	}
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	public void removePersonById(Integer cid) {

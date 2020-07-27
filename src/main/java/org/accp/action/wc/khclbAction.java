@@ -28,6 +28,7 @@ public class khclbAction {
 
 	@GetMapping("{p}/{s}/{kid}")
 	public PageInfo<khclb> queryPage(@PathVariable Integer p, @PathVariable Integer s,@PathVariable Integer kid) {
+		System.out.println("进入客户车辆详情");
 		return kehucheliangbiaoaction.findPersonListByPage(p, s, kid);
 	}
 
@@ -41,14 +42,16 @@ public class khclbAction {
 		return jsonp;
 	}
 
-//	@GetMapping("person/{pid}")
-//	public khb queryPersonById(@PathVariable Integer pid) {
-//		khb k = kehubiaos.getPersonById(pid);
-//		return k;
-//	}
+	@GetMapping("person/{cid}")
+	public khclb queryPersonById(@PathVariable Integer cid) {
+		System.out.println("进入修改车辆详情");	
+		khclb k = kehucheliangbiaoaction.getPersonById(cid);
+		return k;
+	}
 
-	@DeleteMapping("person/{pid}")
+	@DeleteMapping("person/{cid}")
 	public Map<String, Object> deletePersonById(@PathVariable Integer cid) {
+		System.out.println("进入删除车辆信息");
 		kehucheliangbiaoaction.removePersonById(cid);
 		Map<String, Object> message = new HashMap<String, Object>();
 		message.put("code", "200");
@@ -77,38 +80,5 @@ public class khclbAction {
 	}
 	
 	
-public Map<String, Object> addPerson5(@RequestBody khclb pojo) {
-		
-		kehucheliangbiaoaction.addPerson(pojo);
-		Map<String, Object> message = new HashMap<String, Object>();
-		message.put("code", "200");
-		message.put("msg", "ok");
-		return message;
-	}
 
-public Map<String, Object> addPerson3(@RequestBody khclb pojo) {
-	
-	kehucheliangbiaoaction.addPerson(pojo);
-	Map<String, Object> message = new HashMap<String, Object>();
-	message.put("code", "200");
-	message.put("msg", "ok");
-	return message;
-}
-
-public Map<String, Object> addPerson2(@RequestBody khclb pojo) {
-	
-	kehucheliangbiaoaction.addPerson(pojo);
-	Map<String, Object> message = new HashMap<String, Object>();
-	message.put("code", "200");
-	message.put("msg", "ok");
-	return message;
-}
-public Map<String, Object> addPerson1(@RequestBody khclb pojo) {
-	
-	kehucheliangbiaoaction.addPerson(pojo);
-	Map<String, Object> message = new HashMap<String, Object>();
-	message.put("code", "200");
-	message.put("msg", "ok");
-	return message;
-}
 }

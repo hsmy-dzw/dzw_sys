@@ -15,7 +15,7 @@ public interface khbMapper {
     khb selectByPrimaryKey(Integer kid);
 
     int updateByPrimaryKeySelective(khb record);
-
+    
     int updateByPrimaryKey(khb record);
     
     public List<khb> quertAllkhb();

@@ -11,9 +11,25 @@ public class khb {
 
     private String kname;
     private  String hh;
-		
+	private String zhifupwd;
 	
-    private String kphone;
+    public String getHh() {
+		return hh;
+	}
+
+	public void setHh(String hh) {
+		this.hh = hh;
+	}
+
+	public String getZhifupwd() {
+		return zhifupwd;
+	}
+
+	public void setZhifupwd(String zhifupwd) {
+		this.zhifupwd = zhifupwd;
+	}
+
+	private String kphone;
     private Integer ksex;
     public Integer getKsex() {
 		return ksex;

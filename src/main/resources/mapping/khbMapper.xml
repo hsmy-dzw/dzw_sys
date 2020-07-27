@@ -36,12 +36,12 @@
       kname, kphone, kaddres, 
       kbirthday, kremark, kb1, 
       kb2, kb3, kb4, kb5, 
-      kb6,ksex)
+      kb6,ksex,zhifupwd)
     values (#{kid,jdbcType=INTEGER},  
       #{kname,jdbcType=VARCHAR}, #{kphone,jdbcType=VARCHAR}, #{kaddres,jdbcType=VARCHAR}, 
       #{kbirthday,jdbcType=DATE}, #{kremark,jdbcType=VARCHAR}, #{kb1,jdbcType=VARCHAR}, 
       #{kb2,jdbcType=VARCHAR}, #{kb3,jdbcType=VARCHAR}, #{kb4,jdbcType=VARCHAR}, #{kb5,jdbcType=INTEGER}, 
-      #{kb6,jdbcType=INTEGER},#{ksex,jdbcType=INTEGER})
+      #{kb6,jdbcType=INTEGER},#{ksex,jdbcType=INTEGER},#{zhifupwd})
   </insert>
   <insert id="insertSelective" parameterType="org.accp.pojo.khb" >
     insert into khb
@@ -180,7 +180,9 @@
       kb3 = #{kb3,jdbcType=VARCHAR},
       kb4 = #{kb4,jdbcType=VARCHAR},
       kb5 = #{kb5,jdbcType=INTEGER},
-      kb6 = #{kb6,jdbcType=INTEGER}
+      kb6 = #{kb6,jdbcType=INTEGER},
+      ksex = #{ksex},
+      zhifupwd = #{zhifupwd}
     where kid = #{kid,jdbcType=INTEGER}
   </update>
   

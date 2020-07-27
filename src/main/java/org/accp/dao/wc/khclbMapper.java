@@ -19,4 +19,6 @@ public interface khclbMapper {
     int updateByPrimaryKey(khclb record);
     
     public List<khclb> qurechclByid(@Param("kid") Integer kid);
+    
+    public khclb qurechclBycid(@Param("cid") Integer cid);
 }
