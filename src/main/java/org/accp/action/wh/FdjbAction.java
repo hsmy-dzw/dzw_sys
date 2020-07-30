@@ -52,16 +52,18 @@ public class FdjbAction {
 	@GetMapping("del/{id}")
 	public Map<String, Object> del(@PathVariable("id") Integer id){
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("code", id == 0 ?"500":"200");
-		map.put("data", biz.deleteByPrimaryKey(id));
+		Integer id2= biz.deleteByPrimaryKey(id);
+		map.put("code", id2 > 1?"500":"200");
+		map.put("data", id2);
 		return map;
 	}
 	
 	@GetMapping("updashow/{id}")
 	public Map<String, Object> show1(@PathVariable("id") Integer id){
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("code", id == 0 ?"500":"200");
-		map.put("data", biz.selectByPrimaryKey(id));
+		 Fdjb id2 = biz.selectByPrimaryKey(id);
+		map.put("code", id2.getFdjpp() == null ?"500":"200");
+		map.put("data", id2);
 		return map;
 	}
 }
