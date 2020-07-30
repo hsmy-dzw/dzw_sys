@@ -75,4 +75,12 @@ public class khbAction {
 		message.put("msg", "ok");
 		return message;
 	}
+	
+	@GetMapping("person/kehuxingxi/{piaohao}")
+	public khb  querCp2(@PathVariable String piaohao){
+		System.out.println("进入车牌查询1！");
+		khb k = kehubiaos.querByChepiao(piaohao);
+		
+		return k;
+	}
 }

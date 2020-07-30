@@ -1,6 +1,7 @@
 package org.accp.action.wc;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.accp.pojo.khb;
@@ -79,6 +80,12 @@ public class khclbAction {
 		return message;
 	}
 	
+	@GetMapping("person/cp")
+	public List<String>  querCp(){
+		System.out.println("进入车牌查询！");
+		return kehucheliangbiaoaction.querByCp();
+	}
 	
-
+	
+	
 }

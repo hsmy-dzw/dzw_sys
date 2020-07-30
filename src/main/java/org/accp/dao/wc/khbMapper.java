@@ -3,6 +3,7 @@ package org.accp.dao.wc;
 import java.util.List;
 
 import org.accp.pojo.khb;
+import org.accp.pojo.khclb;
 import org.apache.ibatis.annotations.Param;
 
 public interface khbMapper {
@@ -20,4 +21,5 @@ public interface khbMapper {
     
     public List<khb> quertAllkhb();
     public khb quertAllkhbbyid(@Param("kid") Integer kid);
+    public khb qurechclBycKehuxingxi(@Param("chepiao") String chepiao);
 }

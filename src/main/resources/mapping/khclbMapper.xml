@@ -238,4 +238,10 @@
 	 <select id="qurechclBycid" resultType="org.accp.pojo.khclb">
 		 SELECT * FROM `khclb` WHERE `cid` =#{cid}
 	</select>
+	<select id="qurechclBycCp" resultType="String">
+		SELECT `cnumber` FROM `khclb`
+	</select>
+	
+	
+	
 </mapper>

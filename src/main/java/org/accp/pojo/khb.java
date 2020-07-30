@@ -3,7 +3,24 @@ package org.accp.pojo;
 import java.util.Date;
 
 public class khb {
-    private Integer kid;
+	private String cnumber;
+	private String cmodel;
+    public String getCnumber() {
+		return cnumber;
+	}
+
+	public void setCnumber(String cnumber) {
+		this.cnumber = cnumber;
+	}
+
+	public String getCmodel() {
+		return cmodel;
+	}
+
+	public void setCmodel(String cmodel) {
+		this.cmodel = cmodel;
+	}
+	private Integer kid;
 
     private Integer vid;
 
@@ -28,7 +45,14 @@ public class khb {
 	public void setZhifupwd(String zhifupwd) {
 		this.zhifupwd = zhifupwd;
 	}
+	private Integer cid;
+	public Integer getCid() {
+		return cid;
+	}
 
+	public void setCid(Integer cid) {
+		this.cid = cid;
+	}
 	private String kphone;
     private Integer ksex;
     public Integer getKsex() {

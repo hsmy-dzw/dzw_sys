@@ -193,4 +193,9 @@
 	<select id="quertAllkhbbyid" resultType="org.accp.pojo.khb">
 		  SELECT * FROM `khb` WHERE kid = #{kid}
 	</select>
+	
+	<select id="qurechclBycKehuxingxi" resultType="org.accp.pojo.khb">
+		SELECT b.`kname`,b.`kphone`,b.`kaddres`,b.`kbirthday`,b.`kremark`,b.`ksex`,b.`kid`,a.`cid`,a.`cmodel`,a.`cnumber` FROM `khclb` AS a JOIN `khb` AS b  ON a.`kid` = b.`kid` 
+		WHERE `cnumber` = #{chepiao}
+	</select>	
 </mapper>

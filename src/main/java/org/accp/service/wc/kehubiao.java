@@ -42,4 +42,9 @@ public class kehubiao {
 	public void addPerson(khb k) {
 		kehub.insert(k);
 	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public khb querByChepiao(String chepiao) {
+		
+		return  kehub.qurechclBycKehuxingxi(chepiao);
+	}
 }

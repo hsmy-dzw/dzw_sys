@@ -1,5 +1,7 @@
 package org.accp.service.wc;
 
+import java.util.List;
+
 import org.accp.dao.wc.khbMapper;
 import org.accp.dao.wc.khclbMapper;
 import org.accp.pojo.khb;
@@ -42,4 +44,12 @@ public class kehucheliangbiao {
 	public void addPerson(khclb k) {
 		kehucheliangbiaomapper.insert(k);
 	}
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public List<String> querByCp() {
+		
+		return  kehucheliangbiaomapper.qurechclBycCp();
+	}
+	
+	
 }

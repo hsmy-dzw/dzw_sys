@@ -42,6 +42,21 @@
 			<version>1.1.0</version>
 		</dependency>
 		
+		<dependency>
+    		<groupId>com.baomidou</groupId>
+   			 <artifactId>mybatis-plus-boot-starter</artifactId>
+   			 <version>3.3.2</version>
+		</dependency>
+		
+		
+		<!--lombok  -->
+		<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+		</dependency>
+		
+		
 		<!-- 分页插件 -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
@@ -108,7 +123,7 @@
 					<dependency>
 						<groupId>mysql</groupId>
 						<artifactId>mysql-connector-java</artifactId>
-						<version>8.0.11</version>
+						<version>5.1.38</version>
 					</dependency>
 				</dependencies>
 			</plugin>

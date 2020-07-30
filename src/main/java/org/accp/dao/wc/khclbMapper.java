@@ -21,4 +21,8 @@ public interface khclbMapper {
     public List<khclb> qurechclByid(@Param("kid") Integer kid);
     
     public khclb qurechclBycid(@Param("cid") Integer cid);
+    
+    public List<String> qurechclBycCp();
+    
+   
 }
