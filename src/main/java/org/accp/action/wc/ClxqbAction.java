@@ -36,6 +36,7 @@ public class ClxqbAction {
 	@GetMapping("{p}/{s}/{wid}")
 	public PageInfo<Clxqb> queryPage(@PathVariable Integer p, @PathVariable Integer s,@PathVariable String wid) {
 		System.out.println("进入维修材料！");
+		
 		return clxqAction.findPersonListByPage(p, s, wid);
 	}
 	

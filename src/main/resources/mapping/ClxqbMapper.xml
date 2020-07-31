@@ -90,4 +90,7 @@
       cljiage = #{cljiage,jdbcType=VARCHAR}
     where clid = #{clid,jdbcType=INTEGER}
   </update>
+  <select id="querBywid" resultType="org.accp.pojo.Clxqb">
+  		SELECT * FROM `clxqb` AS a JOIN `mercdis` AS b ON a.mdid = b.mdid WHERE wid=#{wid}
+  </select>
 </mapper>

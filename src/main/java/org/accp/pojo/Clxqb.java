@@ -1,11 +1,48 @@
 package org.accp.pojo;
 
 public class Clxqb {
-    private Integer clid;
+	private Integer mdweigth;
+	private String mdbrand;
+	private String mdname;
+	private Integer mdmoney;
+	
+    public String getMdname() {
+		return mdname;
+	}
+
+	public void setMdname(String mdname) {
+		this.mdname = mdname;
+	}
+
+	public Integer getMdmoney() {
+		return mdmoney;
+	}
+
+	public void setMdmoney(Integer mdmoney) {
+		this.mdmoney = mdmoney;
+	}
+
+	private Integer clid;
 
     private String wid;
 
-    private Integer mdid;
+    public Integer getMdweigth() {
+		return mdweigth;
+	}
+
+	public void setMdweigth(Integer mdweigth) {
+		this.mdweigth = mdweigth;
+	}
+
+	public String getMdbrand() {
+		return mdbrand;
+	}
+
+	public void setMdbrand(String mdbrand) {
+		this.mdbrand = mdbrand;
+	}
+
+	private Integer mdid;
 
     private String clname;
 
