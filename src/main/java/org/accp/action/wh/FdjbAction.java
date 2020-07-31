@@ -66,4 +66,12 @@ public class FdjbAction {
 		map.put("data", id2);
 		return map;
 	}
+	
+	
+	@GetMapping("fdjbBrand")
+	public Map<String, Object> lisf(){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("data", biz.pagelist());
+		return map;
+	}
 }

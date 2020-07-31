@@ -5,7 +5,20 @@
     <id column="ppid" property="ppid" jdbcType="INTEGER" />
     <result column="peptid" property="peptid" jdbcType="INTEGER" />
     <result column="ppnamne" property="ppnamne" jdbcType="VARCHAR" />
+    <collection property="roots" ofType="org.accp.pojo.Roots" autoMapping="true">
+    	<association property="root" column="rlv" select="selectParentFun" autoMapping="true"></association>
+    </collection>
   </resultMap>
+  
+  <!-- 查父权限 -->
+  <select id="selectParentFun" resultType="org.accp.pojo.Roots">
+	select * from roots where rid=#{rlv}
+  </select>
+  <!-- 查职位权限集合-->
+  <select id="selectProot"  resultType="org.accp.pojo.Proot">
+  	select * from proot where ppid = #{ppid}
+  </select>
+  
   <sql id="Base_Column_List" >
     ppid, peptid, ppnamne
   </sql>
@@ -68,4 +81,10 @@
       ppnamne = #{ppnamne,jdbcType=VARCHAR}
     where ppid = #{ppid,jdbcType=INTEGER}
   </update>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+  	select * from position 
+	INNER JOIN proot on position.ppid = proot.ppid
+	INNER JOIN roots on proot.rid = roots.rid
+  </select>
 </mapper>

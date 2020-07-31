@@ -1,5 +1,7 @@
 package org.accp.service.wh;
 
+import java.util.List;
+
 import org.accp.dao.wh.FdjbMapper;
 import org.accp.pojo.Fdjb;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,11 @@ public class FjjbBiz {
 	public Fdjb selectByPrimaryKey(Integer id) {
 		return pr.selectByPrimaryKey(id);
 	}
-
+	
+	public List<Fdjb> pagelist(){
+		return pr.list2();
+	}
+ 
 	@Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	public int insert(Fdjb Fdjb) {
 		return pr.insert(Fdjb);

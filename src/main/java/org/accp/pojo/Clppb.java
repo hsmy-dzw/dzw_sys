@@ -1,9 +1,16 @@
 package org.accp.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("clppb")
 public class Clppb {
+
 	
 
-	private Integer pid2;
+
+
+    private Integer pid2;
+
 
     private String pszm;
 
@@ -72,4 +79,13 @@ public class Clppb {
     public void setPinname(String pinname) {
         this.pinname = pinname == null ? null : pinname.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Clppb [pid2=" + pid2 + ", pszm=" + pszm + ", pb1=" + pb1 + ", pb2=" + pb2 + ", pb3=" + pb3 + ", pb4="
+				+ pb4 + ", pinname=" + pinname + "]";
+	}
+    
+    
+    
 }
