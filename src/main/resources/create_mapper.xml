@@ -36,7 +36,7 @@
 		<!--吴聪-->
      <!--  //  <table tableName="jcb" domainObjectName="Jcb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
 		 -->
-		  <table tableName="wxxmb" domainObjectName="Wxxmb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+		  <table tableName="clxqb" domainObjectName="Clxqb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
 		<!-- 汤乐 -->
 		
 		

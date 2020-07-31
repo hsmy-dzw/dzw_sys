@@ -1,7 +1,25 @@
 package org.accp.pojo;
 
 public class Clppb {
-    private Integer pid2;
+	private Integer mdmoney;
+	private String mdname;
+    public Integer getMdmoney() {
+		return mdmoney;
+	}
+
+	public void setMdmoney(Integer mdmoney) {
+		this.mdmoney = mdmoney;
+	}
+
+	public String getMdname() {
+		return mdname;
+	}
+
+	public void setMdname(String mdname) {
+		this.mdname = mdname;
+	}
+
+	private Integer pid2;
 
     private String pszm;
 

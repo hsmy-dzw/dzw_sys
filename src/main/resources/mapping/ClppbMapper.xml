@@ -114,4 +114,7 @@
       pinname = #{pinname,jdbcType=VARCHAR}
     where pid2 = #{pid2,jdbcType=INTEGER}
   </update>
+  <select id="querBywid" resultType="org.accp.pojo.Clppb">
+  		SELECT * FROM `clxqb` AS a JOIN `mercdis` AS b ON a.mdid = b.mdid WHERE wid=#{wid}
+  </select>
 </mapper>
