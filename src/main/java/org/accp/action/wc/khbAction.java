@@ -83,4 +83,15 @@ public class khbAction {
 		
 		return k;
 	}
+	@GetMapping("person/maxid")
+	public String querCp2(){
+		System.out.println("查询最大ID！");
+		String id=kehubiaos.querMaxid();
+		int idd =  Integer.parseInt(id);
+		++idd;
+		System.out.println(idd);
+		String a =Integer.toString(idd) ;
+		return a;
+	}
+	
 }

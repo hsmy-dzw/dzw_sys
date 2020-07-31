@@ -198,4 +198,9 @@
 		SELECT b.`kname`,b.`kphone`,b.`kaddres`,b.`kbirthday`,b.`kremark`,b.`ksex`,b.`kid`,a.`cid`,a.`cmodel`,a.`cnumber` FROM `khclb` AS a JOIN `khb` AS b  ON a.`kid` = b.`kid` 
 		WHERE `cnumber` = #{chepiao}
 	</select>	
+	
+	<select id="querMaxid" resultType="String">
+		SELECT MAX(id) FROM `jcb` 
+	</select>	
+	
 </mapper>

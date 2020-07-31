@@ -1,56 +1,49 @@
 package org.accp.service.wc;
 
-import org.accp.dao.wc.khbMapper;
+import java.util.List;
+
+import org.accp.dao.wc.WxbMapper;
+import org.accp.dao.wc.khclbMapper;
+import org.accp.pojo.Wxb;
 import org.accp.pojo.khb;
+import org.accp.pojo.khclb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.READ_COMMITTED, readOnly = true)
-public class kehubiao {
-
+public class WeiXiuBiao {
 	@Autowired
-	private khbMapper kehub;
-
-	public PageInfo<khb> findPersonListByPage(Integer pageNum, Integer pageSize) {
+	private WxbMapper weixiubiaomapper;
+	
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public void addPerson(Wxb k) {
+		weixiubiaomapper.insert(k);
+	}
+	
+	public PageInfo<Wxb> findPersonListByPage(Integer pageNum, Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
-		return new PageInfo<khb>(kehub.quertAllkhb());
-	}
-
-	public khb getPersonById(Integer kid) {
-		return kehub.quertAllkhbbyid(kid);
-	}
-
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
-	public void removePersonById(Integer kid) {
-		kehub.deleteByPrimaryKey(kid);
-	}
-
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
-	public void modifyPerson(khb k) {
-		kehub.updateByPrimaryKey(k);
-	}
-
-	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
-	public void addPerson(khb k) {
-		kehub.insert(k);
+		return new PageInfo<Wxb>(weixiubiaomapper.querWeixiuxx());
 	}
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
-	public khb querByChepiao(String chepiao) {
-		
-		return  kehub.qurechclBycKehuxingxi(chepiao);
+	public Wxb getPersonById(String wid) {
+		return weixiubiaomapper.querWeixiuxxByid(wid);
 	}
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
-	public String  querMaxid() {
-		return kehub.querMaxid();
+	public void modifyPerson(Wxb w) {
+		weixiubiaomapper.updateByPrimaryKey(w);
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public void updatewstate(String wstate,String wid) {
+		weixiubiaomapper.querWeixiuxxBylx(wstate, wid);
+	}
 }

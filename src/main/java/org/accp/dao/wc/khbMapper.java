@@ -22,4 +22,6 @@ public interface khbMapper {
     public List<khb> quertAllkhb();
     public khb quertAllkhbbyid(@Param("kid") Integer kid);
     public khb qurechclBycKehuxingxi(@Param("chepiao") String chepiao);
+    
+    public String querMaxid();
 }
