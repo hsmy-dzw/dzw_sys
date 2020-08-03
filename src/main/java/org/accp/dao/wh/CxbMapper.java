@@ -20,4 +20,7 @@ public interface CxbMapper extends BaseMapper<Cxb>{
     
     @Select("select *from cxb where xid = #{id}")
     Cxb cx(@Param("id")Integer id);
+    
+    @Select("select count(1) from cxb where pid2 = #{id}")
+    Integer cx2(@Param("id")Integer id);
 }
