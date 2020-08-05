@@ -5,7 +5,9 @@ import java.util.List;
 import org.accp.pojo.OutCar;
 import org.accp.pojo.khb;
 
-public interface OutCarMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+public interface OutCarMapper extends BaseMapper<OutCar>{
     int deleteByPrimaryKey(Integer oid);
 
     int insert(OutCar record);
@@ -18,5 +20,5 @@ public interface OutCarMapper {
 
     int updateByPrimaryKey(OutCar record);
 
-	List<OutCar> queryAll();
+	public List<OutCar> queryAll();
 }

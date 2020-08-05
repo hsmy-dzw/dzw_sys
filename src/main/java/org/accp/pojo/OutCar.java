@@ -1,63 +1,36 @@
 package org.accp.pojo;
 
-public class OutCar {
-    private Integer oid;
+import java.io.Serializable;
 
-    private Integer otid;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@TableName("outcar")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class OutCar implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@TableId(type = IdType.AUTO,value = "oid")
+	private Integer oid;
+	
+	private String otname;
 
     private String onumber;
 
-    private Integer ostatus;
-    
-    private String otname;
-    
-    private Float otprice;
+    private String ostatus;
 
-    public String getOtname() {
-		return otname;
-	}
+    private Float oprice;
+ 
 
-	public void setOtname(String otname) {
-		this.otname = otname;
-	}
 
-	public Float getOtprice() {
-		return otprice;
-	}
-
-	public void setOtprice(Float otprice) {
-		this.otprice = otprice;
-	}
-
-	public Integer getOid() {
-        return oid;
-    }
-
-    public void setOid(Integer oid) {
-        this.oid = oid;
-    }
-
-    public Integer getOtid() {
-        return otid;
-    }
-
-    public void setOtid(Integer otid) {
-        this.otid = otid;
-    }
-
-    public String getOnumber() {
-        return onumber;
-    }
-
-    public void setOnumber(String onumber) {
-        this.onumber = onumber == null ? null : onumber.trim();
-    }
-
-    public Integer getOstatus() {
-        return ostatus;
-    }
-
-    public void setOstatus(Integer ostatus) {
-        this.ostatus = ostatus;
-    }
 }

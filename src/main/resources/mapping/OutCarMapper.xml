@@ -79,9 +79,9 @@
       ostatus = #{ostatus,jdbcType=INTEGER}
     where oid = #{oid,jdbcType=INTEGER}
   </update>
+  
   <select id="queryAll" resultType="org.accp.pojo.OutCar">
-  	SELECT * FROM outcar a INNER JOIN outcartype b
-	 ON a.otid = b.otid
+  	SELECT * FROM outcar
   </select>
   
   
