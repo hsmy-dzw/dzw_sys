@@ -21,5 +21,10 @@ public interface CxbMapper extends BaseMapper<Cxb>{
     @Select("select *from cxb where xid = #{id}")
     Cxb cx(@Param("id")Integer id);
     
+<<<<<<< HEAD
     public List<Cxb> querAllBypid2(@Param("pid2") Integer pid2 );
+=======
+    @Select("select count(1) from cxb where pid2 = #{id}")
+    Integer cx2(@Param("id")Integer id);
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 }
