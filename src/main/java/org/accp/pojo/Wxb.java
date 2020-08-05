@@ -3,9 +3,18 @@ package org.accp.pojo;
 import java.util.Date;
 
 public class Wxb {
+	
     private String wid;
+    private String jliex;
+    public String getJleix() {
+		return jliex;
+	}
 
-    private Integer gid;
+	public void setJleix(String jiex) {
+		this.jliex = jliex;
+	}
+
+	private Integer gid;
 
     private String id;
 

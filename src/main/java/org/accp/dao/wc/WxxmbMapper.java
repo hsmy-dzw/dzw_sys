@@ -18,4 +18,9 @@ public interface WxxmbMapper {
 
     int updateByPrimaryKey(Wxxmb record);
     public List<Wxxmb> querWeixiuxm(@Param("wid") String wid);
+    public int querWeijiage(@Param("wid") String wid);
+    public int querWeijiage2(@Param("wid") String wid);
+    public String querWeijiage3(@Param("wid") String wid);
+    
+    
 }

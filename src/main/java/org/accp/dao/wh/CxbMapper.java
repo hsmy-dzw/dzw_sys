@@ -20,4 +20,6 @@ public interface CxbMapper extends BaseMapper<Cxb>{
     
     @Select("select *from cxb where xid = #{id}")
     Cxb cx(@Param("id")Integer id);
+    
+    public List<Cxb> querAllBypid2(@Param("pid2") Integer pid2 );
 }
