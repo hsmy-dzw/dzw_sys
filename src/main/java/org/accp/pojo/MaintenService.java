@@ -2,6 +2,10 @@ package org.accp.pojo;
 
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+
+@TableName("MaintenService")
 public class MaintenService {
     private Integer msid;
 
@@ -32,4 +36,12 @@ public class MaintenService {
     public void setMsdate(Date msdate) {
         this.msdate = msdate;
     }
+
+	@Override
+	public String toString() {
+		return "MaintenService [msid=" + msid + ", msname=" + msname + ", msdate=" + msdate + "]";
+	}
+    
+    
+	
 }

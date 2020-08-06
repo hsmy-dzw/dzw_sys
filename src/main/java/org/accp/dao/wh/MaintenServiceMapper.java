@@ -2,7 +2,9 @@ package org.accp.dao.wh;
 
 import org.accp.pojo.MaintenService;
 
-public interface MaintenServiceMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+public interface MaintenServiceMapper extends BaseMapper<MaintenService>{
     int deleteByPrimaryKey(Integer msid);
 
     int insert(MaintenService record);
