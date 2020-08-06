@@ -179,4 +179,7 @@
 					</if>
 				</where>
 	</select>
+	<select id="querAllBypid2" resultType="org.accp.pojo.Cxb">
+		SELECT * FROM cxb WHERE pid2 = #{pid2}
+	</select>
 </mapper>

@@ -1,5 +1,7 @@
 package org.accp.service.wh;
 
+import java.util.List;
+
 import org.accp.dao.wh.CxbMapper;
 import org.accp.pojo.Cxb;
 import org.accp.pojo.page;
@@ -63,5 +65,7 @@ public class CxbBiz extends ServiceImpl<CxbMapper, Cxb> {
 		return pr.cbxf(cxb);
 	}
 	
-	
+	public List<Cxb> querAllBypid2(Integer pid2){
+		return pr.querAllBypid2(pid2);
+	}
 }

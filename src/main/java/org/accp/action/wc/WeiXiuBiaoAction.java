@@ -61,6 +61,18 @@ public class WeiXiuBiaoAction {
 		weixiubiaoAction.updatewstate(wstate, wid);
 		return "1";
 	}
+	@GetMapping("wancheng/{p}/{s}")
+	public PageInfo<Wxb> queryPage2(@PathVariable Integer p, @PathVariable Integer s) {
+		System.out.println("进入客户车辆详情1123123");
+		return weixiubiaoAction.findPersonListByPage2(p, s);
+	}
+	@GetMapping("updatefg/{fglx}/{yy}/{wid}")
+	public String updatefanggong(@PathVariable String fglx, @PathVariable String yy, @PathVariable String wid) {
+		System.out.println("进入返工修改！");
+		
+		weixiubiaoAction.updatefglx(fglx, yy, wid);
+		return "1";
+	}
 	
 
 	@GetMapping("getWxbByStatic/{pageNum}/{pageSize}")

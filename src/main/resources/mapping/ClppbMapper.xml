@@ -115,4 +115,7 @@
     where pid2 = #{pid2,jdbcType=INTEGER}
   </update>
   
+  <select id="querAll" resultType="org.accp.pojo.Clppb">
+  	SELECT * FROM  `clppb`
+  </select>
 </mapper>

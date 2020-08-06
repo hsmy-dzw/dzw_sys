@@ -24,4 +24,6 @@ public interface khbMapper {
     public khb qurechclBycKehuxingxi(@Param("chepiao") String chepiao);
     
     public String querMaxid();
+    
+    public Integer querMaxkid();
 }

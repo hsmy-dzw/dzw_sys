@@ -1,6 +1,7 @@
 package org.accp.action.wh;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.accp.pojo.Clppb;
@@ -111,4 +112,12 @@ public class CppldAtion {
 		map.put("data", biz.list());
 		return map;
 	}
+	
+	@GetMapping("querAll")
+	public List<Clppb> querAll(){
+		System.out.println("进入车牌查询");
+
+		return 	biz.list();
+	}
+	
 }

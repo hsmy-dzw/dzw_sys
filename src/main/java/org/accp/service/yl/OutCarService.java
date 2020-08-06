@@ -24,7 +24,12 @@ public class OutCarService {
 		return new PageInfo<OutCar>(mapper.queryAll());
 	}
 
-	
+	public int updateByoid(Integer oid) {
+		return mapper.updateByoid(oid);
+	}
+	public int updateByoid2(Integer oid) {
+		return mapper.updateByoid2(oid);
+	}
 	
 	
 }

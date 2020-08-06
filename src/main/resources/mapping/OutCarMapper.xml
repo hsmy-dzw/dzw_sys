@@ -84,5 +84,11 @@
 	 ON a.otid = b.otid
   </select>
   
+  <update id="updateByoid" parameterType="org.accp.pojo.OutCar">
+  	 UPDATE `outcar` SET `ostatus` = 2 WHERE oid = #{oid}
+  </update>
   
+  <update id="updateByoid2" parameterType="org.accp.pojo.OutCar">
+  	 UPDATE `outcar` SET `ostatus` = 1 WHERE oid = #{oid}
+  </update>
 </mapper>
