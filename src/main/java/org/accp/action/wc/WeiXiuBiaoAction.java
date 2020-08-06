@@ -62,4 +62,13 @@ public class WeiXiuBiaoAction {
 		return "1";
 	}
 	
+
+	@GetMapping("getWxbByStatic/{pageNum}/{pageSize}")
+	public String updatewstate(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+		System.out.println("进入查询待结算订单！");
+		
+		weixiubiaoAction.queryWeixiuByStatic(pageNum, pageSize);
+		return "1";
+	}
+	
 }

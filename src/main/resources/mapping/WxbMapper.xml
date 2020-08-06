@@ -268,13 +268,17 @@
   </update>
   <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
 		SELECT * FROM `wxb` ORDER BY `wstate` 
-	</select>
-	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
-		SELECT * FROM `wxb` WHERE wid = #{wid}
-	</select>
-	
-	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
-	</update>
-	
+</select>
+
+<select id="queryWeixiuByStatic" resultType="org.accp.pojo.Wxb">
+	SELECT * FROM `wxb` where wstate = 2 or wstate = 4 
+</select>
+<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
+	SELECT * FROM `wxb` WHERE wid = #{wid}
+</select>
+
+<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
+	UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
+</update>
+
 </mapper>
