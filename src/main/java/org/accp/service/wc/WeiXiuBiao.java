@@ -47,14 +47,14 @@ public class WeiXiuBiao {
 	public void updatewstate(String wstate,String wid) {
 		weixiubiaomapper.querWeixiuxxBylx(wstate, wid);
 	}
-<<<<<<< HEAD
+
 	
 	
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	 public PageInfo<Wxb> queryWeixiuByStatic(Integer pageNum, Integer pageSize){
 		PageHelper.startPage(pageNum,pageSize);
 		return new PageInfo<Wxb>(weixiubiaomapper.queryWeixiuByStatic());
-=======
+	}
 	public PageInfo<Wxb> findPersonListByPage2(Integer pageNum, Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		return new PageInfo<Wxb>(weixiubiaomapper.querWrixiuwanc());
@@ -62,6 +62,5 @@ public class WeiXiuBiao {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	public void updatefglx(String fglx,String yy,String wid) {
 		weixiubiaomapper.updatefanggong(fglx, yy, wid);
->>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 	}
 }
