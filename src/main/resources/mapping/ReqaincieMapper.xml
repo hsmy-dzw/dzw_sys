@@ -41,9 +41,15 @@
 		#{rvmoney,jdbcType=DECIMAL}, #{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP},
 		#{rvstatus,jdbcType=INTEGER})
 	</insert>
+<<<<<<< HEAD
 
 
 <insert id="insertSelective"
+=======
+	
+	
+	<insert id="insertSelective"
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 		parameterType="org.accp.pojo.Reqaincie">
 		insert into reqaincie
 		<trim prefix="(" suffix=")" suffixOverrides=",">

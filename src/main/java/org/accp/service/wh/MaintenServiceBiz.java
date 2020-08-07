@@ -15,7 +15,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS,isolation = Isolation.READ_COMMITTED,readOnly = true)
 public class MaintenServiceBiz  extends ServiceImpl<MaintenServiceMapper, MaintenService>{
-	
+	//维修项目列表
 	
 	public List<MaintenService> list(){
 		return super.getBaseMapper().selectList(null);

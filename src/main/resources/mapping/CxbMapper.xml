@@ -30,6 +30,7 @@
 	<sql id="Base_Column_List">
 		xid, pid2, fdjid, cxname, xb1, xb2, xb3, xb4
 	</sql>
+	
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -37,11 +38,13 @@
 		from cxb
 		where xid = #{xid,jdbcType=INTEGER}
 	</select>
+	
 	<delete id="deleteByPrimaryKey"
 		parameterType="java.lang.Integer">
 		delete from cxb
 		where xid = #{xid,jdbcType=INTEGER}
 	</delete>
+	
 	<insert id="insert" parameterType="org.accp.pojo.Cxb">
 		insert into cxb (xid, pid2,
 		fdjid,
@@ -55,6 +58,7 @@
 		#{xb3,jdbcType=VARCHAR},
 		#{xb4,jdbcType=INTEGER})
 	</insert>
+	
 	<insert id="insertSelective" parameterType="org.accp.pojo.Cxb">
 		insert into cxb
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -110,6 +114,7 @@
 			</if>
 		</trim>
 	</insert>
+	
 	<update id="updateByPrimaryKeySelective"
 		parameterType="org.accp.pojo.Cxb">
 		update cxb
@@ -138,6 +143,7 @@
 		</set>
 		where xid = #{xid,jdbcType=INTEGER}
 	</update>
+	
 	<update id="updateByPrimaryKey"
 		parameterType="org.accp.pojo.Cxb">
 		update cxb
