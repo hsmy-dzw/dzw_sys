@@ -1,5 +1,7 @@
 package org.accp.dao.tl;
 
+import java.util.List;
+
 import org.accp.pojo.Roots;
 
 public interface RootsMapper {
@@ -14,4 +16,6 @@ public interface RootsMapper {
     int updateByPrimaryKeySelective(Roots record);
 
     int updateByPrimaryKey(Roots record);
+    
+    List<Roots> queryAll();
 }

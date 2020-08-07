@@ -5,14 +5,7 @@ import java.util.Date;
 public class Wxb {
 	
     private String wid;
-    private String jliex;
-    public String getJleix() {
-		return jliex;
-	}
-
-	public void setJleix(String jiex) {
-		this.jliex = jliex;
-	}
+   
 
 	private Integer gid;
 
@@ -51,8 +44,17 @@ public class Wxb {
     private String wb6;
 
     private Integer wb7;
+    private String jliex;
 
-    public String getWid() {
+    public String getJliex() {
+		return jliex;
+	}
+
+	public void setJliex(String jliex) {
+		this.jliex = jliex;
+	}
+
+	public String getWid() {
         return wid;
     }
 

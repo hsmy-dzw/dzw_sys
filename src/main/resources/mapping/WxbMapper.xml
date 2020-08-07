@@ -271,9 +271,11 @@
 		SELECT * FROM `wxb` ORDER BY `wstate` 
 </select>
 
+
 <select id="queryWeixiuByStatic" resultType="org.accp.pojo.Wxb">
 	SELECT * FROM `wxb` where wstate = 2 or wstate = 4 
 </select>
+
 <select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
 	SELECT * FROM `wxb` WHERE wid = #{wid}
 </select>
@@ -281,7 +283,10 @@
 <update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
 	UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
 </update>
-  <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
+
+
+	<select id= "querWeixiuxx" resultType="org.accp.pojo.Wxb">
+
 		SELECT * FROM `wxb` AS a JOIN  `jcb` AS b ON a.`wid` = b.`id` ORDER BY `wstate` 
 	</select>
 	
@@ -292,9 +297,11 @@
 	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
 		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
 	</update>
+	
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
 		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4
 	</select>
+	
 	<update id="updatejiage" parameterType="org.accp.pojo.Wxb">
 		UPDATE `wxb` SET wb2 = #{jiage} WHERE wid =#{wid} 
 	</update>
@@ -302,6 +309,5 @@
 	<update id="updatefanggong" parameterType="org.accp.pojo.Wxb">
 		 UPDATE `wxb` SET wstate = 3 , wb3 = #{fglx},wb4=#{yy} WHERE wid=#{wid} 
 	</update>
-	
 	
 </mapper>
