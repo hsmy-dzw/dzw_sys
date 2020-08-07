@@ -54,7 +54,10 @@ public class WeiXiuBiao {
 	 public PageInfo<Wxb> queryWeixiuByStatic(Integer pageNum, Integer pageSize){
 		PageHelper.startPage(pageNum,pageSize);
 		return new PageInfo<Wxb>(weixiubiaomapper.queryWeixiuByStatic());
+
 	}
+	
+
 	public PageInfo<Wxb> findPersonListByPage2(Integer pageNum, Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
 		return new PageInfo<Wxb>(weixiubiaomapper.querWrixiuwanc());
