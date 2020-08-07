@@ -1,6 +1,7 @@
 package org.accp.action.wc;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.accp.pojo.Wxb;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
 
 @RestController
@@ -37,6 +39,8 @@ public class WeiXiuBiaoAction {
 	@GetMapping("{p}/{s}")
 	public PageInfo<Wxb> queryPage(@PathVariable Integer p, @PathVariable Integer s) {
 		System.out.println("进入客户车辆详情");
+	//	PageInfo<Wxb> list= weixiubiaoAction.findPersonListByPage(p, s);
+		System.out.println(JSON.toJSONString(weixiubiaoAction.findPersonListByPage(p, s).getList()));
 		return weixiubiaoAction.findPersonListByPage(p, s);
 	}
 	
@@ -72,6 +76,15 @@ public class WeiXiuBiaoAction {
 		
 		weixiubiaoAction.updatefglx(fglx, yy, wid);
 		return "1";
+	}
+	
+
+	@GetMapping("getWxbByStatic/{pageNum}/{pageSize}")
+	public PageInfo<Wxb> updatewstate(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+		System.out.println("进入查询待结算订单！");
+		
+		
+		return weixiubiaoAction.queryWeixiuByStatic(pageNum, pageSize);
 	}
 	
 }

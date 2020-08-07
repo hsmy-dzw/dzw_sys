@@ -20,6 +20,8 @@ public interface WxbMapper {
     
     public List<Wxb> querWeixiuxx();
     
+    List<Wxb> queryWeixiuByStatic();
+    
     public Wxb querWeixiuxxByid(@Param("wid") String wid);
     
      int querWeixiuxxBylx(@Param("wstate") String wstate ,@Param("wid") String wid);

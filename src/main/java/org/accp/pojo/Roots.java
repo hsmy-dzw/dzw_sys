@@ -1,6 +1,6 @@
 package org.accp.pojo;
 
-public class Roots {
+public class Roots implements Comparable<Roots> {
     private Integer rid;
 
     private String rname;
@@ -56,4 +56,10 @@ public class Roots {
     public void setRboolean(String rboolean) {
         this.rboolean = rboolean;
     }
+
+	@Override
+	public int compareTo(Roots o) {
+		// TODO Auto-generated method stub
+		return this.getRid()-o.getRid();
+	}
 }

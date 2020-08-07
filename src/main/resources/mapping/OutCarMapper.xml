@@ -81,7 +81,7 @@
   </update>
   <select id="queryAll" resultType="org.accp.pojo.OutCar">
   	SELECT * FROM outcar a INNER JOIN outcartype b
-	 ON a.otid = b.otid
+	 ON a.oid = b.otid
   </select>
   
   <update id="updateByoid" parameterType="org.accp.pojo.OutCar">

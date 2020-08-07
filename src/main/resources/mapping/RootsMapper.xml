@@ -5,8 +5,16 @@
     <id column="rid" property="rid" jdbcType="INTEGER" />
     <result column="rname" property="rname" jdbcType="VARCHAR" />
     <result column="rlv" property="rlv" jdbcType="INTEGER" />
-    <result column="r'boolean" property="r'boolean" jdbcType="BIT" />
+    <result column="rboolean" property="rboolean" jdbcType="BIT" />
+    <association property="root" column="rlv" select="selectParentFun" autoMapping="true"></association>
   </resultMap>
+  
+  
+  <!-- 查父权限 -->
+  <select id="selectParentFun" resultType="org.accp.pojo.Roots">
+	select * from roots where rid=#{rlv}
+  </select>
+  
   <sql id="Base_Column_List" >
     rid, rname, rlv, r'boolean
   </sql>
@@ -79,4 +87,8 @@
       r'boolean = #{r'boolean,jdbcType=BIT}
     where rid = #{rid,jdbcType=INTEGER}
   </update>
+  
+  <select id="queryAll" resultMap="BaseResultMap">
+  	select * from roots
+  </select>
 </mapper>
