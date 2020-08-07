@@ -41,6 +41,8 @@
 		#{rvmoney,jdbcType=DECIMAL}, #{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP},
 		#{rvstatus,jdbcType=INTEGER})
 	</insert>
+	
+	
 	<insert id="insertSelective"
 		parameterType="org.accp.pojo.Reqaincie">
 		insert into reqaincie
