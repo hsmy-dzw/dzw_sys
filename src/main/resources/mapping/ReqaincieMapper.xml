@@ -114,4 +114,9 @@
       rvstatus = #{rvstatus,jdbcType=INTEGER}
     where rvid = #{rvid,jdbcType=INTEGER}
   </update>
+  
+  <select id="querAll" resultType="org.accp.pojo.Reqaincie">
+		 SELECT * FROM `reqaincie`
+	</select>
+ 
 </mapper>

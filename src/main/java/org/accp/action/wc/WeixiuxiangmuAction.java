@@ -28,9 +28,17 @@ public class WeixiuxiangmuAction {
 	private  WxbMapper weixiubiao;
 	
 	@PostMapping("person")
-	public Map<String, Object> addPerson(@RequestBody Wxxmb pojo) {
+	public Map<String, Object> addPerson(@RequestBody Wxxmb wxxmb []) {
+		System.out.println("进入项目详情新增");
 		
-		weixiuxiangmuAction.addPerson(pojo);
+		
+		for (Wxxmb wxxmb2 : wxxmb) {
+			wxxmb2.setWid(wxxmb[0].getWid());
+			
+			weixiuxiangmuAction.addPerson(wxxmb2);
+			
+		}
+		
 		Map<String, Object> message = new HashMap<String, Object>();
 		message.put("code", "200");
 		message.put("msg", "ok");
