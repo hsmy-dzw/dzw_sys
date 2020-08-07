@@ -17,7 +17,7 @@ import com.github.pagehelper.PageInfo;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS,isolation = Isolation.READ_COMMITTED,readOnly = true)
 public class reqaincieBiz extends ServiceImpl<ReqaincieMapper, Reqaincie>{
-	
+	//维修项目
 	@Autowired
 	private  ReqaincieMapper pr;
 	
