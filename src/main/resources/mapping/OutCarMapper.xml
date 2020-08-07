@@ -19,12 +19,14 @@
     delete from outcar
     where oid = #{oid,jdbcType=INTEGER}
   </delete>
+  
   <insert id="insert" parameterType="org.accp.pojo.OutCar" >
     insert into outcar (oid, onumber, otname,
       ostatus,oprice)
-    values (#{oid,jdbcType=INTEGER},#{otname},  #{onumber,jdbcType=VARCHAR}, 
+    values (#{oid,jdbcType=INTEGER},#{onumber,jdbcType=VARCHAR}, #{otname},
       #{ostatus,jdbcType=INTEGER},#{oprice})
   </insert>
+  
   <insert id="insertSelective" parameterType="org.accp.pojo.OutCar" >
     insert into outcar
     <trim prefix="(" suffix=")" suffixOverrides="," >
