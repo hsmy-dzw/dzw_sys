@@ -327,7 +327,4 @@
 	<update id="updatefanggong" parameterType="org.accp.pojo.Wxb">
 		 UPDATE `wxb` SET wstate = 3 , wb3 = #{fglx},wb4=#{yy} WHERE wid=#{wid} 
 	</update>
-	<update id="updatefanggong2" parameterType="org.accp.pojo.Wxb">
-		 UPDATE `wxb` SET wstate = 3 , wb3 = #{fglx},wb4=#{yy} WHERE wid=#{wid} 
-	</update>
 </mapper>
