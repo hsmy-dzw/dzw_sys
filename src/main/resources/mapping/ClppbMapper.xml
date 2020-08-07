@@ -115,4 +115,10 @@
     where pid2 = #{pid2,jdbcType=INTEGER}
   </update>
   
+<<<<<<< HEAD
+=======
+  <select id="querAll" resultType="org.accp.pojo.Clppb">
+  	SELECT * FROM  `clppb`
+  </select>
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 </mapper>

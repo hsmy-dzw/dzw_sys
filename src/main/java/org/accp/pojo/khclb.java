@@ -3,7 +3,26 @@ package org.accp.pojo;
 import java.util.Date;
 
 public class khclb {
-    private Integer cid;
+	 //`cxname``pinname`
+	private String cxname;
+	private String pinname;
+    public String getCxname() {
+		return cxname;
+	}
+
+	public void setCxname(String cxname) {
+		this.cxname = cxname;
+	}
+
+	public String getPinname() {
+		return pinname;
+	}
+
+	public void setPinname(String pinname) {
+		this.pinname = pinname;
+	}
+
+	private Integer cid;
 
     private Integer id;
 

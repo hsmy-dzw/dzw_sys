@@ -53,4 +53,7 @@ public class kehubiao {
 		return kehub.querMaxid();
 	}
 	
+	public Integer querMaxkid() {
+		return kehub.querMaxkid();
+	}
 }

@@ -202,5 +202,11 @@
 	<select id="querMaxid" resultType="String">
 		SELECT MAX(id) FROM `jcb` 
 	</select>	
+<<<<<<< HEAD
 	
+=======
+	<select id="querMaxkid" resultType="Integer">
+		SELECT MAX(kid) FROM `khb`
+	</select>
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 </mapper>

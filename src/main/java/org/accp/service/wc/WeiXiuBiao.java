@@ -1,12 +1,7 @@
 package org.accp.service.wc;
 
-import java.util.List;
-
 import org.accp.dao.wc.WxbMapper;
-import org.accp.dao.wc.khclbMapper;
 import org.accp.pojo.Wxb;
-import org.accp.pojo.khb;
-import org.accp.pojo.khclb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -45,5 +40,24 @@ public class WeiXiuBiao {
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	public void updatewstate(String wstate,String wid) {
 		weixiubiaomapper.querWeixiuxxBylx(wstate, wid);
+	}
+
+	
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	 public PageInfo<Wxb> queryWeixiuByStatic(Integer pageNum, Integer pageSize){
+		PageHelper.startPage(pageNum,pageSize);
+		return new PageInfo<Wxb>(weixiubiaomapper.queryWeixiuByStatic());
+
+	}
+	
+
+	public PageInfo<Wxb> findPersonListByPage2(Integer pageNum, Integer pageSize) {
+		PageHelper.startPage(pageNum, pageSize);
+		return new PageInfo<Wxb>(weixiubiaomapper.querWrixiuwanc());
+	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public void updatefglx(String fglx,String yy,String wid) {
+		weixiubiaomapper.updatefanggong(fglx, yy, wid);
 	}
 }

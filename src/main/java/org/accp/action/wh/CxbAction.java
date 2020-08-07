@@ -1,9 +1,9 @@
 package org.accp.action.wh;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.accp.pojo.Clppb;
 import org.accp.pojo.Cxb;
 import org.accp.pojo.page;
 import org.accp.service.wh.CxbBiz;
@@ -126,6 +126,11 @@ public class CxbAction {
 			map.put("msg", "成功");
 		}
 		return map;
+	}
+	@GetMapping("querAllBypid2/{pid2}")
+	public List<Cxb> querAllBypid2(@PathVariable Integer pid2){
+		System.out.println("进入查询车辆类型");
+		return biz.querAllBypid2(pid2);
 	}
 	
 }

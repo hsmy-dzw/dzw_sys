@@ -43,7 +43,18 @@ public class Wxb {
 
     private Integer wb7;
 
-    public String getWid() {
+   
+    private String jliex;
+
+    public String getJliex() {
+		return jliex;
+	}
+
+	public void setJliex(String jliex) {
+		this.jliex = jliex;
+	}
+
+	public String getWid() {
         return wid;
     }
 

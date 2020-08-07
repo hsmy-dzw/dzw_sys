@@ -15,8 +15,8 @@ import com.github.pagehelper.PageInfo;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.READ_COMMITTED, readOnly = true)
 public class OutCarService extends ServiceImpl<OutCarMapper, OutCar>{
-//	@Autowired
-//	OutCarMapper mapper;
+	@Autowired
+	OutCarMapper mapper;
 	
 	public PageInfo<OutCar> queryAll(Integer pageNum, Integer pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
@@ -33,7 +33,12 @@ public class OutCarService extends ServiceImpl<OutCarMapper, OutCar>{
 //		mapper.insert(c);
 //	}
 
-	
+	public int updateByoid(Integer oid) {
+		return mapper.updateByoid(oid);
+	}
+	public int updateByoid2(Integer oid) {
+		return mapper.updateByoid2(oid);
+	}
 	
 	
 }

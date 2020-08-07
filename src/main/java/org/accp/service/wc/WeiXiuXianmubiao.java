@@ -28,4 +28,20 @@ public class WeiXiuXianmubiao {
 		PageHelper.startPage(pageNum, pageSize);
 		return new PageInfo<Wxxmb>(weixiuxiangmumapper.querWeixiuxm(wid));
 	}
+	
+
+	public int findPersonListByPage2(Integer pageNum, Integer pageSize,String wid) {
+		
+		return weixiuxiangmumapper.querWeijiage(wid);
+	}
+	
+	public int findPersonListByPage3(Integer pageNum, Integer pageSize,String wid) {
+		
+		return weixiuxiangmumapper.querWeijiage2(wid);
+	}
+
+	public String findPersonListByPage4(Integer pageNum, Integer pageSize,String wid) {
+	
+	return weixiuxiangmumapper.querWeijiage3(wid);
+}
 }

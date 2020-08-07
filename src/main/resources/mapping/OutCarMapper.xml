@@ -71,8 +71,19 @@
   </update>
   
   <select id="queryAll" resultType="org.accp.pojo.OutCar">
+<<<<<<< HEAD
   	SELECT * FROM outcar
+=======
+  	SELECT * FROM outcar a INNER JOIN outcartype b
+	 ON a.oid = b.otid
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
   </select>
   
+  <update id="updateByoid" parameterType="org.accp.pojo.OutCar">
+  	 UPDATE `outcar` SET `ostatus` = 2 WHERE oid = #{oid}
+  </update>
   
+  <update id="updateByoid2" parameterType="org.accp.pojo.OutCar">
+  	 UPDATE `outcar` SET `ostatus` = 1 WHERE oid = #{oid}
+  </update>
 </mapper>

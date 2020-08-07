@@ -187,4 +187,21 @@
 		SELECT * FROM `wxxmb` AS a JOIN `wxb` AS b ON a.wid = b.wid JOIN `reqaincie` AS c
 		 ON a.rvid = c.rvid WHERE a.wid = #{wid}
 	</select>
+<<<<<<< HEAD
+=======
+	
+	<select id="querWeijiage" resultType="Integer" >
+		SELECT SUM(rvmoney) FROM `wxxmb` AS a JOIN `wxb` AS b ON a.wid = b.wid JOIN `reqaincie` AS c
+		 ON a.rvid = c.rvid WHERE a.wid = #{wid}
+	</select>
+	
+	<select id="querWeijiage2" resultType="Integer" >
+		SELECT  sum(kprice) FROM wxb WHERE wid = #{wid}
+	</select>
+	<select id="querWeijiage3" resultType="String" >
+		SELECT SUM(mdmoney) FROM `clxqb` AS a JOIN `mercdis` AS b ON a.mdid = b.mdid WHERE wid = #{wid}
+	</select>
+
+	
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 </mapper>

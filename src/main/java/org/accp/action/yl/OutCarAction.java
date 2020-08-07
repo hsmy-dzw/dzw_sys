@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+//github.com/hsmy-dzw/dzw_sys.git
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,6 +62,16 @@ public class OutCarAction {
 		return map;
 	}
 	
+	@GetMapping("/updatezt/{oid}")
+	public int updateByoid(@PathVariable Integer oid) {
+		System.out.println("进入外勤车辆修改");
+		return this.out.updateByoid(oid);
+	}
 	
+	@GetMapping("/updatezt2/{oid}")
+	public int updateByoid2(@PathVariable Integer oid) {
+		System.out.println("进入外勤车辆修改");
+		return this.out.updateByoid2(oid);
+	}
 	
 }

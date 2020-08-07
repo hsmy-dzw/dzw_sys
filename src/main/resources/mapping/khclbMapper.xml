@@ -232,7 +232,7 @@
   </update>
   
   <select id="qurechclByid" resultType="org.accp.pojo.khclb">
-		  SELECT * FROM `khclb` WHERE `kid` = #{kid}
+		   SELECT * FROM `khclb` AS a JOIN `clppb` AS b ON a.`pid2`=b.`pid2` JOIN `cxb` AS c ON a.`xid` = c.`xid`  WHERE `kid` = #{kid}
 	</select>
 	
 	 <select id="qurechclBycid" resultType="org.accp.pojo.khclb">

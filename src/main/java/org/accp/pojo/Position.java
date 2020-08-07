@@ -23,6 +23,16 @@ public class Position implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@TableId(type = IdType.AUTO, value = "ppid")
 	private Integer ppid;
+    
+
+
+	public List<Roots> getRoots() {
+		return roots;
+	}
+
+	public void setRoots(List<Roots> roots) {
+		this.roots = roots;
+	}
 
 	private Integer peptid;
 

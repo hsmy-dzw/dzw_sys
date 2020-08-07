@@ -94,4 +94,16 @@ public class khbAction {
 		return a;
 	}
 	
+	@GetMapping("person/maxkid")
+	public Integer querMaxkid(){
+		System.out.println("查询最大KID！");
+		Integer id=kehubiaos.querMaxkid();
+		
+		++id;
+		System.out.println(id);
+		
+		return id;
+	}
+	
+	
 }

@@ -17,6 +17,7 @@ import com.github.pagehelper.PageInfo;
 @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = true)
 public class FjjbBiz {
 
+	//发动机
 	@Autowired
 	private FdjbMapper pr;
 
