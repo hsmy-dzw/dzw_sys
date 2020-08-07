@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.wc.WxbMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Wxb" >
+    <id column="wid" property="wid" jdbcType="VARCHAR" />
+    <result column="gid" property="gid" jdbcType="INTEGER" />
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="wstate" property="wstate" jdbcType="VARCHAR" />
+    <result column="wlicense" property="wlicense" jdbcType="VARCHAR" />
+    <result column="wkname" property="wkname" jdbcType="VARCHAR" />
+    <result column="wpheno" property="wpheno" jdbcType="VARCHAR" />
+    <result column="wleix" property="wleix" jdbcType="VARCHAR" />
+    <result column="wkaidate" property="wkaidate" jdbcType="DATE" />
+    <result column="wyudate" property="wyudate" jdbcType="DATE" />
+    <result column="wwandate" property="wwandate" jdbcType="DATE" />
+    <result column="wjiedate" property="wjiedate" jdbcType="DATE" />
+    <result column="kprice" property="kprice" jdbcType="INTEGER" />
+    <result column="wb1" property="wb1" jdbcType="VARCHAR" />
+    <result column="wb2" property="wb2" jdbcType="VARCHAR" />
+    <result column="wb3" property="wb3" jdbcType="VARCHAR" />
+    <result column="wb4" property="wb4" jdbcType="VARCHAR" />
+    <result column="wb5" property="wb5" jdbcType="VARCHAR" />
+    <result column="wb6" property="wb6" jdbcType="VARCHAR" />
+    <result column="wb7" property="wb7" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    wid, gid, id, wstate, wlicense, wkname, wpheno, wleix, wkaidate, wyudate, wwandate, 
+    wjiedate, kprice, wb1, wb2, wb3, wb4, wb5, wb6, wb7
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from wxb
+    where wid = #{wid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from wxb
+    where wid = #{wid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Wxb" >
+    insert into wxb (wid, gid, id, 
+      wstate, wlicense, wkname, 
+      wpheno, wleix, wkaidate, 
+      wyudate, wwandate, wjiedate, 
+      kprice, wb1, wb2, wb3, 
+      wb4, wb5, wb6, wb7
+      )
+    values (#{wid,jdbcType=VARCHAR}, #{gid,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, 
+      #{wstate,jdbcType=VARCHAR}, #{wlicense,jdbcType=VARCHAR}, #{wkname,jdbcType=VARCHAR}, 
+      #{wpheno,jdbcType=VARCHAR}, #{wleix,jdbcType=VARCHAR}, #{wkaidate,jdbcType=DATE}, 
+      #{wyudate,jdbcType=DATE}, #{wwandate,jdbcType=DATE}, #{wjiedate,jdbcType=DATE}, 
+      #{kprice,jdbcType=INTEGER}, #{wb1,jdbcType=VARCHAR}, #{wb2,jdbcType=VARCHAR}, #{wb3,jdbcType=VARCHAR}, 
+      #{wb4,jdbcType=VARCHAR}, #{wb5,jdbcType=VARCHAR}, #{wb6,jdbcType=VARCHAR}, #{wb7,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Wxb" >
+    insert into wxb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        wid,
+      </if>
+      <if test="gid != null" >
+        gid,
+      </if>
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="wstate != null" >
+        wstate,
+      </if>
+      <if test="wlicense != null" >
+        wlicense,
+      </if>
+      <if test="wkname != null" >
+        wkname,
+      </if>
+      <if test="wpheno != null" >
+        wpheno,
+      </if>
+      <if test="wleix != null" >
+        wleix,
+      </if>
+      <if test="wkaidate != null" >
+        wkaidate,
+      </if>
+      <if test="wyudate != null" >
+        wyudate,
+      </if>
+      <if test="wwandate != null" >
+        wwandate,
+      </if>
+      <if test="wjiedate != null" >
+        wjiedate,
+      </if>
+      <if test="kprice != null" >
+        kprice,
+      </if>
+      <if test="wb1 != null" >
+        wb1,
+      </if>
+      <if test="wb2 != null" >
+        wb2,
+      </if>
+      <if test="wb3 != null" >
+        wb3,
+      </if>
+      <if test="wb4 != null" >
+        wb4,
+      </if>
+      <if test="wb5 != null" >
+        wb5,
+      </if>
+      <if test="wb6 != null" >
+        wb6,
+      </if>
+      <if test="wb7 != null" >
+        wb7,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wid != null" >
+        #{wid,jdbcType=VARCHAR},
+      </if>
+      <if test="gid != null" >
+        #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="wstate != null" >
+        #{wstate,jdbcType=VARCHAR},
+      </if>
+      <if test="wlicense != null" >
+        #{wlicense,jdbcType=VARCHAR},
+      </if>
+      <if test="wkname != null" >
+        #{wkname,jdbcType=VARCHAR},
+      </if>
+      <if test="wpheno != null" >
+        #{wpheno,jdbcType=VARCHAR},
+      </if>
+      <if test="wleix != null" >
+        #{wleix,jdbcType=VARCHAR},
+      </if>
+      <if test="wkaidate != null" >
+        #{wkaidate,jdbcType=DATE},
+      </if>
+      <if test="wyudate != null" >
+        #{wyudate,jdbcType=DATE},
+      </if>
+      <if test="wwandate != null" >
+        #{wwandate,jdbcType=DATE},
+      </if>
+      <if test="wjiedate != null" >
+        #{wjiedate,jdbcType=DATE},
+      </if>
+      <if test="kprice != null" >
+        #{kprice,jdbcType=INTEGER},
+      </if>
+      <if test="wb1 != null" >
+        #{wb1,jdbcType=VARCHAR},
+      </if>
+      <if test="wb2 != null" >
+        #{wb2,jdbcType=VARCHAR},
+      </if>
+      <if test="wb3 != null" >
+        #{wb3,jdbcType=VARCHAR},
+      </if>
+      <if test="wb4 != null" >
+        #{wb4,jdbcType=VARCHAR},
+      </if>
+      <if test="wb5 != null" >
+        #{wb5,jdbcType=VARCHAR},
+      </if>
+      <if test="wb6 != null" >
+        #{wb6,jdbcType=VARCHAR},
+      </if>
+      <if test="wb7 != null" >
+        #{wb7,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Wxb" >
+    update wxb
+    <set >
+      <if test="gid != null" >
+        gid = #{gid,jdbcType=INTEGER},
+      </if>
+      <if test="id != null" >
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="wstate != null" >
+        wstate = #{wstate,jdbcType=VARCHAR},
+      </if>
+      <if test="wlicense != null" >
+        wlicense = #{wlicense,jdbcType=VARCHAR},
+      </if>
+      <if test="wkname != null" >
+        wkname = #{wkname,jdbcType=VARCHAR},
+      </if>
+      <if test="wpheno != null" >
+        wpheno = #{wpheno,jdbcType=VARCHAR},
+      </if>
+      <if test="wleix != null" >
+        wleix = #{wleix,jdbcType=VARCHAR},
+      </if>
+      <if test="wkaidate != null" >
+        wkaidate = #{wkaidate,jdbcType=DATE},
+      </if>
+      <if test="wyudate != null" >
+        wyudate = #{wyudate,jdbcType=DATE},
+      </if>
+      <if test="wwandate != null" >
+        wwandate = #{wwandate,jdbcType=DATE},
+      </if>
+      <if test="wjiedate != null" >
+        wjiedate = #{wjiedate,jdbcType=DATE},
+      </if>
+      <if test="kprice != null" >
+        kprice = #{kprice,jdbcType=INTEGER},
+      </if>
+      <if test="wb1 != null" >
+        wb1 = #{wb1,jdbcType=VARCHAR},
+      </if>
+      <if test="wb2 != null" >
+        wb2 = #{wb2,jdbcType=VARCHAR},
+      </if>
+      <if test="wb3 != null" >
+        wb3 = #{wb3,jdbcType=VARCHAR},
+      </if>
+      <if test="wb4 != null" >
+        wb4 = #{wb4,jdbcType=VARCHAR},
+      </if>
+      <if test="wb5 != null" >
+        wb5 = #{wb5,jdbcType=VARCHAR},
+      </if>
+      <if test="wb6 != null" >
+        wb6 = #{wb6,jdbcType=VARCHAR},
+      </if>
+      <if test="wb7 != null" >
+        wb7 = #{wb7,jdbcType=INTEGER},
+      </if>
+    </set>
+    where wid = #{wid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Wxb" >
+    update wxb
+    set gid = #{gid,jdbcType=INTEGER},
+      id = #{id,jdbcType=VARCHAR},
+      wstate = #{wstate,jdbcType=VARCHAR},
+      wlicense = #{wlicense,jdbcType=VARCHAR},
+      wkname = #{wkname,jdbcType=VARCHAR},
+      wpheno = #{wpheno,jdbcType=VARCHAR},
+      wleix = #{wleix,jdbcType=VARCHAR},
+      wkaidate = #{wkaidate,jdbcType=DATE},
+      wyudate = #{wyudate,jdbcType=DATE},
+      wwandate = #{wwandate,jdbcType=DATE},
+      wjiedate = #{wjiedate,jdbcType=DATE},
+      kprice = #{kprice,jdbcType=INTEGER},
+      wb1 = #{wb1,jdbcType=VARCHAR},
+      wb2 = #{wb2,jdbcType=VARCHAR},
+      wb3 = #{wb3,jdbcType=VARCHAR},
+      wb4 = #{wb4,jdbcType=VARCHAR},
+      wb5 = #{wb5,jdbcType=VARCHAR},
+      wb6 = #{wb6,jdbcType=VARCHAR},
+      wb7 = #{wb7,jdbcType=INTEGER}
+    where wid = #{wid,jdbcType=VARCHAR}
+  </update>
+  <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
+		SELECT * FROM `wxb` ORDER BY `wstate` 
+	</select>
+	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
+		SELECT * FROM `wxb` WHERE wid = #{wid}
+	</select>
+	
+	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
+		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
+	</update>
+	
+</mapper>

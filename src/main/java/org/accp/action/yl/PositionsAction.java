@@ -12,7 +12,7 @@ import com.github.pagehelper.PageInfo;
 
 @RestController
 @RequestMapping("/api/position")
-public class PositionAction {
+public class PositionsAction {
 	@Autowired
 	PositionService sevice;
 	

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.wh.ClppbMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Clppb" >
+    <id column="pid2" property="pid2" jdbcType="INTEGER" />
+    <result column="pszm" property="pszm" jdbcType="VARCHAR" />
+    <result column="pb1" property="pb1" jdbcType="VARCHAR" />
+    <result column="pb2" property="pb2" jdbcType="VARCHAR" />
+    <result column="pb3" property="pb3" jdbcType="VARCHAR" />
+    <result column="pb4" property="pb4" jdbcType="INTEGER" />
+    <result column="pinname" property="pinname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    pid2, pszm, pb1, pb2, pb3, pb4, pinname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from clppb
+    where pid2 = #{pid2,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from clppb
+    where pid2 = #{pid2,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Clppb" >
+    insert into clppb (pid2, pszm, pb1, 
+      pb2, pb3, pb4, pinname
+      )
+    values (#{pid2,jdbcType=INTEGER}, #{pszm,jdbcType=VARCHAR}, #{pb1,jdbcType=VARCHAR}, 
+      #{pb2,jdbcType=VARCHAR}, #{pb3,jdbcType=VARCHAR}, #{pb4,jdbcType=INTEGER}, #{pinname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Clppb" >
+    insert into clppb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pid2 != null" >
+        pid2,
+      </if>
+      <if test="pszm != null" >
+        pszm,
+      </if>
+      <if test="pb1 != null" >
+        pb1,
+      </if>
+      <if test="pb2 != null" >
+        pb2,
+      </if>
+      <if test="pb3 != null" >
+        pb3,
+      </if>
+      <if test="pb4 != null" >
+        pb4,
+      </if>
+      <if test="pinname != null" >
+        pinname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pid2 != null" >
+        #{pid2,jdbcType=INTEGER},
+      </if>
+      <if test="pszm != null" >
+        #{pszm,jdbcType=VARCHAR},
+      </if>
+      <if test="pb1 != null" >
+        #{pb1,jdbcType=VARCHAR},
+      </if>
+      <if test="pb2 != null" >
+        #{pb2,jdbcType=VARCHAR},
+      </if>
+      <if test="pb3 != null" >
+        #{pb3,jdbcType=VARCHAR},
+      </if>
+      <if test="pb4 != null" >
+        #{pb4,jdbcType=INTEGER},
+      </if>
+      <if test="pinname != null" >
+        #{pinname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Clppb" >
+    update clppb
+    <set >
+      <if test="pszm != null" >
+        pszm = #{pszm,jdbcType=VARCHAR},
+      </if>
+      <if test="pb1 != null" >
+        pb1 = #{pb1,jdbcType=VARCHAR},
+      </if>
+      <if test="pb2 != null" >
+        pb2 = #{pb2,jdbcType=VARCHAR},
+      </if>
+      <if test="pb3 != null" >
+        pb3 = #{pb3,jdbcType=VARCHAR},
+      </if>
+      <if test="pb4 != null" >
+        pb4 = #{pb4,jdbcType=INTEGER},
+      </if>
+      <if test="pinname != null" >
+        pinname = #{pinname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where pid2 = #{pid2,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Clppb" >
+    update clppb
+    set pszm = #{pszm,jdbcType=VARCHAR},
+      pb1 = #{pb1,jdbcType=VARCHAR},
+      pb2 = #{pb2,jdbcType=VARCHAR},
+      pb3 = #{pb3,jdbcType=VARCHAR},
+      pb4 = #{pb4,jdbcType=INTEGER},
+      pinname = #{pinname,jdbcType=VARCHAR}
+    where pid2 = #{pid2,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

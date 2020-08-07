@@ -21,4 +21,6 @@ public interface PersonsMapper extends BaseMapper<Persons>{
     int updateByPrimaryKey(Persons record);
     
 	List<Persons> queryAll(@Param("name") String name);
+
+	Persons queryById(@Param("id") Integer id);
 }

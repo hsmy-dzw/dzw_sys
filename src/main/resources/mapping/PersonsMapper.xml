@@ -241,6 +241,15 @@
 		<if test="name != null and name != ''">
 			AND pname LIKE '%${name}%'
 		</if>
+		ORDER BY p1.fedeintime DESC
+	</select>
+	
+	<select id="queryById" resultType="org.accp.pojo.Persons">
+		SELECT p1.*,d.peptname,p2.ppnamne FROM persons p1 
+		INNER JOIN `position` p2
+		ON p1.ppid = p2.ppid
+		INNER JOIN dept d 
+		WHERE d.`peptid` = p1.ppid AND p1.pid = #{id}
 	</select>
 
 

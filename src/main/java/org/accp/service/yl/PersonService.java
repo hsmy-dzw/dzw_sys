@@ -26,5 +26,9 @@ extends ServiceImpl<PersonsMapper, Persons>
 		PageHelper.startPage(pageNum,pageSize);
 		return new PageInfo<Persons>(mapper.queryAll(name));
 	}
+	
+	public Persons queryById(Integer id) {
+		return mapper.queryById(id);
+	}
 
 }

@@ -3,7 +3,7 @@
 <mapper namespace="org.accp.dao.wc.khclbMapper" >
   <resultMap id="BaseResultMap" type="org.accp.pojo.khclb" >
     <id column="cid" property="cid" jdbcType="INTEGER" />
-    <result column="id" property="id" jdbcType="INTEGER" />
+   
     <result column="pid2" property="pid2" jdbcType="INTEGER" />
     <result column="xid" property="xid" jdbcType="INTEGER" />
     <result column="kid" property="kid" jdbcType="INTEGER" />
@@ -13,8 +13,8 @@
     <result column="cdriver" property="cdriver" jdbcType="VARCHAR" />
     <result column="cphone" property="cphone" jdbcType="VARCHAR" />
     <result column="cbirthday" property="cbirthday" jdbcType="DATE" />
-    <result column="cenginetype" property="cenginetype" jdbcType="VARCHAR" />
-    <result column="cemginebrand" property="cemginebrand" jdbcType="VARCHAR" />
+   
+   
     <result column="cb1" property="cb1" jdbcType="VARCHAR" />
     <result column="cb2" property="cb2" jdbcType="VARCHAR" />
     <result column="cb3" property="cb3" jdbcType="VARCHAR" />
@@ -23,8 +23,7 @@
     <result column="cb6" property="cb6" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    cid, id, pid2, xid, kid, cnumber, cbrand, cmodel, cdriver, cphone, cbirthday, cenginetype, 
-    cemginebrand, cb1, cb2, cb3, cb4, cb5, cb6
+    cid,  pid2, xid, kid, cnumber, cbrand, cmodel, cdriver, cphone, cbirthday,  cb1, cb2, cb3, cb4, cb5, cb6
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -37,18 +36,16 @@
     where cid = #{cid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="org.accp.pojo.khclb" >
-    insert into khclb (cid, id, pid2, 
+    insert into khclb (cid,  pid2, 
       xid, kid, cnumber, 
       cbrand, cmodel, cdriver, 
-      cphone, cbirthday, cenginetype, 
-      cemginebrand, cb1, cb2, 
+      cphone, cbirthday,  cb1, cb2, 
       cb3, cb4, cb5, cb6
       )
-    values (#{cid,jdbcType=INTEGER}, #{id,jdbcType=INTEGER}, #{pid2,jdbcType=INTEGER}, 
+    values (#{cid,jdbcType=INTEGER},  #{pid2,jdbcType=INTEGER}, 
       #{xid,jdbcType=INTEGER}, #{kid,jdbcType=INTEGER}, #{cnumber,jdbcType=VARCHAR}, 
       #{cbrand,jdbcType=VARCHAR}, #{cmodel,jdbcType=VARCHAR}, #{cdriver,jdbcType=VARCHAR}, 
-      #{cphone,jdbcType=VARCHAR}, #{cbirthday,jdbcType=DATE}, #{cenginetype,jdbcType=VARCHAR}, 
-      #{cemginebrand,jdbcType=VARCHAR}, #{cb1,jdbcType=VARCHAR}, #{cb2,jdbcType=VARCHAR}, 
+      #{cphone,jdbcType=VARCHAR}, #{cbirthday,jdbcType=DATE},#{cb1,jdbcType=VARCHAR}, #{cb2,jdbcType=VARCHAR}, 
       #{cb3,jdbcType=VARCHAR}, #{cb4,jdbcType=VARCHAR}, #{cb5,jdbcType=INTEGER}, #{cb6,jdbcType=INTEGER}
       )
   </insert>
@@ -58,9 +55,7 @@
       <if test="cid != null" >
         cid,
       </if>
-      <if test="id != null" >
-        id,
-      </if>
+     
       <if test="pid2 != null" >
         pid2,
       </if>
@@ -88,12 +83,7 @@
       <if test="cbirthday != null" >
         cbirthday,
       </if>
-      <if test="cenginetype != null" >
-        cenginetype,
-      </if>
-      <if test="cemginebrand != null" >
-        cemginebrand,
-      </if>
+     
       <if test="cb1 != null" >
         cb1,
       </if>
@@ -117,9 +107,7 @@
       <if test="cid != null" >
         #{cid,jdbcType=INTEGER},
       </if>
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
+      
       <if test="pid2 != null" >
         #{pid2,jdbcType=INTEGER},
       </if>
@@ -147,12 +135,7 @@
       <if test="cbirthday != null" >
         #{cbirthday,jdbcType=DATE},
       </if>
-      <if test="cenginetype != null" >
-        #{cenginetype,jdbcType=VARCHAR},
-      </if>
-      <if test="cemginebrand != null" >
-        #{cemginebrand,jdbcType=VARCHAR},
-      </if>
+      
       <if test="cb1 != null" >
         #{cb1,jdbcType=VARCHAR},
       </if>
@@ -176,9 +159,7 @@
   <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.khclb" >
     update khclb
     <set >
-      <if test="id != null" >
-        id = #{id,jdbcType=INTEGER},
-      </if>
+     
       <if test="pid2 != null" >
         pid2 = #{pid2,jdbcType=INTEGER},
       </if>
@@ -206,12 +187,7 @@
       <if test="cbirthday != null" >
         cbirthday = #{cbirthday,jdbcType=DATE},
       </if>
-      <if test="cenginetype != null" >
-        cenginetype = #{cenginetype,jdbcType=VARCHAR},
-      </if>
-      <if test="cemginebrand != null" >
-        cemginebrand = #{cemginebrand,jdbcType=VARCHAR},
-      </if>
+     
       <if test="cb1 != null" >
         cb1 = #{cb1,jdbcType=VARCHAR},
       </if>
@@ -235,7 +211,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="org.accp.pojo.khclb" >
     update khclb
-    set id = #{id,jdbcType=INTEGER},
+    set 
       pid2 = #{pid2,jdbcType=INTEGER},
       xid = #{xid,jdbcType=INTEGER},
       kid = #{kid,jdbcType=INTEGER},
@@ -245,8 +221,7 @@
       cdriver = #{cdriver,jdbcType=VARCHAR},
       cphone = #{cphone,jdbcType=VARCHAR},
       cbirthday = #{cbirthday,jdbcType=DATE},
-      cenginetype = #{cenginetype,jdbcType=VARCHAR},
-      cemginebrand = #{cemginebrand,jdbcType=VARCHAR},
+     
       cb1 = #{cb1,jdbcType=VARCHAR},
       cb2 = #{cb2,jdbcType=VARCHAR},
       cb3 = #{cb3,jdbcType=VARCHAR},
@@ -259,4 +234,14 @@
   <select id="qurechclByid" resultType="org.accp.pojo.khclb">
 		  SELECT * FROM `khclb` WHERE `kid` = #{kid}
 	</select>
+	
+	 <select id="qurechclBycid" resultType="org.accp.pojo.khclb">
+		 SELECT * FROM `khclb` WHERE `cid` =#{cid}
+	</select>
+	<select id="qurechclBycCp" resultType="String">
+		SELECT `cnumber` FROM `khclb`
+	</select>
+	
+	
+	
 </mapper>

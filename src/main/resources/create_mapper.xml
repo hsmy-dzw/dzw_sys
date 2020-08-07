@@ -32,10 +32,11 @@
 		tableName是数据库中的表名或视图名
 		domainObjectName是实体类名
 		-->  
-<<<<<<< HEAD
+
 		<!--吴聪-->
-        <!-- <table tableName="khb" domainObjectName="khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> -->
-		
+     <!--  //  <table tableName="jcb" domainObjectName="Jcb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+		 -->
+		  <table tableName="clxqb" domainObjectName="Clxqb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
 		<!-- 汤乐 -->
 		
 		
@@ -43,12 +44,12 @@
 <!-- 		<table tableName="outcar" domainObjectName="OutCar" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		<table tableName="outcartype" domainObjectName="OutCarType" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
  -->
- 		<table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+ 		<!-- <table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		<table tableName="dept" domainObjectName="Dept" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		
-		
+		 -->
 		<!-- 吴辉 -->
-=======
+
 		<!--表1-->
         <!-- <table tableName="roots" domainObjectName="Roots" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		<table tableName="proot" domainObjectName="Proot" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
@@ -58,9 +59,9 @@
 		<table tableName="khb" domainObjectName="Khb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		<table tableName="wxb" domainObjectName="Wxb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		 -->
-		<table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+		<!-- <table tableName="persons" domainObjectName="Persons" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
     	<table tableName="dept" domainObjectName="Dept" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
-    	
->>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
+ -->    	
+
     </context>  
 </generatorConfiguration>  

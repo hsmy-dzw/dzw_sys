@@ -11,6 +11,7 @@ import org.accp.pojo.Position;
 import org.accp.service.yl.DeptService;
 import org.accp.service.yl.PersonService;
 import org.accp.service.yl.PositionService;
+import org.accp.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageInfo;
 
 @RestController
@@ -66,9 +69,9 @@ public class PersonAction {
 	
 	@PostMapping("/insert")
 	public Map<String, Object> insert(@RequestBody Persons p){
-		p.setFedeintime(new Date());
 		boolean isOk = service.save(p);
-		
+		System.out.println("日期===================");
+		System.out.println(p.getFedeintime());
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (isOk) 
 			map.put("code", "200");
@@ -77,9 +80,14 @@ public class PersonAction {
 		return map;
 	}
 	
+	@GetMapping("/queryById/{id}")
+	public Persons queryById(@PathVariable Integer id) {
+		return service.queryById(id);
+	}
 	
 	
-	@PutMapping("/updateById/{id}")
+	
+	@PutMapping("/updateById")
 	public Map<String, Object> updateById(@RequestBody Persons p){
 		boolean isOk = service.updateById(p);
 		Map<String, Object> map = new HashMap<String, Object>();

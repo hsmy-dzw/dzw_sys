@@ -1,5 +1,7 @@
 package org.accp.service.wc;
 
+import java.util.List;
+
 import org.accp.dao.wc.khbMapper;
 import org.accp.dao.wc.khclbMapper;
 import org.accp.pojo.khb;
@@ -23,10 +25,10 @@ public class kehucheliangbiao {
 		PageHelper.startPage(pageNum, pageSize);
 		return new PageInfo<khclb>(kehucheliangbiaomapper.qurechclByid(kid));
 	}
-
-//	public khclb getPersonById(Integer cid) {
-//		return kehub.quertAllkhbbyid(kid);
-//	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public khclb getPersonById(Integer cid) {
+		return kehucheliangbiaomapper.qurechclBycid(cid);
+	}
 
 	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
 	public void removePersonById(Integer cid) {
@@ -42,4 +44,12 @@ public class kehucheliangbiao {
 	public void addPerson(khclb k) {
 		kehucheliangbiaomapper.insert(k);
 	}
+	
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public List<String> querByCp() {
+		
+		return  kehucheliangbiaomapper.qurechclBycCp();
+	}
+	
+	
 }

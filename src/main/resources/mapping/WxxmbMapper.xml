@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.accp.dao.wc.WxxmbMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Wxxmb" >
+    <id column="wxid" property="wxid" jdbcType="INTEGER" />
+    <result column="rvid" property="rvid" jdbcType="INTEGER" />
+    <result column="wid" property="wid" jdbcType="VARCHAR" />
+    <result column="wxb1" property="wxb1" jdbcType="VARCHAR" />
+    <result column="wxb2" property="wxb2" jdbcType="VARCHAR" />
+    <result column="wxb3" property="wxb3" jdbcType="VARCHAR" />
+    <result column="wxb4" property="wxb4" jdbcType="VARCHAR" />
+    <result column="wxb5" property="wxb5" jdbcType="VARCHAR" />
+    <result column="wxb6" property="wxb6" jdbcType="INTEGER" />
+    <result column="wxb7" property="wxb7" jdbcType="INTEGER" />
+    <result column="wxb8" property="wxb8" jdbcType="INTEGER" />
+    <result column="wxname" property="wxname" jdbcType="VARCHAR" />
+    <result column="wxprice" property="wxprice" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    wxid, rvid, wid, wxb1, wxb2, wxb3, wxb4, wxb5, wxb6, wxb7, wxb8, wxname, wxprice
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wxxmb
+    where wxid = #{wxid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wxxmb
+    where wxid = #{wxid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.accp.pojo.Wxxmb" >
+    insert into wxxmb (wxid, rvid, wid, 
+      wxb1, wxb2, wxb3, wxb4, 
+      wxb5, wxb6, wxb7, wxb8, 
+      wxname, wxprice)
+    values (#{wxid,jdbcType=INTEGER}, #{rvid,jdbcType=INTEGER}, #{wid,jdbcType=VARCHAR}, 
+      #{wxb1,jdbcType=VARCHAR}, #{wxb2,jdbcType=VARCHAR}, #{wxb3,jdbcType=VARCHAR}, #{wxb4,jdbcType=VARCHAR}, 
+      #{wxb5,jdbcType=VARCHAR}, #{wxb6,jdbcType=INTEGER}, #{wxb7,jdbcType=INTEGER}, #{wxb8,jdbcType=INTEGER}, 
+      #{wxname,jdbcType=VARCHAR}, #{wxprice,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Wxxmb" >
+    insert into wxxmb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="wxid != null" >
+        wxid,
+      </if>
+      <if test="rvid != null" >
+        rvid,
+      </if>
+      <if test="wid != null" >
+        wid,
+      </if>
+      <if test="wxb1 != null" >
+        wxb1,
+      </if>
+      <if test="wxb2 != null" >
+        wxb2,
+      </if>
+      <if test="wxb3 != null" >
+        wxb3,
+      </if>
+      <if test="wxb4 != null" >
+        wxb4,
+      </if>
+      <if test="wxb5 != null" >
+        wxb5,
+      </if>
+      <if test="wxb6 != null" >
+        wxb6,
+      </if>
+      <if test="wxb7 != null" >
+        wxb7,
+      </if>
+      <if test="wxb8 != null" >
+        wxb8,
+      </if>
+      <if test="wxname != null" >
+        wxname,
+      </if>
+      <if test="wxprice != null" >
+        wxprice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="wxid != null" >
+        #{wxid,jdbcType=INTEGER},
+      </if>
+      <if test="rvid != null" >
+        #{rvid,jdbcType=INTEGER},
+      </if>
+      <if test="wid != null" >
+        #{wid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb1 != null" >
+        #{wxb1,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb2 != null" >
+        #{wxb2,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb3 != null" >
+        #{wxb3,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb4 != null" >
+        #{wxb4,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb5 != null" >
+        #{wxb5,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb6 != null" >
+        #{wxb6,jdbcType=INTEGER},
+      </if>
+      <if test="wxb7 != null" >
+        #{wxb7,jdbcType=INTEGER},
+      </if>
+      <if test="wxb8 != null" >
+        #{wxb8,jdbcType=INTEGER},
+      </if>
+      <if test="wxname != null" >
+        #{wxname,jdbcType=VARCHAR},
+      </if>
+      <if test="wxprice != null" >
+        #{wxprice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Wxxmb" >
+    update wxxmb
+    <set >
+      <if test="rvid != null" >
+        rvid = #{rvid,jdbcType=INTEGER},
+      </if>
+      <if test="wid != null" >
+        wid = #{wid,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb1 != null" >
+        wxb1 = #{wxb1,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb2 != null" >
+        wxb2 = #{wxb2,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb3 != null" >
+        wxb3 = #{wxb3,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb4 != null" >
+        wxb4 = #{wxb4,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb5 != null" >
+        wxb5 = #{wxb5,jdbcType=VARCHAR},
+      </if>
+      <if test="wxb6 != null" >
+        wxb6 = #{wxb6,jdbcType=INTEGER},
+      </if>
+      <if test="wxb7 != null" >
+        wxb7 = #{wxb7,jdbcType=INTEGER},
+      </if>
+      <if test="wxb8 != null" >
+        wxb8 = #{wxb8,jdbcType=INTEGER},
+      </if>
+      <if test="wxname != null" >
+        wxname = #{wxname,jdbcType=VARCHAR},
+      </if>
+      <if test="wxprice != null" >
+        wxprice = #{wxprice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where wxid = #{wxid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Wxxmb" >
+    update wxxmb
+    set rvid = #{rvid,jdbcType=INTEGER},
+      wid = #{wid,jdbcType=VARCHAR},
+      wxb1 = #{wxb1,jdbcType=VARCHAR},
+      wxb2 = #{wxb2,jdbcType=VARCHAR},
+      wxb3 = #{wxb3,jdbcType=VARCHAR},
+      wxb4 = #{wxb4,jdbcType=VARCHAR},
+      wxb5 = #{wxb5,jdbcType=VARCHAR},
+      wxb6 = #{wxb6,jdbcType=INTEGER},
+      wxb7 = #{wxb7,jdbcType=INTEGER},
+      wxb8 = #{wxb8,jdbcType=INTEGER},
+      wxname = #{wxname,jdbcType=VARCHAR},
+      wxprice = #{wxprice,jdbcType=DOUBLE}
+    where wxid = #{wxid,jdbcType=INTEGER}
+  </update>
+  
+  	<select id="querWeixiuxm" resultType="org.accp.pojo.Wxxmb">
+		SELECT * FROM `wxxmb` AS a JOIN `wxb` AS b ON a.wid = b.wid JOIN `reqaincie` AS c
+		 ON a.rvid = c.rvid WHERE a.wid = #{wid}
+	</select>
+</mapper>
