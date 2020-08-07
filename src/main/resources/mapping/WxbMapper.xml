@@ -265,29 +265,20 @@
       wb6 = #{wb6,jdbcType=VARCHAR},
       wb7 = #{wb7,jdbcType=INTEGER}
     where wid = #{wid,jdbcType=VARCHAR}
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
   </update>
 
   <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
 		SELECT * FROM `wxb` AS a JOIN  `jcb` AS  b ON a.`wid` = b.`id` ORDER BY `wstate` 
 </select>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
   <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
 
 		SELECT * FROM `wxb` ORDER BY `wstate` 
 </select>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 
 <select id="queryWeixiuByStatic" resultType="org.accp.pojo.Wxb">
 	SELECT * FROM `wxb` where wstate = 2 or wstate = 4 
@@ -308,13 +299,6 @@
 
 	</select>
 	
-	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
-		SELECT * FROM `wxb` WHERE wid = #{wid}
-	</select>
-	
-	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
-	</update>
 	
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
 		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4
