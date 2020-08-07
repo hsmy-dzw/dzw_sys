@@ -41,15 +41,7 @@
 		#{rvmoney,jdbcType=DECIMAL}, #{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP},
 		#{rvstatus,jdbcType=INTEGER})
 	</insert>
-
-
-
-
-
-	
-	
-	<insert id="insertSelective">
-
+	<insert id="insertSelective"
 		parameterType="org.accp.pojo.Reqaincie">
 		insert into reqaincie
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -146,10 +138,4 @@
 		</if>
 		</where>
 	</select>
-	
-	 
-  <select id="querAll" resultType="org.accp.pojo.Reqaincie">
-		 SELECT * FROM `reqaincie`
-	</select>
 </mapper>
-
