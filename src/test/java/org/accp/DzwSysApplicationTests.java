@@ -1,6 +1,7 @@
 package org.accp;
 
 import java.text.ParseException;
+import java.util.concurrent.locks.Lock;
 
 import org.accp.pojo.Jcb;
 import org.accp.service.wc.JieCheBiao;
@@ -19,7 +20,6 @@ class DzwSysApplicationTests {
 	DeptService service;
 //	private JieCheBiao jcb1;
 	private JieCheBiao jcb1;
-	
 	
 
 }
