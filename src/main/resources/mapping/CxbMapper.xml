@@ -30,7 +30,6 @@
 	<sql id="Base_Column_List">
 		xid, pid2, fdjid, cxname, xb1, xb2, xb3, xb4
 	</sql>
-<<<<<<< HEAD
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -179,7 +178,7 @@
 					and	b.`pid2` = #{page.name}
 					</if>
 				</where>
-=======
+	</select>
 	
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
@@ -311,32 +310,8 @@
 		#{xid,jdbcType=INTEGER}
 	</update>
 	
-	<select id="list" resultMap="BaseResultMap" parameterType="org.accp.pojo.page">
-		SELECT *FROM cxb  a INNER JOIN  fdjb c ON a.`fdjid`=c.`fdjid`
-							 INNER JOIN clppb b ON a.`pid2` = b.`pid2`
-				<where>
-					1=1
-					<if test="page.name != null and page.name !=''">
-					and	a.`xid` = #{page.name} OR a.`cxname` LIKE '%${page.name}%'
-							OR c.`fbname` LIKE '%${page.name}%'  
-							OR b.`pinname` LIKE '%${page.name}%'
-					</if>
-				</where>
-	</select>
 	
-	
-	<select id="list2" resultMap="BaseResultMap" parameterType="org.accp.pojo.page">
-		SELECT *FROM cxb  a INNER JOIN  fdjb c ON a.`fdjid`=c.`fdjid`
-							 INNER JOIN clppb b ON a.`pid2` = b.`pid2`
-				<where>
-					1=1
-					<if test="page.name != null and page.name !=''">
-					and	b.`pid2` = #{page.name}
-					</if>
-				</where>
-	</select>
 	<select id="querAllBypid2" resultType="org.accp.pojo.Cxb">
 		SELECT * FROM cxb WHERE pid2 = #{pid2}
->>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 	</select>
 </mapper>
