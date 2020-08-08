@@ -6,7 +6,9 @@ import org.accp.pojo.OutCar;
 import org.accp.pojo.khb;
 import org.apache.ibatis.annotations.Param;
 
-public interface OutCarMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+public interface OutCarMapper extends BaseMapper<OutCar>{
     int deleteByPrimaryKey(Integer oid);
 
     int insert(OutCar record);
@@ -19,7 +21,7 @@ public interface OutCarMapper {
 
     int updateByPrimaryKey(OutCar record);
 
-	List<OutCar> queryAll();
+	public List<OutCar> queryAll();
 	
 	int updateByoid(@Param("oid") Integer oid);
 	int updateByoid2(@Param("oid") Integer oid);

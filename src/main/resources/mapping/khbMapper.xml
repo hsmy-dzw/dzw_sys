@@ -202,6 +202,7 @@
 	<select id="querMaxid" resultType="String">
 		SELECT MAX(id) FROM `jcb` 
 	</select>	
+	
 	<select id="querMaxkid" resultType="Integer">
 		SELECT MAX(kid) FROM `khb`
 	</select>

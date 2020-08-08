@@ -36,7 +36,11 @@
 		<!--吴聪-->
      <!--  //  <table tableName="jcb" domainObjectName="Jcb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
 		 -->
+<<<<<<< HEAD
+		  <table tableName="clxqb" domainObjectName="Clxqb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+=======
 		  <table tableName="" domainObjectName="Clxqb" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table> 
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 		<!-- 汤乐 -->
 		
 		

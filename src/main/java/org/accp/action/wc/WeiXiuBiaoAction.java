@@ -1,14 +1,10 @@
 package org.accp.action.wc;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.accp.pojo.Wxb;
-import org.accp.pojo.khb;
-import org.accp.pojo.khclb;
 import org.accp.service.wc.WeiXiuBiao;
-import org.accp.service.wc.kehucheliangbiao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

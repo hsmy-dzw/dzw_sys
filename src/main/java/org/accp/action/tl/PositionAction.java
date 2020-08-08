@@ -9,7 +9,6 @@ import java.util.TreeSet;
 
 import org.accp.pojo.Position;
 import org.accp.pojo.Roots;
-import org.accp.pojo.khb;
 import org.accp.service.tl.PositionService;
 import org.accp.service.tl.RootsService;
 import org.springframework.beans.factory.annotation.Autowired;

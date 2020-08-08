@@ -1,18 +1,12 @@
 package org.accp.service.wc;
 
-import java.util.List;
-
 import org.accp.dao.wc.WxbMapper;
-import org.accp.dao.wc.khclbMapper;
 import org.accp.pojo.Wxb;
-import org.accp.pojo.khb;
-import org.accp.pojo.khclb;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.accp.pojo.Position;
 
-public interface PositionMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+public interface PositionMapper extends BaseMapper<Position>{
     int deleteByPrimaryKey(Integer ppid);
 
     int insert(Position record);

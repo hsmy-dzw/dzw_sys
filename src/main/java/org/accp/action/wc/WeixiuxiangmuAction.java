@@ -3,10 +3,10 @@ package org.accp.action.wc;
 import java.util.HashMap;
 import java.util.Map;
 
+// 命名空间
+
 import org.accp.dao.wc.WxbMapper;
-import org.accp.pojo.Wxb;
 import org.accp.pojo.Wxxmb;
-import org.accp.service.wc.WeiXiuBiao;
 import org.accp.service.wc.WeiXiuXianmubiao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -42,6 +42,4 @@ public class MaintenService {
 		return "MaintenService [msid=" + msid + ", msname=" + msname + ", msdate=" + msdate + "]";
 	}
     
-    
-	
 }
