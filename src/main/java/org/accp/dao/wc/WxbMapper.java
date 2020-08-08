@@ -32,4 +32,5 @@ public interface WxbMapper {
      
     
 	public int updatefanggong(@Param("fglx") String fglx,@Param("yy") String yy,@Param("wid") String wid);
+	public int updatestatcbyjungong(@Param("wid") String wid);
 }

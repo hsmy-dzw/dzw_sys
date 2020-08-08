@@ -86,5 +86,13 @@ public class WeiXiuBiaoAction {
 		
 		return weixiubiaoAction.queryWeixiuByStatic(pageNum, pageSize);
 	}
+	@GetMapping("updatestatcbyjungong/{wid}")
+	public int updatestatcbyjungong( @PathVariable String wid) {
+		System.out.println("进入返工修改！");
+		
+		return weixiubiaoAction.updatestatcbyjungong( wid);
+	}
+	
+	
 	
 }

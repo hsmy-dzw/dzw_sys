@@ -308,11 +308,11 @@
 	</select>
 	
 	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
+		UPDATE `wxb` SET `wstate` = #{wstate},wkaidate = NOW() WHERE wid =#{wid}
 	</update>
 	
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
-		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4
+		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9
 	</select>
 	
 	<update id="updatejiage" parameterType="org.accp.pojo.Wxb">
@@ -322,4 +322,8 @@
 	<update id="updatefanggong" parameterType="org.accp.pojo.Wxb">
 		 UPDATE `wxb` SET wstate = 3 , wb3 = #{fglx},wb4=#{yy} WHERE wid=#{wid} 
 	</update>
+	<update id="updatestatcbyjungong" parameterType="org.accp.pojo.Wxb">
+		 UPDATE `wxb` SET `wstate`=9,wkaidate = NOW() WHERE wid = #{wid}
+	</update>
+	
 </mapper>

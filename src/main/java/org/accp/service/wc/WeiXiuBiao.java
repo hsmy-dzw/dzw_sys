@@ -47,6 +47,10 @@ public class WeiXiuBiao {
 	public void updatewstate(String wstate,String wid) {
 		weixiubiaomapper.querWeixiuxxBylx(wstate, wid);
 	}
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED, readOnly = false)
+	public int updatestatcbyjungong(String wid) {
+		return weixiubiaomapper.updatestatcbyjungong(wid);
+	}
 
 	
 	
