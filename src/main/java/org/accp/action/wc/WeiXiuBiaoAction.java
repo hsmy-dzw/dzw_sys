@@ -1,14 +1,10 @@
 package org.accp.action.wc;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.accp.pojo.Wxb;
-import org.accp.pojo.khb;
-import org.accp.pojo.khclb;
 import org.accp.service.wc.WeiXiuBiao;
-import org.accp.service.wc.kehucheliangbiao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -86,5 +82,13 @@ public class WeiXiuBiaoAction {
 		
 		return weixiubiaoAction.queryWeixiuByStatic(pageNum, pageSize);
 	}
+	@GetMapping("updatestatcbyjungong/{wid}")
+	public int updatestatcbyjungong( @PathVariable String wid) {
+		System.out.println("进入返工修改！");
+		
+		return weixiubiaoAction.updatestatcbyjungong( wid);
+	}
+	
+	
 	
 }

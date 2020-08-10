@@ -1,223 +1,256 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.accp.dao.yl.PersonsMapper" >
-  <resultMap id="BaseResultMap" type="org.accp.pojo.Persons" >
-    <id column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="ppid" property="ppid" jdbcType="INTEGER" />
-    <result column="pname" property="pname" jdbcType="VARCHAR" />
-    <result column="psex" property="psex" jdbcType="VARCHAR" />
-    <result column="account" property="account" jdbcType="VARCHAR" />
-    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
-    <result column="fedeintime" property="fedeintime" jdbcType="DATE" />
-    <result column="brithday" property="brithday" jdbcType="DATE" />
-    <result column="pstatus" property="pstatus" jdbcType="VARCHAR" />
-    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
-    <result column="pouttime" property="pouttime" jdbcType="DATE" />
-    <result column="paddress" property="paddress" jdbcType="VARCHAR" />
-    <result column="sosname" property="sosname" jdbcType="VARCHAR" />
-    <result column="sosphone" property="sosphone" jdbcType="VARCHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="isadmin" property="isadmin" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    pid, ppid, pname, psex, account, pwd, fedeintime, brithday, pstatus, idcard, pouttime, 
-    paddress, sosname, sosphone, email, isadmin
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from persons
-    where pid = #{pid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from persons
-    where pid = #{pid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="org.accp.pojo.Persons" >
-    insert into persons (pid, ppid, pname, 
-      psex, account, pwd, 
-      fedeintime, brithday, pstatus, 
-      idcard, pouttime, paddress, 
-      sosname, sosphone, email, 
-      isadmin)
-    values (#{pid,jdbcType=INTEGER}, #{ppid,jdbcType=INTEGER}, #{pname,jdbcType=VARCHAR}, 
-      #{psex,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
-      #{fedeintime,jdbcType=DATE}, #{brithday,jdbcType=DATE}, #{pstatus,jdbcType=VARCHAR}, 
-      #{idcard,jdbcType=VARCHAR}, #{pouttime,jdbcType=DATE}, #{paddress,jdbcType=VARCHAR}, 
-      #{sosname,jdbcType=VARCHAR}, #{sosphone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{isadmin,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="org.accp.pojo.Persons" >
-    insert into persons
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="pid != null" >
-        pid,
-      </if>
-      <if test="ppid != null" >
-        ppid,
-      </if>
-      <if test="pname != null" >
-        pname,
-      </if>
-      <if test="psex != null" >
-        psex,
-      </if>
-      <if test="account != null" >
-        account,
-      </if>
-      <if test="pwd != null" >
-        pwd,
-      </if>
-      <if test="fedeintime != null" >
-        fedeintime,
-      </if>
-      <if test="brithday != null" >
-        brithday,
-      </if>
-      <if test="pstatus != null" >
-        pstatus,
-      </if>
-      <if test="idcard != null" >
-        idcard,
-      </if>
-      <if test="pouttime != null" >
-        pouttime,
-      </if>
-      <if test="paddress != null" >
-        paddress,
-      </if>
-      <if test="sosname != null" >
-        sosname,
-      </if>
-      <if test="sosphone != null" >
-        sosphone,
-      </if>
-      <if test="email != null" >
-        email,
-      </if>
-      <if test="isadmin != null" >
-        isadmin,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="pid != null" >
-        #{pid,jdbcType=INTEGER},
-      </if>
-      <if test="ppid != null" >
-        #{ppid,jdbcType=INTEGER},
-      </if>
-      <if test="pname != null" >
-        #{pname,jdbcType=VARCHAR},
-      </if>
-      <if test="psex != null" >
-        #{psex,jdbcType=VARCHAR},
-      </if>
-      <if test="account != null" >
-        #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null" >
-        #{pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="fedeintime != null" >
-        #{fedeintime,jdbcType=DATE},
-      </if>
-      <if test="brithday != null" >
-        #{brithday,jdbcType=DATE},
-      </if>
-      <if test="pstatus != null" >
-        #{pstatus,jdbcType=VARCHAR},
-      </if>
-      <if test="idcard != null" >
-        #{idcard,jdbcType=VARCHAR},
-      </if>
-      <if test="pouttime != null" >
-        #{pouttime,jdbcType=DATE},
-      </if>
-      <if test="paddress != null" >
-        #{paddress,jdbcType=VARCHAR},
-      </if>
-      <if test="sosname != null" >
-        #{sosname,jdbcType=VARCHAR},
-      </if>
-      <if test="sosphone != null" >
-        #{sosphone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null" >
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="isadmin != null" >
-        #{isadmin,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Persons" >
-    update persons
-    <set >
-      <if test="ppid != null" >
-        ppid = #{ppid,jdbcType=INTEGER},
-      </if>
-      <if test="pname != null" >
-        pname = #{pname,jdbcType=VARCHAR},
-      </if>
-      <if test="psex != null" >
-        psex = #{psex,jdbcType=VARCHAR},
-      </if>
-      <if test="account != null" >
-        account = #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null" >
-        pwd = #{pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="fedeintime != null" >
-        fedeintime = #{fedeintime,jdbcType=DATE},
-      </if>
-      <if test="brithday != null" >
-        brithday = #{brithday,jdbcType=DATE},
-      </if>
-      <if test="pstatus != null" >
-        pstatus = #{pstatus,jdbcType=VARCHAR},
-      </if>
-      <if test="idcard != null" >
-        idcard = #{idcard,jdbcType=VARCHAR},
-      </if>
-      <if test="pouttime != null" >
-        pouttime = #{pouttime,jdbcType=DATE},
-      </if>
-      <if test="paddress != null" >
-        paddress = #{paddress,jdbcType=VARCHAR},
-      </if>
-      <if test="sosname != null" >
-        sosname = #{sosname,jdbcType=VARCHAR},
-      </if>
-      <if test="sosphone != null" >
-        sosphone = #{sosphone,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null" >
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="isadmin != null" >
-        isadmin = #{isadmin,jdbcType=INTEGER},
-      </if>
-    </set>
-    where pid = #{pid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Persons" >
-    update persons
-    set ppid = #{ppid,jdbcType=INTEGER},
-      pname = #{pname,jdbcType=VARCHAR},
-      psex = #{psex,jdbcType=VARCHAR},
-      account = #{account,jdbcType=VARCHAR},
-      pwd = #{pwd,jdbcType=VARCHAR},
-      fedeintime = #{fedeintime,jdbcType=DATE},
-      brithday = #{brithday,jdbcType=DATE},
-      pstatus = #{pstatus,jdbcType=VARCHAR},
-      idcard = #{idcard,jdbcType=VARCHAR},
-      pouttime = #{pouttime,jdbcType=DATE},
-      paddress = #{paddress,jdbcType=VARCHAR},
-      sosname = #{sosname,jdbcType=VARCHAR},
-      sosphone = #{sosphone,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      isadmin = #{isadmin,jdbcType=INTEGER}
-    where pid = #{pid,jdbcType=INTEGER}
-  </update>
+<mapper namespace="org.accp.dao.yl.PersonsMapper">
+	<resultMap id="BaseResultMap" type="org.accp.pojo.Persons">
+		<id column="pid" property="pid" jdbcType="INTEGER" />
+		<result column="ppid" property="ppid" jdbcType="INTEGER" />
+		<result column="pname" property="pname" jdbcType="VARCHAR" />
+		<result column="psex" property="psex" jdbcType="VARCHAR" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+		<result column="fedeintime" property="fedeintime"
+			jdbcType="DATE" />
+		<result column="brithday" property="brithday" jdbcType="DATE" />
+		<result column="pstatus" property="pstatus" jdbcType="VARCHAR" />
+		<result column="idcard" property="idcard" jdbcType="VARCHAR" />
+		<result column="pouttime" property="pouttime" jdbcType="DATE" />
+		<result column="paddress" property="paddress"
+			jdbcType="VARCHAR" />
+		<result column="sosname" property="sosname" jdbcType="VARCHAR" />
+		<result column="sosphone" property="sosphone"
+			jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="isadmin" property="isadmin" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		pid, ppid, pname, psex, account, pwd, fedeintime, brithday, pstatus,
+		idcard, pouttime,
+		paddress, sosname, sosphone, email, isadmin
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from persons
+		where pid = #{pid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from persons
+		where pid = #{pid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="org.accp.pojo.Persons">
+		insert into persons (pid, ppid, pname,
+		psex, account, pwd,
+		fedeintime, brithday, pstatus,
+		idcard, pouttime, paddress,
+		sosname, sosphone, email,
+		isadmin)
+		values (#{pid,jdbcType=INTEGER}, #{ppid,jdbcType=INTEGER},
+		#{pname,jdbcType=VARCHAR},
+		#{psex,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR},
+		#{fedeintime,jdbcType=DATE}, #{brithday,jdbcType=DATE},
+		#{pstatus,jdbcType=VARCHAR},
+		#{idcard,jdbcType=VARCHAR}, #{pouttime,jdbcType=DATE}, #{paddress,jdbcType=VARCHAR},
+		#{sosname,jdbcType=VARCHAR}, #{sosphone,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{isadmin,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="org.accp.pojo.Persons">
+		insert into persons
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pid != null">
+				pid,
+			</if>
+			<if test="ppid != null">
+				ppid,
+			</if>
+			<if test="pname != null">
+				pname,
+			</if>
+			<if test="psex != null">
+				psex,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="pwd != null">
+				pwd,
+			</if>
+			<if test="fedeintime != null">
+				fedeintime,
+			</if>
+			<if test="brithday != null">
+				brithday,
+			</if>
+			<if test="pstatus != null">
+				pstatus,
+			</if>
+			<if test="idcard != null">
+				idcard,
+			</if>
+			<if test="pouttime != null">
+				pouttime,
+			</if>
+			<if test="paddress != null">
+				paddress,
+			</if>
+			<if test="sosname != null">
+				sosname,
+			</if>
+			<if test="sosphone != null">
+				sosphone,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="isadmin != null">
+				isadmin,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="pid != null">
+				#{pid,jdbcType=INTEGER},
+			</if>
+			<if test="ppid != null">
+				#{ppid,jdbcType=INTEGER},
+			</if>
+			<if test="pname != null">
+				#{pname,jdbcType=VARCHAR},
+			</if>
+			<if test="psex != null">
+				#{psex,jdbcType=VARCHAR},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				#{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="fedeintime != null">
+				#{fedeintime,jdbcType=DATE},
+			</if>
+			<if test="brithday != null">
+				#{brithday,jdbcType=DATE},
+			</if>
+			<if test="pstatus != null">
+				#{pstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="idcard != null">
+				#{idcard,jdbcType=VARCHAR},
+			</if>
+			<if test="pouttime != null">
+				#{pouttime,jdbcType=DATE},
+			</if>
+			<if test="paddress != null">
+				#{paddress,jdbcType=VARCHAR},
+			</if>
+			<if test="sosname != null">
+				#{sosname,jdbcType=VARCHAR},
+			</if>
+			<if test="sosphone != null">
+				#{sosphone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isadmin != null">
+				#{isadmin,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="org.accp.pojo.Persons">
+		update persons
+		<set>
+			<if test="ppid != null">
+				ppid = #{ppid,jdbcType=INTEGER},
+			</if>
+			<if test="pname != null">
+				pname = #{pname,jdbcType=VARCHAR},
+			</if>
+			<if test="psex != null">
+				psex = #{psex,jdbcType=VARCHAR},
+			</if>
+			<if test="account != null">
+				account = #{account,jdbcType=VARCHAR},
+			</if>
+			<if test="pwd != null">
+				pwd = #{pwd,jdbcType=VARCHAR},
+			</if>
+			<if test="fedeintime != null">
+				fedeintime = #{fedeintime,jdbcType=DATE},
+			</if>
+			<if test="brithday != null">
+				brithday = #{brithday,jdbcType=DATE},
+			</if>
+			<if test="pstatus != null">
+				pstatus = #{pstatus,jdbcType=VARCHAR},
+			</if>
+			<if test="idcard != null">
+				idcard = #{idcard,jdbcType=VARCHAR},
+			</if>
+			<if test="pouttime != null">
+				pouttime = #{pouttime,jdbcType=DATE},
+			</if>
+			<if test="paddress != null">
+				paddress = #{paddress,jdbcType=VARCHAR},
+			</if>
+			<if test="sosname != null">
+				sosname = #{sosname,jdbcType=VARCHAR},
+			</if>
+			<if test="sosphone != null">
+				sosphone = #{sosphone,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="isadmin != null">
+				isadmin = #{isadmin,jdbcType=INTEGER},
+			</if>
+		</set>
+		where pid = #{pid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="org.accp.pojo.Persons">
+		update persons
+		set ppid = #{ppid,jdbcType=INTEGER},
+		pname = #{pname,jdbcType=VARCHAR},
+		psex = #{psex,jdbcType=VARCHAR},
+		account = #{account,jdbcType=VARCHAR},
+		pwd = #{pwd,jdbcType=VARCHAR},
+		fedeintime = #{fedeintime,jdbcType=DATE},
+		brithday = #{brithday,jdbcType=DATE},
+		pstatus = #{pstatus,jdbcType=VARCHAR},
+		idcard = #{idcard,jdbcType=VARCHAR},
+		pouttime = #{pouttime,jdbcType=DATE},
+		paddress = #{paddress,jdbcType=VARCHAR},
+		sosname = #{sosname,jdbcType=VARCHAR},
+		sosphone = #{sosphone,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		isadmin = #{isadmin,jdbcType=INTEGER}
+		where pid = #{pid,jdbcType=INTEGER}
+	</update>
+	<select id="queryAll" resultType="org.accp.pojo.Persons">
+		SELECT p1.*,d.peptname,p2.ppnamne FROM persons p1 
+		INNER JOIN `position` p2
+		ON p1.ppid = p2.ppid
+		INNER JOIN dept d 
+		WHERE d.`peptid` = p1.ppid
+		<if test="name != null and name != ''">
+			AND pname LIKE '%${name}%'
+		</if>
+		ORDER BY p1.fedeintime DESC
+	</select>
+	
+	<select id="queryById" resultType="org.accp.pojo.Persons">
+		SELECT p1.*,d.peptname,p2.ppnamne FROM persons p1 
+		INNER JOIN `position` p2
+		ON p1.ppid = p2.ppid
+		INNER JOIN dept d 
+		WHERE d.`peptid` = p1.ppid AND p1.pid = #{id}
+	</select>
+
+
 </mapper>

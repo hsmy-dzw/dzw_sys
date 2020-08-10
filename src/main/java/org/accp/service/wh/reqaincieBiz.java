@@ -1,5 +1,7 @@
 package org.accp.service.wh;
 
+import java.util.List;
+
 import org.accp.dao.wh.ReqaincieMapper;
 import org.accp.pojo.Reqaincie;
 import org.accp.pojo.page;
@@ -55,4 +57,10 @@ public class reqaincieBiz extends ServiceImpl<ReqaincieMapper, Reqaincie>{
 	public int update2 (Integer id,Integer status) {
 		return super.getBaseMapper().updteSj(id, status);
 	}
+	
+	
+	public List<Reqaincie> querAll () {
+		return pr.querAll();
+	}
+	
 }

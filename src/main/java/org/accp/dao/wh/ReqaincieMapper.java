@@ -29,6 +29,9 @@ public interface ReqaincieMapper extends BaseMapper<Reqaincie> {
 
     int updateByPrimaryKey(Reqaincie record);
     
+
+    public List<Reqaincie> querAll();
+
     @Update("UPDATE reqaincie SET rvstatus = #{status} WHERE rvid=#{id}")
     int updteSj(@Param("id") Integer id,@Param("status") Integer status);
     
@@ -36,4 +39,7 @@ public interface ReqaincieMapper extends BaseMapper<Reqaincie> {
    int countID(@Param("id") Integer id);
     
     List<Reqaincie> pageinfo(@Param("page") page pag);
+    
+   
+
 }

@@ -265,11 +265,27 @@
       wb6 = #{wb6,jdbcType=VARCHAR},
       wb7 = #{wb7,jdbcType=INTEGER}
     where wid = #{wid,jdbcType=VARCHAR}
+
+
+
+
   </update>
   <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
-
 		SELECT * FROM `wxb` ORDER BY `wstate` 
+	</select>
+	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
+		SELECT * FROM `wxb` WHERE wid = #{wid}
+	</select>
+	
+	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
+		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
+	</update>
+	
+
+  <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
+		SELECT * FROM `wxb` AS a JOIN  `jcb` AS  b ON a.`wid` = b.`id` ORDER BY `wstate` 
 </select>
+
 
 
 <select id="queryWeixiuByStatic" resultType="org.accp.pojo.Wxb">
@@ -284,22 +300,20 @@
 	UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
 </update>
 
-
-	<select id= "querWeixiuxx" resultType="org.accp.pojo.Wxb">
-
-		SELECT * FROM `wxb` AS a JOIN  `jcb` AS b ON a.`wid` = b.`id` ORDER BY `wstate` 
-	</select>
 	
+<<<<<<< HEAD
 	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
 		SELECT * FROM `wxb` WHERE wid = #{wid}
 	</select>
 	
 	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
+		UPDATE `wxb` SET `wstate` = #{wstate},wkaidate = NOW() WHERE wid =#{wid}
 	</update>
+=======
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 	
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
-		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4
+		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9
 	</select>
 	
 	<update id="updatejiage" parameterType="org.accp.pojo.Wxb">
@@ -309,5 +323,11 @@
 	<update id="updatefanggong" parameterType="org.accp.pojo.Wxb">
 		 UPDATE `wxb` SET wstate = 3 , wb3 = #{fglx},wb4=#{yy} WHERE wid=#{wid} 
 	</update>
+<<<<<<< HEAD
+	<update id="updatestatcbyjungong" parameterType="org.accp.pojo.Wxb">
+		 UPDATE `wxb` SET `wstate`=9,wkaidate = NOW() WHERE wid = #{wid}
+	</update>
+=======
+>>>>>>> branch 'master' of https://github.com/hsmy-dzw/dzw_sys.git
 	
 </mapper>

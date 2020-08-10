@@ -3,10 +3,10 @@ package org.accp.action.wc;
 import java.util.HashMap;
 import java.util.Map;
 
+// 命名空间
+
 import org.accp.dao.wc.WxbMapper;
-import org.accp.pojo.Wxb;
 import org.accp.pojo.Wxxmb;
-import org.accp.service.wc.WeiXiuBiao;
 import org.accp.service.wc.WeiXiuXianmubiao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,9 +28,17 @@ public class WeixiuxiangmuAction {
 	private  WxbMapper weixiubiao;
 	
 	@PostMapping("person")
-	public Map<String, Object> addPerson(@RequestBody Wxxmb pojo) {
+	public Map<String, Object> addPerson(@RequestBody Wxxmb wxxmb []) {
+		System.out.println("进入项目详情新增");
 		
-		weixiuxiangmuAction.addPerson(pojo);
+		
+		for (Wxxmb wxxmb2 : wxxmb) {
+			wxxmb2.setWid(wxxmb[0].getWid());
+			
+			weixiuxiangmuAction.addPerson(wxxmb2);
+			
+		}
+		
 		Map<String, Object> message = new HashMap<String, Object>();
 		message.put("code", "200");
 		message.put("msg", "ok");

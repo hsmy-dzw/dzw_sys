@@ -20,11 +20,12 @@ public interface WxbMapper {
     
     public List<Wxb> querWeixiuxx();
     
-    List<Wxb> queryWeixiuByStatic();
-    
     public Wxb querWeixiuxxByid(@Param("wid") String wid);
     
      int querWeixiuxxBylx(@Param("wstate") String wstate ,@Param("wid") String wid);
+    List<Wxb> queryWeixiuByStatic();
+    
+    
      
      public List<Wxb> querWrixiuwanc();
      
@@ -32,4 +33,5 @@ public interface WxbMapper {
      
     
 	public int updatefanggong(@Param("fglx") String fglx,@Param("yy") String yy,@Param("wid") String wid);
+	public int updatestatcbyjungong(@Param("wid") String wid);
 }
