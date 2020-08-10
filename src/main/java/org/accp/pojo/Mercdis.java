@@ -2,6 +2,10 @@ package org.accp.pojo;
 
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+
+@TableName("mercdis")
 public class Mercdis {
     private Integer mdid;
 

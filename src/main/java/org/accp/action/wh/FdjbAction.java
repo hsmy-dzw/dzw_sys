@@ -61,9 +61,17 @@ public class FdjbAction {
 	@GetMapping("updashow/{id}")
 	public Map<String, Object> show1(@PathVariable("id") Integer id){
 		Map<String, Object> map = new HashMap<String, Object>();
-		 Fdjb id2 = biz.selectByPrimaryKey(id);
+		Fdjb id2 = biz.selectByPrimaryKey(id);
 		map.put("code", id2.getFdjpp() == null ?"500":"200");
 		map.put("data", id2);
+		return map;
+	}
+	
+	@GetMapping("updashow1/{id}")
+	public Map<String, Object> show12(@PathVariable("id") Integer id){
+		Map<String, Object> map = new HashMap<String, Object>();
+		Integer count = biz.fdjCount(id);
+		map.put("code",count == 0 ?"500":"200");
 		return map;
 	}
 	

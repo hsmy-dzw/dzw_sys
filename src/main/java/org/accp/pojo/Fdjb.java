@@ -1,5 +1,8 @@
 package org.accp.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("fdjb")
 public class Fdjb {
     private Integer fdjid;
 

@@ -134,10 +134,10 @@
 		SELECT* FROM reqaincie a INNER JOIN  MaintenService b ON a.`msid` = b.`msid` 
 		<where>
 		1=1
-		
 		<if test="page.name != null and page.name != ''">
-		   and a.`msid` in (select msid from MaintenService where msname like '%${page.name}%') or a.`rvname` like '%${page.name}%' OR rvid =  #{page.name}
-		</if>
+		   and a.`msid` in (select msid from MaintenService where msname =#{page.name})
+		   </if> 
 		</where>
 	</select>
+	
 </mapper>
