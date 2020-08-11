@@ -37,6 +37,12 @@ public class CxbBiz extends ServiceImpl<CxbMapper, Cxb> {
 		return pr.cx(xid);
 	}
 	
+	public int count2 (Integer id) {
+		QueryWrapper<Cxb> qw = new QueryWrapper<Cxb>();
+		qw.eq("fdjid", id);
+		return super.getBaseMapper().selectCount(qw);
+	}
+	
 	public int count (Integer id) {
 		return pr.cx2(id);
 	}
