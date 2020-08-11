@@ -3,6 +3,7 @@ package org.accp.dao.wc;
 import java.util.List;
 
 import org.accp.pojo.Clxqb;
+import org.accp.pojo.Mercdis;
 import org.springframework.web.bind.annotation.PathVariable;
 
 public interface ClxqbMapper {
@@ -19,4 +20,6 @@ public interface ClxqbMapper {
     int updateByPrimaryKey(Clxqb record);
     
     public List<Clxqb> querBywid(@PathVariable("wid") String wid);
+    
+    public List<Mercdis> querAll();
 }

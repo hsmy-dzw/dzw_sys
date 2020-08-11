@@ -1,9 +1,19 @@
 package org.accp.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class Mercdis {
-    private Integer mdid;
+	List<Mercdis> list;
+    public List<Mercdis> getList() {
+		return list;
+	}
+
+	public void setList(List<Mercdis> list) {
+		this.list = list;
+	}
+
+	private Integer mdid;
 
     private String scoed;
 

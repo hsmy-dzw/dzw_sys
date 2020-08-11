@@ -1,5 +1,7 @@
 package org.accp.dao.wh;
 
+import java.util.List;
+
 import org.accp.pojo.Mercdis;
 
 public interface MercdisMapper {
@@ -14,4 +16,6 @@ public interface MercdisMapper {
     int updateByPrimaryKeySelective(Mercdis record);
 
     int updateByPrimaryKey(Mercdis record);
+    
+   
 }

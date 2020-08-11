@@ -31,7 +31,7 @@ public class Wxb {
 
     private String wb1;
 
-    private String wb2;
+    private Float wb2;
 
     private String wb3;
 
@@ -166,15 +166,17 @@ public class Wxb {
         this.wb1 = wb1 == null ? null : wb1.trim();
     }
 
-    public String getWb2() {
-        return wb2;
-    }
+   
 
-    public void setWb2(String wb2) {
-        this.wb2 = wb2 == null ? null : wb2.trim();
-    }
+    public Float getWb2() {
+		return wb2;
+	}
 
-    public String getWb3() {
+	public void setWb2(Float wb2) {
+		this.wb2 = wb2;
+	}
+
+	public String getWb3() {
         return wb3;
     }
 

@@ -19,7 +19,7 @@ public interface khbMapper {
     
     int updateByPrimaryKey(khb record);
     
-    public List<khb> quertAllkhb();
+    public List<khb> quertAllkhb(@Param("kphone") String kphone);
     public khb quertAllkhbbyid(@Param("kid") Integer kid);
     public khb qurechclBycKehuxingxi(@Param("chepiao") String chepiao);
     

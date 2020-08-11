@@ -196,4 +196,5 @@
       mdate = #{mdate,jdbcType=DATE}
     where mdid = #{mdid,jdbcType=INTEGER}
   </update>
+  
 </mapper>
