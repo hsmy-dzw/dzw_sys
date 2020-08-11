@@ -52,28 +52,28 @@ public class WeixiuxiangmuAction {
 	}
 	@GetMapping("er/{p}/{s}/{wid}")
 	public int queryPage2(@PathVariable Integer p, @PathVariable Integer s,@PathVariable String wid) {
-		System.out.println("进入价格！");
+		
 		int jiag= weixiuxiangmuAction.findPersonListByPage2(p, s,wid);
 		int jiag2= weixiuxiangmuAction.findPersonListByPage3(p, s,wid);
 		String jiag3= weixiuxiangmuAction.findPersonListByPage4(p, s,wid);
-		int j =0;
-		int jiags=0;
+		System.out.println("进入价格123123123123！");
+		System.out.println(jiag2);
+		System.out.println(jiag3);
+		Float jiags ;
 		if(jiag3==null) {
-			jiag3 = "0";
-			j = Integer.parseInt(jiag3);
+			jiag3 ="0";
+			Float j=Float.parseFloat(jiag3);
 			jiags=jiag+jiag2+j;
 		}else {
-			j =Integer.parseInt(jiag3);
+			Float j=Float.parseFloat(jiag3);
 			jiags=jiag+jiag2+j;
 		}
 		
 		
-    weixiubiao.updatejiage(wid, jiags);
-	System.out.println(jiag);
-	System.out.println(jiag2);
-	System.out.println(j);
-		
-		return jiags;
+      weixiubiao.updatejiage(wid,jiags);
+	
+	
+	return 1;
 	}
 	
 }

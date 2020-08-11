@@ -26,18 +26,20 @@ public class khbAction {
 	@Autowired
 	private  kehubiao kehubiaos;
 
-	@GetMapping("{p}/{s}")
-	public PageInfo<khb> queryPage(@PathVariable Integer p, @PathVariable Integer s) {
-		return kehubiaos.findPersonListByPage(p, s);
+	@GetMapping("{p}/{s}/{phone}")
+	public PageInfo<khb> queryPage(@PathVariable Integer p, @PathVariable Integer s,@PathVariable String phone) {
+		System.out.println(phone);
+		System.out.println("进入客户查询");
+		return kehubiaos.findPersonListByPage(p, s,phone);
 	}
 
-	@GetMapping(value = "{p}/{s}/jsonp")
-	public JSONPObject getPersonListByPageToJSONP(@PathVariable Integer p, @PathVariable Integer s) throws Exception {
+	@GetMapping(value = "{p}/{s}/{phone}/jsonp")
+	public JSONPObject getPersonListByPageToJSONP(@PathVariable Integer p, @PathVariable Integer s,@PathVariable String phone) throws Exception {
 		// 跨域函数名称
 		JSONPObject jsonp = new JSONPObject("callback");// 非常重要。对应jquery中jsonpCallback设置
 		// 追加json数据
 		// callback({})
-		jsonp.addParameter(kehubiaos.findPersonListByPage(p, s));
+		jsonp.addParameter(kehubiaos.findPersonListByPage(p, s,phone));
 		return jsonp;
 	}
 

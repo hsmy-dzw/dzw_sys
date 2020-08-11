@@ -1,134 +1,124 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.accp.dao.wh.ReqaincieMapper">
-	<resultMap id="BaseResultMap" type="org.accp.pojo.Reqaincie">
-		<id column="rvid" property="rvid" jdbcType="INTEGER" />
-		<result column="msid" property="msid" jdbcType="INTEGER" />
-		<result column="rvname" property="rvname" jdbcType="VARCHAR" />
-		<result column="rvmoney" property="rvmoney" jdbcType="DECIMAL" />
-		<result column="rvpostscriopnot" property="rvpostscriopnot"
-			jdbcType="VARCHAR" />
-		<result column="rvdate" property="rvdate" jdbcType="TIMESTAMP" />
-		<result column="rvstatus" property="rvstatus"
-			jdbcType="INTEGER" />
-		<association property="ce" javaType="org.accp.pojo.MaintenService">
-			<id column="msid" property="msid" jdbcType="INTEGER" />
-			<result column="msname" property="msname" jdbcType="VARCHAR" />
-			<result column="msdate" property="msdate" jdbcType="TIMESTAMP" />
-		</association>
-	</resultMap>
-	<sql id="Base_Column_List">
-		rvid, msid, rvname, rvmoney, rvpostscriopnot, rvdate, rvstatus
-	</sql>
-	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
-		parameterType="java.lang.Integer">
-		select
-		<include refid="Base_Column_List" />
-		from reqaincie
-		where rvid = #{rvid,jdbcType=INTEGER}
-	</select>
-	<delete id="deleteByPrimaryKey"
-		parameterType="java.lang.Integer">
-		delete from reqaincie
-		where rvid = #{rvid,jdbcType=INTEGER}
-	</delete>
-	<insert id="insert" parameterType="org.accp.pojo.Reqaincie">
-		insert into reqaincie (rvid, msid, rvname,
-		rvmoney, rvpostscriopnot, rvdate,
-		rvstatus)
-		values (#{rvid,jdbcType=INTEGER}, #{msid,jdbcType=INTEGER},
-		#{rvname,jdbcType=VARCHAR},
-		#{rvmoney,jdbcType=DECIMAL}, #{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP},
-		#{rvstatus,jdbcType=INTEGER})
-	</insert>
-	
-	
-	<insert id="insertSelective"
-		parameterType="org.accp.pojo.Reqaincie">
-		insert into reqaincie
-		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="rvid != null">
-				rvid,
-			</if>
-			<if test="msid != null">
-				msid,
-			</if>
-			<if test="rvname != null">
-				rvname,
-			</if>
-			<if test="rvmoney != null">
-				rvmoney,
-			</if>
-			<if test="rvpostscriopnot != null">
-				rvpostscriopnot,
-			</if>
-			<if test="rvdate != null">
-				rvdate,
-			</if>
-			<if test="rvstatus != null">
-				rvstatus,
-			</if>
-		</trim>
-		<trim prefix="values (" suffix=")" suffixOverrides=",">
-			<if test="rvid != null">
-				#{rvid,jdbcType=INTEGER},
-			</if>
-			<if test="msid != null">
-				#{msid,jdbcType=INTEGER},
-			</if>
-			<if test="rvname != null">
-				#{rvname,jdbcType=VARCHAR},
-			</if>
-			<if test="rvmoney != null">
-				#{rvmoney,jdbcType=DECIMAL},
-			</if>
-			<if test="rvpostscriopnot != null">
-				#{rvpostscriopnot,jdbcType=VARCHAR},
-			</if>
-			<if test="rvdate != null">
-				#{rvdate,jdbcType=TIMESTAMP},
-			</if>
-			<if test="rvstatus != null">
-				#{rvstatus,jdbcType=INTEGER},
-			</if>
-		</trim>
-	</insert>
-	<update id="updateByPrimaryKeySelective"
-		parameterType="org.accp.pojo.Reqaincie">
-		update reqaincie
-		<set>
-			<if test="msid != null">
-				msid = #{msid,jdbcType=INTEGER},
-			</if>
-			<if test="rvname != null">
-				rvname = #{rvname,jdbcType=VARCHAR},
-			</if>
-			<if test="rvmoney != null">
-				rvmoney = #{rvmoney,jdbcType=DECIMAL},
-			</if>
-			<if test="rvpostscriopnot != null">
-				rvpostscriopnot = #{rvpostscriopnot,jdbcType=VARCHAR},
-			</if>
-			<if test="rvdate != null">
-				rvdate = #{rvdate,jdbcType=TIMESTAMP},
-			</if>
-			<if test="rvstatus != null">
-				rvstatus = #{rvstatus,jdbcType=INTEGER},
-			</if>
-		</set>
-		where rvid = #{rvid,jdbcType=INTEGER}
-	</update>
-	<update id="updateByPrimaryKey"
-		parameterType="org.accp.pojo.Reqaincie">
-		update reqaincie
-		set msid = #{msid,jdbcType=INTEGER},
-		rvname = #{rvname,jdbcType=VARCHAR},
-		rvmoney = #{rvmoney,jdbcType=DECIMAL},
-		rvpostscriopnot = #{rvpostscriopnot,jdbcType=VARCHAR},
-		rvdate = #{rvdate,jdbcType=TIMESTAMP},
-		rvstatus = #{rvstatus,jdbcType=INTEGER}
-		where rvid = #{rvid,jdbcType=INTEGER}
-	</update>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<mapper namespace="org.accp.dao.wh.ReqaincieMapper" >
+  <resultMap id="BaseResultMap" type="org.accp.pojo.Reqaincie" >
+    <id column="rvid" property="rvid" jdbcType="INTEGER" />
+    <result column="msid" property="msid" jdbcType="INTEGER" />
+    <result column="rvname" property="rvname" jdbcType="VARCHAR" />
+    <result column="rvmoney" property="rvmoney" jdbcType="DECIMAL" />
+    <result column="rvpostscriopnot" property="rvpostscriopnot" jdbcType="VARCHAR" />
+    <result column="rvdate" property="rvdate" jdbcType="TIMESTAMP" />
+    <result column="rvstatus" property="rvstatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    rvid, msid, rvname, rvmoney, rvpostscriopnot, rvdate, rvstatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from reqaincie
+    where rvid = #{rvid,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="org.accp.pojo.Reqaincie" >
+    insert into reqaincie (rvid, msid, rvname, 
+      rvmoney, rvpostscriopnot, rvdate, 
+      rvstatus)
+    values (#{rvid,jdbcType=INTEGER}, #{msid,jdbcType=INTEGER}, #{rvname,jdbcType=VARCHAR}, 
+      #{rvmoney,jdbcType=DECIMAL}, #{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP}, 
+      #{rvstatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.accp.pojo.Reqaincie" >
+    insert into reqaincie
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rvid != null" >
+        rvid,
+      </if>
+      <if test="msid != null" >
+        msid,
+      </if>
+      <if test="rvname != null" >
+        rvname,
+      </if>
+      <if test="rvmoney != null" >
+        rvmoney,
+      </if>
+      <if test="rvpostscriopnot != null" >
+        rvpostscriopnot,
+      </if>
+      <if test="rvdate != null" >
+        rvdate,
+      </if>
+      <if test="rvstatus != null" >
+        rvstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rvid != null" >
+        #{rvid,jdbcType=INTEGER},
+      </if>
+      <if test="msid != null" >
+        #{msid,jdbcType=INTEGER},
+      </if>
+      <if test="rvname != null" >
+        #{rvname,jdbcType=VARCHAR},
+      </if>
+      <if test="rvmoney != null" >
+        #{rvmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rvpostscriopnot != null" >
+        #{rvpostscriopnot,jdbcType=VARCHAR},
+      </if>
+      <if test="rvdate != null" >
+        #{rvdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rvstatus != null" >
+        #{rvstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.accp.pojo.Reqaincie" >
+    update reqaincie
+    <set >
+      <if test="msid != null" >
+        msid = #{msid,jdbcType=INTEGER},
+      </if>
+      <if test="rvname != null" >
+        rvname = #{rvname,jdbcType=VARCHAR},
+      </if>
+      <if test="rvmoney != null" >
+        rvmoney = #{rvmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="rvpostscriopnot != null" >
+        rvpostscriopnot = #{rvpostscriopnot,jdbcType=VARCHAR},
+      </if>
+      <if test="rvdate != null" >
+        rvdate = #{rvdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rvstatus != null" >
+        rvstatus = #{rvstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where rvid = #{rvid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Reqaincie" >
+    update reqaincie
+    set msid = #{msid,jdbcType=INTEGER},
+      rvname = #{rvname,jdbcType=VARCHAR},
+      rvmoney = #{rvmoney,jdbcType=DECIMAL},
+      rvpostscriopnot = #{rvpostscriopnot,jdbcType=VARCHAR},
+      rvdate = #{rvdate,jdbcType=TIMESTAMP},
+      rvstatus = #{rvstatus,jdbcType=INTEGER}
+    where rvid = #{rvid,jdbcType=INTEGER}
+  </update>
+
+  
+  <select id="querAll" resultType="org.accp.pojo.Reqaincie">
+  	select * from reqaincie
+  </select>
+
 	
 	<select id="pageinfo" resultMap="BaseResultMap" parameterType="org.accp.pojo.page">
 		SELECT* FROM reqaincie a INNER JOIN  MaintenService b ON a.`msid` = b.`msid` 

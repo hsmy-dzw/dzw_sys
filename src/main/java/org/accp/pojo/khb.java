@@ -3,6 +3,14 @@ package org.accp.pojo;
 import java.util.Date;
 
 public class khb {
+	private String cxname;
+	public String getCxname() {
+		return cxname;
+	}
+
+	public void setCxname(String cxname) {
+		this.cxname = cxname;
+	}
 	private String cnumber;
 	private String cmodel;
     public String getCnumber() {

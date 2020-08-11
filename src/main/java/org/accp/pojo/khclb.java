@@ -6,6 +6,7 @@ public class khclb {
 	 //`cxname``pinname`
 	private String cxname;
 	private String pinname;
+	
     public String getCxname() {
 		return cxname;
 	}

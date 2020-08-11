@@ -270,20 +270,15 @@
 
 
   </update>
-  <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
-		SELECT * FROM `wxb` ORDER BY `wstate` 
-	</select>
+  
 	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
 		SELECT * FROM `wxb` WHERE wid = #{wid}
 	</select>
-	
-	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-		UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
-	</update>
+
 	
 
   <select id="querWeixiuxx" resultType="org.accp.pojo.Wxb">
-		SELECT * FROM `wxb` AS a JOIN  `jcb` AS  b ON a.`wid` = b.`id` ORDER BY `wstate` 
+		SELECT * FROM `wxb` AS a JOIN  `jcb` AS  b ON a.`wid` = b.`id` ORDER BY a.wid DESC
 </select>
 
 
@@ -296,21 +291,22 @@
 	SELECT * FROM `wxb` WHERE wid = #{wid}
 </select>
 
-<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-	UPDATE `wxb` SET `wstate` = #{wstate} WHERE wid =#{wid}
-</update>
+
 
 	
-	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">s
+
+	<select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
 		SELECT * FROM `wxb` WHERE wid = #{wid}
 	</select>
 	
 	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
 		UPDATE `wxb` SET `wstate` = #{wstate},wkaidate = NOW() WHERE wid =#{wid}
 	</update>
+
+
 	
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
-		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9
+		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9  ORDER BY a.wid DESC
 	</select>
 	
 	<update id="updatejiage" parameterType="org.accp.pojo.Wxb">
@@ -320,8 +316,11 @@
 	<update id="updatefanggong" parameterType="org.accp.pojo.Wxb">
 		 UPDATE `wxb` SET wstate = 3 , wb3 = #{fglx},wb4=#{yy} WHERE wid=#{wid} 
 	</update>
+
 	<update id="updatestatcbyjungong" parameterType="org.accp.pojo.Wxb">
 		 UPDATE `wxb` SET `wstate`=9,wkaidate = NOW() WHERE wid = #{wid}
 	</update>
+
+
 	
 </mapper>
