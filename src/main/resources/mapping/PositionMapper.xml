@@ -87,4 +87,11 @@
 	INNER JOIN proot on position.ppid = proot.ppid
 	INNER JOIN roots on proot.rid = roots.rid
   </select>
+  
+  <select id="queryById" resultMap="BaseResultMap">
+  	select * from position 
+	INNER JOIN proot on position.ppid = proot.ppid
+	INNER JOIN roots on proot.rid = roots.rid
+	where position.ppid = #{id}
+  </select>
 </mapper>

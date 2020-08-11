@@ -21,7 +21,21 @@
 			jdbcType="VARCHAR" />
 		<result column="email" property="email" jdbcType="VARCHAR" />
 		<result column="isadmin" property="isadmin" jdbcType="INTEGER" />
+		<association property="position" resultMap="positonMap" />
 	</resultMap>
+	<resultMap id="positonMap" type="org.accp.pojo.Position" >
+    <id column="ppid" property="ppid" jdbcType="INTEGER" />
+    <result column="peptid" property="peptid" jdbcType="INTEGER" />
+    <result column="ppnamne" property="ppnamne" jdbcType="VARCHAR" />
+    <collection property="roots" ofType="org.accp.pojo.Roots" autoMapping="true">
+    	<association property="root" column="rlv" select="selectParentFun" autoMapping="true"></association>
+    </collection>
+  </resultMap>
+  
+  <!-- 查父权限 -->
+  <select id="selectParentFun" resultType="org.accp.pojo.Roots">
+	select * from roots where rid=#{rlv}
+  </select>
 	<sql id="Base_Column_List">
 		pid, ppid, pname, psex, account, pwd, fedeintime, brithday, pstatus,
 		idcard, pouttime,
@@ -250,6 +264,14 @@
 		ON p1.ppid = p2.ppid
 		INNER JOIN dept d 
 		WHERE d.`peptid` = p1.ppid AND p1.pid = #{id}
+	</select>
+	
+	<select id="queryByA" resultMap="BaseResultMap">
+		SELECT * FROM persons p1 
+		INNER JOIN `position` p2 ON p1.ppid = p2.ppid
+		INNER JOIN proot ON proot.ppid = p2.ppid
+		INNER JOIN roots ON proot.rid = roots.rid
+		WHERE  p1.account = #{a}
 	</select>
 
 

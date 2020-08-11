@@ -1,5 +1,10 @@
 package org.accp.service.wh;
 
+
+
+	//商品资料
+	
+
 import org.accp.dao.wh.MercdisMapper;
 import org.accp.pojo.Mercdis;
 import org.accp.pojo.page;
@@ -68,5 +73,6 @@ public class MercdisBiz extends ServiceImpl<MercdisMapper, Mercdis> {
 		qw.eq("mdid", id);
 		return super.getBaseMapper().delete(qw);
 	}
+
 
 }

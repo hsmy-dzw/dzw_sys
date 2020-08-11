@@ -187,7 +187,10 @@
   </update>
   
   <select id="quertAllkhb" resultType="org.accp.pojo.khb">
-		SELECT * FROM `khb`
+		SELECT * FROM `khb` 
+		 <if test="kphone != 0" >
+          where	kphone = #{kphone}
+         </if>
 	</select>
 	
 	<select id="quertAllkhbbyid" resultType="org.accp.pojo.khb">
@@ -195,8 +198,11 @@
 	</select>
 	
 	<select id="qurechclBycKehuxingxi" resultType="org.accp.pojo.khb">
-		SELECT b.`kname`,b.`kphone`,b.`kaddres`,b.`kbirthday`,b.`kremark`,b.`ksex`,b.`kid`,a.`cid`,a.`cmodel`,a.`cnumber` FROM `khclb` AS a JOIN `khb` AS b  ON a.`kid` = b.`kid` 
-		WHERE `cnumber` = #{chepiao}
+		<!-- SELECT  c.`cxname`,b.`kname`,b.`kphone`,b.`kaddres`,b.`kbirthday`,b.`kremark`,b.`ksex`,b.`kid`,a.`cid`,a.`cmodel`,a.`cnumber` FROM `khclb` AS a JOIN `khb` AS b  ON a.`kid` = b.`kid` 
+		JOIN cxb AS c ON a.xid=c.xid	WHERE `cnumber` = #{chepiao} -->
+		
+		SELECT c.`cxname`,b.`kname`,b.`kphone`,b.`kaddres`,b.`kbirthday`,b.`kremark`,b.`ksex`,b.`kid`,a.`cid`,a.`cmodel`,a.`cnumber` FROM `khclb` AS a JOIN `khb` AS b  ON a.`kid` = b.`kid` 
+JOIN cxb AS c ON a.xid=c.xid WHERE `cnumber` =#{chepiao}
 	</select>	
 	
 	<select id="querMaxid" resultType="String">

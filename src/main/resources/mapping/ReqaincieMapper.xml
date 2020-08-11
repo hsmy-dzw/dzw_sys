@@ -124,7 +124,6 @@
 		</set>
 		where rvid = #{rvid,jdbcType=INTEGER}
 	</update>
-	
 	<update id="updateByPrimaryKey"
 		parameterType="org.accp.pojo.Reqaincie">
 		update reqaincie

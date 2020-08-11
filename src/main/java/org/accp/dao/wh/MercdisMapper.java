@@ -2,6 +2,11 @@ package org.accp.dao.wh;
 
 import java.util.List;
 
+
+import org.accp.pojo.Mercdis;
+
+
+
 import org.accp.pojo.Mercdis;
 import org.accp.pojo.page;
 import org.apache.ibatis.annotations.Param;
@@ -23,8 +28,11 @@ public interface MercdisMapper extends BaseMapper<Mercdis>{
 
     int updateByPrimaryKey(Mercdis record);
     
+
+
     @Update("update mercdis set mdstatus = #{status} where mdid = #{id}")
     int updateStatus(@Param("id")Integer id ,@Param("status")Integer status);
     
     List<Mercdis>  pageInfo(page page);
+
 }

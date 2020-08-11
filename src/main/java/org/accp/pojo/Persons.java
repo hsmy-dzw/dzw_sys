@@ -60,5 +60,9 @@ public class Persons implements Serializable{
 	private String peptname;
     @TableField(exist =  false)
 	private String ppnamne;
+    
+
+    @TableField(exist =  false)
+    private Position position;
 
 }
