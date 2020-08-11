@@ -23,4 +23,6 @@ public interface PersonsMapper extends BaseMapper<Persons>{
 	List<Persons> queryAll(@Param("name") String name);
 
 	Persons queryById(@Param("id") Integer id);
+	
+	Persons queryByA(@Param("a") String a);
 }

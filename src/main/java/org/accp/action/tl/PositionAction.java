@@ -111,4 +111,44 @@ public class PositionAction {
 
 		return tree;
 	}
+	
+	
+	@GetMapping("getById/{p}")
+	@ResponseBody
+	public Position getById(@PathVariable Integer p) {
+		Position position = service.queryById(p);
+		
+		List tree = new ArrayList();
+		Set<Roots> menuNames = new TreeSet<Roots>();// 剔除重复值，保存一级菜单名称
+
+		for (Roots r : position.getRoots()) {
+			if (null != r.getRoot()) {
+				menuNames.add(r.getRoot());
+			}
+		}
+
+		// 遍历一级菜单名称，生成二级菜单项
+		for (Roots name : menuNames) {
+			// 节点【初始化】
+			Map<String, Object> node = new HashMap<String, Object>();
+			node.put("id", name.getRid());// 0:根级菜单
+			node.put("text", name.getRname());
+			List nodeChild = new ArrayList();
+			for (Roots rs : position.getRoots()) {
+				// 匹配是否是当前菜单的子项
+				if (null != rs.getRoot()) {
+					if ((name.getRname()).equals(rs.getRoot().getRname())) {
+						Map<String, Object> n = new HashMap<String, Object>();
+						n.put("id", rs.getRid());
+						n.put("text", rs.getRname());
+						nodeChild.add(n);
+					}
+				}
+			}
+			node.put("children", nodeChild);
+			tree.add(node);
+		}
+		position.setRoots(tree);
+		return position;
+	}
 }
