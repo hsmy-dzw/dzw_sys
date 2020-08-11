@@ -11,14 +11,16 @@
 		<result column="rvdate" property="rvdate" jdbcType="TIMESTAMP" />
 		<result column="rvstatus" property="rvstatus"
 			jdbcType="INTEGER" />
-		<association property="ce" javaType="org.accp.pojo.MaintenService">
+		<association property="ce"
+			javaType="org.accp.pojo.MaintenService">
 			<id column="msid" property="msid" jdbcType="INTEGER" />
 			<result column="msname" property="msname" jdbcType="VARCHAR" />
 			<result column="msdate" property="msdate" jdbcType="TIMESTAMP" />
 		</association>
 	</resultMap>
 	<sql id="Base_Column_List">
-		rvid, msid, rvname, rvmoney, rvpostscriopnot, rvdate, rvstatus
+		rvid, msid, rvname, rvmoney, rvpostscriopnot, rvdate,
+		rvstatus
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
@@ -30,19 +32,23 @@
 	<delete id="deleteByPrimaryKey"
 		parameterType="java.lang.Integer">
 		delete from reqaincie
-		where rvid = #{rvid,jdbcType=INTEGER}
+		where rvid =
+		#{rvid,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="org.accp.pojo.Reqaincie">
-		insert into reqaincie (rvid, msid, rvname,
+		insert into reqaincie (rvid,
+		msid, rvname,
 		rvmoney, rvpostscriopnot, rvdate,
 		rvstatus)
-		values (#{rvid,jdbcType=INTEGER}, #{msid,jdbcType=INTEGER},
+		values
+		(#{rvid,jdbcType=INTEGER}, #{msid,jdbcType=INTEGER},
 		#{rvname,jdbcType=VARCHAR},
-		#{rvmoney,jdbcType=DECIMAL}, #{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP},
+		#{rvmoney,jdbcType=DECIMAL},
+		#{rvpostscriopnot,jdbcType=VARCHAR}, #{rvdate,jdbcType=TIMESTAMP},
 		#{rvstatus,jdbcType=INTEGER})
 	</insert>
-	
-	
+
+
 	<insert id="insertSelective"
 		parameterType="org.accp.pojo.Reqaincie">
 		insert into reqaincie
@@ -118,27 +124,32 @@
 		</set>
 		where rvid = #{rvid,jdbcType=INTEGER}
 	</update>
+	
 	<update id="updateByPrimaryKey"
 		parameterType="org.accp.pojo.Reqaincie">
 		update reqaincie
 		set msid = #{msid,jdbcType=INTEGER},
 		rvname = #{rvname,jdbcType=VARCHAR},
-		rvmoney = #{rvmoney,jdbcType=DECIMAL},
-		rvpostscriopnot = #{rvpostscriopnot,jdbcType=VARCHAR},
-		rvdate = #{rvdate,jdbcType=TIMESTAMP},
+		rvmoney =
+		#{rvmoney,jdbcType=DECIMAL},
+		rvpostscriopnot =
+		#{rvpostscriopnot,jdbcType=VARCHAR},
+		rvdate =
+		#{rvdate,jdbcType=TIMESTAMP},
 		rvstatus = #{rvstatus,jdbcType=INTEGER}
 		where rvid = #{rvid,jdbcType=INTEGER}
 	</update>
-	
-	<select id="pageinfo" resultMap="BaseResultMap" parameterType="org.accp.pojo.page">
-		SELECT* FROM reqaincie a INNER JOIN  MaintenService b ON a.`msid` = b.`msid` 
+
+	<select id="pageinfo" resultMap="BaseResultMap"
+		parameterType="org.accp.pojo.page">
+		SELECT* FROM reqaincie a INNER JOIN MaintenService b ON a.`msid` =
+		b.`msid`
 		<where>
-		1=1
-		<if test="page.name != null and page.name != ''">
-		   and a.`msid` in (select msid from MaintenService where msname =#{page.name})
-		   </if> 
+			1=1
+			<if test="page.name != null and page.name != ''">
+				and a.`msid` in (select msid from MaintenService where msname
+				=#{page.name})
+			</if>
 		</where>
 	</select>
-
-
 </mapper>
