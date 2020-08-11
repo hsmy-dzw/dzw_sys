@@ -33,6 +33,8 @@ public interface MercdisMapper extends BaseMapper<Mercdis>{
     @Update("update mercdis set mdstatus = #{status} where mdid = #{id}")
     int updateStatus(@Param("id")Integer id ,@Param("status")Integer status);
     
+    
+    
     List<Mercdis>  pageInfo(page page);
 
 }
