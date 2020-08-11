@@ -3,6 +3,10 @@ package org.accp.pojo;
 import java.util.Date;
 import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
+
+@TableName("mercdis")
 public class Mercdis {
 	List<Mercdis> list;
     public List<Mercdis> getList() {

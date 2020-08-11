@@ -179,6 +179,8 @@
     </set>
     where mdid = #{mdid,jdbcType=INTEGER}
   </update>
+  
+  
   <update id="updateByPrimaryKey" parameterType="org.accp.pojo.Mercdis" >
     update mercdis
     set scoed = #{scoed,jdbcType=VARCHAR},

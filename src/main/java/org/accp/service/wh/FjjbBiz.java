@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -29,6 +30,12 @@ public class FjjbBiz {
 
 	public Fdjb selectByPrimaryKey(Integer id) {
 		return pr.selectByPrimaryKey(id);
+	}
+	
+	public int fdjCount(Integer id) {
+		QueryWrapper<Fdjb> qw = new QueryWrapper<Fdjb>();
+		qw.eq("fdjid", id);
+		return pr.selectCount(qw);
 	}
 	
 	public List<Fdjb> pagelist(){

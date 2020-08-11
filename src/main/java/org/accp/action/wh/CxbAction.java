@@ -99,6 +99,23 @@ public class CxbAction {
 		return map;
 	}
 	
+	@GetMapping("countCxb/{id}")
+	public Map<String, Object> countCxb(@PathVariable("id") Integer id){
+		Map<String, Object> map = new HashMap<String, Object>();
+		int count =  biz.count2(id);
+		System.out.println("count是:"+count);
+		if(count == 0) {
+			map.put("code", "500");
+			map.put("msg", "出错了");
+			map.put("data", id);
+		}else {
+			map.put("code", "200");
+			//map.put("data", id);
+			map.put("msg", "成功");
+		}
+		return map;
+	}
+	
 	@GetMapping("showClppb/{id}")
 	public Map<String, Object> cppselect(@PathVariable("id") Integer id){
 		Map<String, Object> map = new HashMap<String, Object>();
