@@ -201,4 +201,7 @@
   <update id="updatedid">
   	UPDATE mercdis SET mdmoney2 = mdmoney2- #{num} where mdid = #{mdid}
   </update>
+  
+ 
+  
 </mapper>

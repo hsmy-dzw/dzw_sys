@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 
 @TableName("mercdis")
 public class Mercdis {
-	@TableField(exist = false)
+	
+	@TableField(exist=false)
 	List<Mercdis> list;
     public List<Mercdis> getList() {
 		return list;

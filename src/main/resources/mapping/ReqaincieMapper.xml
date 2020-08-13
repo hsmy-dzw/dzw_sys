@@ -130,7 +130,6 @@
 		   and a.`msid` in (select msid from MaintenService where msname =#{page.name})
 		   </if> 
 		</where>
-	</select>
-
-
+		
+</select>
 </mapper>
