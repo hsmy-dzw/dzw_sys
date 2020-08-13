@@ -10,6 +10,7 @@
     <result column="pb4" property="pb4" jdbcType="INTEGER" />
     <result column="pinname" property="pinname" jdbcType="VARCHAR" />
   </resultMap>
+  
   <sql id="Base_Column_List" >
     pid2, pszm, pb1, pb2, pb3, pb4, pinname
   </sql>

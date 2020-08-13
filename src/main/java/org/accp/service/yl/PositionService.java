@@ -3,7 +3,6 @@ package org.accp.service.yl;
 import org.accp.dao.tl.PositionMapper;
 import org.accp.pojo.Position;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -18,7 +17,7 @@ public class PositionService extends ServiceImpl<PositionMapper, Position>{
 		PageHelper.startPage(pageNum,pageSize);
 		QueryWrapper<Position> wq = Wrappers.query();
 		if (name != null) {
-			wq.like("ppname", name);
+			wq.like("ppnamne", name);
 		}
 		return new PageInfo<Position>(super.getBaseMapper().selectList(wq));
 	}

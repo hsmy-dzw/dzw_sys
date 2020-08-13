@@ -237,11 +237,23 @@
 		INNER JOIN `position` p2
 		ON p1.ppid = p2.ppid
 		INNER JOIN dept d 
-		WHERE d.`peptid` = p1.ppid
+		WHERE d.`peptid` = p1.ppid AND p1.`pouttime` IS NULL
 		<if test="name != null and name != ''">
 			AND pname LIKE '%${name}%'
 		</if>
 		ORDER BY p1.fedeintime DESC
+	</select>
+	
+	<select id="lizhiQueryAll" resultType="org.accp.pojo.Persons">
+		SELECT p1.*,d.peptname,p2.ppnamne FROM persons p1 
+		INNER JOIN `position` p2
+		ON p1.ppid = p2.ppid
+		INNER JOIN dept d 
+		WHERE d.`peptid` = p1.ppid AND p1.pouttime IS NOT NULL
+		<if test="name != null and name != ''">
+			AND pname LIKE '%${name}%'
+		</if>
+		ORDER BY p1.pouttime DESC
 	</select>
 	
 	<select id="queryById" resultType="org.accp.pojo.Persons">
@@ -251,6 +263,41 @@
 		INNER JOIN dept d 
 		WHERE d.`peptid` = p1.ppid AND p1.pid = #{id}
 	</select>
-
+	
+	<resultMap type="org.accp.pojo.Persons" id="comm">
+		<id column="pid" property="pid" jdbcType="INTEGER" />
+		<result column="ppid" property="ppid" jdbcType="INTEGER" />
+		<result column="pname" property="pname" jdbcType="VARCHAR" />
+		<result column="psex" property="psex" jdbcType="VARCHAR" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="pwd" property="pwd" jdbcType="VARCHAR" />
+		<result column="fedeintime" property="fedeintime"
+			jdbcType="DATE" />
+		<result column="brithday" property="brithday" jdbcType="DATE" />
+		<result column="pstatus" property="pstatus" jdbcType="VARCHAR" />
+		<result column="idcard" property="idcard" jdbcType="VARCHAR" />
+		<result column="pouttime" property="pouttime" jdbcType="DATE" />
+		<result column="paddress" property="paddress"
+			jdbcType="VARCHAR" />
+		<result column="sosname" property="sosname" jdbcType="VARCHAR" />
+		<result column="sosphone" property="sosphone"
+			jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="isadmin" property="isadmin" jdbcType="INTEGER" />
+		<collection property="list" column="pid" autoMapping="true" select="queryComm">
+			<id column="comid" property="comid"/>
+		</collection>
+	</resultMap>
+	<select id="queryAllComm" resultMap="comm">
+		SELECT * FROM persons p1
+		WHERE p1.pouttime IS NULL
+		<if test="name != null and name != ''">
+			AND pname LIKE '%${name}%'
+		</if>
+		ORDER BY p1.fedeintime DESC
+	</select>
+	<select id="queryComm" resultType="org.accp.pojo.Communication">
+		SELECT * FROM communication WHERE staid = #{pid}
+	</select>
 
 </mapper>

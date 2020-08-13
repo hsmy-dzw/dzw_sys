@@ -2,6 +2,7 @@ package org.accp.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -54,11 +55,14 @@ public class Persons implements Serializable{
 
     private String email;
 
-    private Integer isadmin;
+    private String isadmin;
     
     @TableField(exist =  false)
 	private String peptname;
     @TableField(exist =  false)
 	private String ppnamne;
+    @TableField(exist =  false)
+	private List<Communication> list;
+    
 
 }
