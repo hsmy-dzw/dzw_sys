@@ -35,4 +35,18 @@ extends ServiceImpl<PersonsMapper, Persons>
 		return mapper.queryById(id);
 	}
 
+	public PageInfo<Persons> liziQueryPage(Integer n, Integer s, String name) {
+		// TODO Auto-generated method stub
+		PageHelper.startPage(n, s);
+		return new PageInfo<Persons>(mapper.lizhiQueryAll(name));
+	}
+
+	public PageInfo<Persons> queryAllComm(Integer n, Integer s, String name) {
+		// TODO Auto-generated method stub
+		System.out.println(n);
+		System.out.println(s);
+		PageHelper.startPage(n,s);
+		return new PageInfo<Persons>(mapper.queryAllComm(name));
+	}
+
 }

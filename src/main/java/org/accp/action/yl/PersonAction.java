@@ -15,6 +15,7 @@ import org.accp.pojo.Roots;
 import org.accp.service.yl.DeptService;
 import org.accp.service.yl.PersonService;
 import org.accp.service.yl.PositionService;
+
 import org.accp.util.DateUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -79,9 +80,8 @@ public class PersonAction {
 	
 	@PostMapping("/insert")
 	public Map<String, Object> insert(@RequestBody Persons p){
+		p.setFedeintime(new Date());
 		boolean isOk = service.save(p);
-		System.out.println("日期===================");
-		System.out.println(p.getFedeintime());
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (isOk) 
 			map.put("code", "200");
@@ -108,6 +108,43 @@ public class PersonAction {
 		return map;
 	}
 	
+	
+	@GetMapping("/lizhi/queryPage/{n}/{s}/{name}")
+	public PageInfo<Persons> liziQueryPage(@PathVariable Integer n,@PathVariable Integer s,@PathVariable String name){
+		if(name == null || name.equals("null") || name.equals("")) {
+			name = null;
+		}
+		return service.liziQueryPage(n,s,name);
+	}
+	
+	
+	@PutMapping("/updatePersonStatus")
+	public Map<String, Object> updatePersonStatus(@RequestBody Persons p){
+		p.setPouttime(new Date());
+		boolean isOk = service.updateById(p);
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (isOk) 
+			map.put("code", "200");
+		else 
+			map.put("code", "400");
+		return map;
+	}
+	
+	@GetMapping("/getAllComm/{n}/{s}/{name}")
+	public PageInfo<Persons> queryAllComm(@PathVariable Integer n,@PathVariable Integer s,@PathVariable String name) {
+		if(name == null || name.equals("null") || name.equals("")) {
+			name = null;
+		}
+		return service.queryAllComm(n,s,name);
+	}
+	
+	@GetMapping("/queryAll")
+	public List<Persons> queryAll(){
+		QueryWrapper<Persons> qw = Wrappers.query();
+		qw.isNull("pouttime");
+		qw.orderByDesc("fedeintime");
+		return service.getBaseMapper().selectList(qw);
+	}
 	@GetMapping("loginIn/{name}/{pwd}")
 	public Map<String, Object> loginIn(@PathVariable String name, @PathVariable String pwd) {
 		Map<String, Object> message = new HashMap<String, Object>();

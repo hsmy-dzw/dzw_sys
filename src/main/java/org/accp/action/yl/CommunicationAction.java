@@ -1,10 +1,12 @@
 package org.accp.action.yl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.accp.pojo.Position;
-import org.accp.service.yl.PositionService;
+import org.accp.pojo.Communication;
+import org.accp.service.yl.CommunicationService;
+import org.apache.ibatis.annotations.Insert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,35 +17,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.pagehelper.PageInfo;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
+@RequestMapping("/api/comm")
 @RestController
-@RequestMapping("/api/position")
-public class PositionsAction {
+public class CommunicationAction {
+	
 	@Autowired
-	PositionService sevice;
-	@GetMapping("/page/{n}/{s}/{name}")
-	public PageInfo<Position> queryPage(@PathVariable Integer n,@PathVariable Integer s,@PathVariable String name){
-		if (name == null || "null".equals(name) || "".equals(name)) {
-			name = null;
-		}
-		return sevice.queryPage(n, s, name);
-	}
+	CommunicationService service;
 	
 	@DeleteMapping("/delById/{id}")
 	public Map<String, Object> delById(@PathVariable Integer id){
-		boolean isOk = sevice.removeById(id);
-		Map<String, Object> map = new HashMap<String, Object>();
-		if(isOk)
-			map.put("code", "200");
-		else 
-			map.put("code", "300");
-		return map;
-	}
-	
-	@PostMapping("/insert")
-	public Map<String, Object> insert(@RequestBody Position p){
-		boolean isOk = sevice.save(p);
+		boolean isOk = service.removeById(id);
 		Map<String, Object> map = new HashMap<String, Object>();
 		if(isOk)
 			map.put("code", "200");
@@ -53,8 +39,19 @@ public class PositionsAction {
 	}
 	
 	@PutMapping("/updateById")
-	public Map<String, Object> updateById(@RequestBody Position p){
-		boolean isOk = sevice.updateById(p);
+	public Map<String, Object> updateById(@RequestBody Communication comm){
+		boolean isOk = service.updateById(comm);
+		Map<String, Object> map = new HashMap<String, Object>();
+		if(isOk)
+			map.put("code", "200");
+		else 
+			map.put("code", "300");
+		return map;
+	}
+	
+	@PostMapping("/insert")
+	public Map<String, Object> insert(@RequestBody List<Communication> comm){
+		boolean isOk = service.saveBatch(comm);
 		Map<String, Object> map = new HashMap<String, Object>();
 		if(isOk)
 			map.put("code", "200");
@@ -64,8 +61,9 @@ public class PositionsAction {
 	}
 	
 	@GetMapping("/queryById/{id}")
-	public Position queryById(@PathVariable Integer id) {
-		return sevice.getById(id);
+	public Communication queryById(@PathVariable Integer id) {
+		QueryWrapper<Communication> qw = Wrappers.query();
+		qw.eq("comid", id);
+		return service.getOne(qw);
 	}
-	
 }
