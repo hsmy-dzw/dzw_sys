@@ -16,9 +16,9 @@
     from proot
     where prootid = #{prootid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPpid" parameterType="java.lang.Integer" >
     delete from proot
-    where prootid = #{prootid,jdbcType=INTEGER}
+    where ppid = #{ppid}
   </delete>
   <insert id="insert" parameterType="org.accp.pojo.Proot" >
     insert into proot (prootid, rid, ppid, 
@@ -79,4 +79,10 @@
       prboolean = #{prboolean,jdbcType=BIT}
     where prootid = #{prootid,jdbcType=INTEGER}
   </update>
+  
+  <insert id="insertByList">
+  	<foreach collection="rids" item="rid">
+  		insert into proot values(0,#{rid},#{ppid},1);
+  	</foreach>
+  </insert>
 </mapper>

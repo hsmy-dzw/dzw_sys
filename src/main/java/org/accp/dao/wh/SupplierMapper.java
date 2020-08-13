@@ -2,10 +2,12 @@ package org.accp.dao.wh;
 
 import org.accp.pojo.Supplier;
 
-public interface SupplierMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+public interface SupplierMapper extends BaseMapper<Supplier> {
     int deleteByPrimaryKey(String scoed);
 
-    int insert(Supplier record);
+
 
     int insertSelective(Supplier record);
 

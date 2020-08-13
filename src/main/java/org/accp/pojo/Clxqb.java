@@ -5,8 +5,31 @@ public class Clxqb {
 	private String mdbrand;
 	private String mdname;
 	private Integer mdmoney;
-	
-    public String getMdname() {
+	private Integer mdmoney2;
+	private Integer num;
+    /**
+	 * @return the num
+	 */
+	public Integer getNum() {
+		return num;
+	}
+
+	/**
+	 * @param num the num to set
+	 */
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+
+	public Integer getMdmoney2() {
+		return mdmoney2;
+	}
+
+	public void setMdmoney2(Integer mdmoney2) {
+		this.mdmoney2 = mdmoney2;
+	}
+
+	public String getMdname() {
 		return mdname;
 	}
 
@@ -48,7 +71,15 @@ public class Clxqb {
 
     private String cljiage;
 
-    public Integer getClid() {
+    public String getCljiage() {
+		return cljiage;
+	}
+
+	public void setCljiage(String cljiage) {
+		this.cljiage = cljiage;
+	}
+
+	public Integer getClid() {
         return clid;
     }
 
@@ -80,11 +111,6 @@ public class Clxqb {
         this.clname = clname == null ? null : clname.trim();
     }
 
-    public String getCljiage() {
-        return cljiage;
-    }
-
-    public void setCljiage(String cljiage) {
-        this.cljiage = cljiage == null ? null : cljiage.trim();
-    }
+	
+    
 }

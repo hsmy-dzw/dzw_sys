@@ -196,6 +196,6 @@
 		SELECT  sum(kprice) FROM wxb WHERE wid = #{wid}
 	</select>
 	<select id="querWeijiage3" resultType="String" >
-		SELECT SUM(mdmoney) FROM `clxqb` AS a JOIN `mercdis` AS b ON a.mdid = b.mdid WHERE wid = #{wid}
+		SELECT SUM(cljiage) FROM `clxqb` AS a JOIN `mercdis` AS b ON a.mdid = b.mdid WHERE wid = #{wid}
 	</select>
 </mapper>

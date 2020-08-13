@@ -19,9 +19,9 @@ public class kehubiao {
 	@Autowired
 	private khbMapper kehub;
 
-	public PageInfo<khb> findPersonListByPage(Integer pageNum, Integer pageSize) {
+	public PageInfo<khb> findPersonListByPage(Integer pageNum, Integer pageSize,String phone) {
 		PageHelper.startPage(pageNum, pageSize);
-		return new PageInfo<khb>(kehub.quertAllkhb());
+		return new PageInfo<khb>(kehub.quertAllkhb( phone));
 	}
 
 	public khb getPersonById(Integer kid) {

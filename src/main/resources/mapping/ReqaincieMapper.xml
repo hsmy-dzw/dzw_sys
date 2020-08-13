@@ -9,6 +9,11 @@
     <result column="rvpostscriopnot" property="rvpostscriopnot" jdbcType="VARCHAR" />
     <result column="rvdate" property="rvdate" jdbcType="TIMESTAMP" />
     <result column="rvstatus" property="rvstatus" jdbcType="INTEGER" />
+    <association property="ce" javaType="org.accp.pojo.MaintenService">
+     <id column="msid" property="msid" jdbcType="INTEGER" />
+    <result column="msname" property="msname" jdbcType="VARCHAR" />
+    <result column="msdate" property="msdate" jdbcType="TIMESTAMP" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     rvid, msid, rvname, rvmoney, rvpostscriopnot, rvdate, rvstatus
@@ -110,4 +115,21 @@
       rvstatus = #{rvstatus,jdbcType=INTEGER}
     where rvid = #{rvid,jdbcType=INTEGER}
   </update>
+
+  
+  <select id="querAll" resultType="org.accp.pojo.Reqaincie">
+  	select * from reqaincie
+  </select>
+
+	
+	<select id="pageinfo" resultMap="BaseResultMap" parameterType="org.accp.pojo.page">
+		SELECT* FROM reqaincie a INNER JOIN  MaintenService b ON a.`msid` = b.`msid` 
+		<where>
+		1=1
+		<if test="page.name != null and page.name != ''">
+		   and a.`msid` in (select msid from MaintenService where msname =#{page.name})
+		   </if> 
+		</where>
+		
+</select>
 </mapper>

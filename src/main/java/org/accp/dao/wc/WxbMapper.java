@@ -29,8 +29,9 @@ public interface WxbMapper {
      
      public List<Wxb> querWrixiuwanc();
      
-     public int updatejiage(@Param("wid") String wid,@Param("jiage") Integer jiage);
+     public int updatejiage(@Param("wid") String wid,@Param("jiage") Float jiage);
      
     
 	public int updatefanggong(@Param("fglx") String fglx,@Param("yy") String yy,@Param("wid") String wid);
+	public int updatestatcbyjungong(@Param("wid") String wid);
 }

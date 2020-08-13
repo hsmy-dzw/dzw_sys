@@ -1,9 +1,40 @@
 package org.accp.pojo;
 
 import java.util.Date;
+import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+
+@TableName("mercdis")
 public class Mercdis {
-    private Integer mdid;
+	
+	@TableField(exist=false)
+	List<Mercdis> list;
+    public List<Mercdis> getList() {
+		return list;
+	}
+
+	public void setList(List<Mercdis> list) {
+		this.list = list;
+	}
+	private Integer num;
+	/**
+	 * @return the num
+	 */
+	public Integer getNum() {
+		return num;
+	}
+
+	/**
+	 * @param num the num to set
+	 */
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+	private Integer mdid;
 
     private String scoed;
 

@@ -23,9 +23,9 @@
   </delete>
   <insert id="insert" parameterType="org.accp.pojo.Clxqb" >
     insert into clxqb (clid, wid, mdid, 
-      clname, cljiage)
+      clname, cljiage,mdmoney2,num)
     values (#{clid,jdbcType=INTEGER}, #{wid,jdbcType=VARCHAR}, #{mdid,jdbcType=INTEGER}, 
-      #{clname,jdbcType=VARCHAR}, #{cljiage,jdbcType=VARCHAR})
+      #{clname,jdbcType=VARCHAR}, #{cljiage,jdbcType=VARCHAR},#{mdmoney2},#{num})
   </insert>
   <insert id="insertSelective" parameterType="org.accp.pojo.Clxqb" >
     insert into clxqb
@@ -92,5 +92,10 @@
   </update>
   <select id="querBywid" resultType="org.accp.pojo.Clxqb">
   		SELECT * FROM `clxqb` AS a JOIN `mercdis` AS b ON a.mdid = b.mdid WHERE wid=#{wid}
+  </select>
+  
+  <select id="querAll" resultType="org.accp.pojo.Mercdis">
+  	SELECT * FROM `mercdis`
+  
   </select>
 </mapper>

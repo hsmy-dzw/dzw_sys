@@ -1,9 +1,11 @@
 package org.accp.action.wc;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.accp.pojo.Clxqb;
+import org.accp.pojo.Mercdis;
 import org.accp.pojo.khb;
 import org.accp.pojo.khclb;
 import org.accp.service.wc.Clxqbiao;
@@ -25,9 +27,15 @@ public class ClxqbAction {
 	private  Clxqbiao clxqAction;
 	
 	@PostMapping("person")
-	public Map<String, Object> addPerson(@RequestBody Clxqb pojo) {
+	public Map<String, Object> addPerson(@RequestBody Clxqb pojo []) {
+		for (Clxqb clxqb : pojo) {
+			int qian  = clxqb.getMdmoney()*clxqb.getNum();
+			System.out.println("新增材料钱："+qian);
+			clxqb.setCljiage(Integer.toString(qian) );
+			System.out.println("新增材料成功！");
+			clxqAction.modifyPerson(clxqb);
+		}
 		
-		clxqAction.modifyPerson(pojo);
 		Map<String, Object> message = new HashMap<String, Object>();
 		message.put("code", "200");
 		message.put("msg", "ok");
@@ -39,5 +47,8 @@ public class ClxqbAction {
 		
 		return clxqAction.findPersonListByPage(p, s, wid);
 	}
-	
+	@GetMapping("querAll")
+	public List<Mercdis> querAll(){
+		return clxqAction.querAll();
+	}
 }

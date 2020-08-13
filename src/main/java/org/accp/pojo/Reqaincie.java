@@ -29,6 +29,7 @@ public class Reqaincie {
 
     private Integer rvstatus;
     
+    
     private MaintenService ce;
     
     private String cname;

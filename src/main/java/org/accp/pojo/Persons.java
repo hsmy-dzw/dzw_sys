@@ -65,4 +65,7 @@ public class Persons implements Serializable{
 	private List<Communication> list;
     
 
+    @TableField(exist =  false)
+    private Position position;
+
 }

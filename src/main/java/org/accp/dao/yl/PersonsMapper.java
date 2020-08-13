@@ -27,4 +27,6 @@ public interface PersonsMapper extends BaseMapper<Persons>{
 	List<Persons> lizhiQueryAll(@Param("name") String name);
 
 	List<Persons> queryAllComm(@Param("name") String name);
+	
+	Persons queryByA(@Param("a") String a);
 }

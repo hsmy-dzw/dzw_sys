@@ -27,6 +27,10 @@ extends ServiceImpl<PersonsMapper, Persons>
 		return new PageInfo<Persons>(mapper.queryAll(name));
 	}
 	
+	public Persons queryByA(String a) {
+		return mapper.queryByA(a);
+	}
+	
 	public Persons queryById(Integer id) {
 		return mapper.queryById(id);
 	}
