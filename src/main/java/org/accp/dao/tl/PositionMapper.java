@@ -20,6 +20,8 @@ public interface PositionMapper extends BaseMapper<Position>{
     int updateByPrimaryKey(Position record);
     
     List<Position> queryAll();
+
+    List<Position> queryAlls();
     
     Position queryById(Integer id);
 }

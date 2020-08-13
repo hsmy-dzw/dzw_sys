@@ -1,10 +1,15 @@
 package org.accp.action.yl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.accp.pojo.Position;
 import org.accp.service.yl.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +27,17 @@ public class PositionsAction {
 			name = null;
 		}
 		return sevice.queryPage(n, s, name);
+	}
+	
+	@PutMapping("/updateById")
+	public Map<String, Object> updateById(@RequestBody Position p){
+		boolean isOk = sevice.updateById(p);
+		Map<String, Object> map = new HashMap<String, Object>();
+		if(isOk)
+			map.put("code", "200");
+		else 
+			map.put("code", "300");
+		return map;
 	}
 	
 	

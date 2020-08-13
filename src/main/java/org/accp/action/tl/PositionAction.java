@@ -84,6 +84,18 @@ public class PositionAction {
 
 		return page;
 	}
+	
+	
+	@GetMapping("getAlls/{p}/{s}")
+	@ResponseBody
+	public PageInfo<Position> getAlls(@PathVariable Integer p, @PathVariable Integer s) {
+
+		PageInfo<Position> page = service.queryAlls(p, s);
+		
+		return page;
+	
+	}
+	
 
 	@GetMapping("getAllRoots")
 	@ResponseBody

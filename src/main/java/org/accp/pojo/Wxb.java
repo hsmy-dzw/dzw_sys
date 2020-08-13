@@ -2,6 +2,12 @@ package org.accp.pojo;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableField;
+
+import lombok.Data;
+
+
 public class Wxb {
     private String wid;
 
@@ -19,12 +25,16 @@ public class Wxb {
 
     private String wleix;
 
+    @JSONField(format = "yyyy-MM-dd")
     private Date wkaidate;
 
+    @JSONField(format = "yyyy-MM-dd")
     private Date wyudate;
 
+    @JSONField(format = "yyyy-MM-dd")
     private Date wwandate;
 
+    @JSONField(format = "yyyy-MM-dd")
     private Date wjiedate;
 
     private Integer kprice;
@@ -44,7 +54,42 @@ public class Wxb {
     private Integer wb7;
 
     private Integer jiechefeiyong;
+    private Integer kid;
+    
+    /**
+	 * @return the kid
+	 */
+	public Integer getKid() {
+		return kid;
+	}
+
+
+	/**
+	 * @param kid the kid to set
+	 */
+	public void setKid(Integer kid) {
+		this.kid = kid;
+	}
+
+	@TableField(exist = false)
+    private Float total;
    
+	/**
+	 * @return the total
+	 */
+	public Float getTotal() {
+		return total;
+	}
+
+
+	/**
+	 * @param total the total to set
+	 */
+	public void setTotal(Float total) {
+		this.total = total;
+	}
+
+
 	public Integer getJiechefeiyong() {
 		return jiechefeiyong;
 	}

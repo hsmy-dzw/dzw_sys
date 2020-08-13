@@ -251,7 +251,7 @@
 		INNER JOIN `position` p2
 		ON p1.ppid = p2.ppid
 		INNER JOIN dept d 
-		WHERE d.`peptid` = p1.ppid
+		WHERE d.`peptid` = p2.`peptid`
 		<if test="name != null and name != ''">
 			AND pname LIKE '%${name}%'
 		</if>

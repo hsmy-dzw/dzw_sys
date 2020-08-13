@@ -88,6 +88,12 @@
 	INNER JOIN roots on proot.rid = roots.rid
   </select>
   
+  <select id="queryAlls" resultType="org.accp.pojo.Position">
+  	select * from position 
+  </select>
+  
+  
+  
   <select id="queryById" resultMap="BaseResultMap">
   	select * from position 
 	INNER JOIN proot on position.ppid = proot.ppid

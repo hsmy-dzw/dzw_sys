@@ -43,14 +43,14 @@
       wpheno, wleix, wkaidate, 
       wyudate, wwandate, wjiedate, 
       kprice, wb1, wb2, wb3, 
-      wb4, wb5, wb6, wb7,jiechefeiyong
+      wb4, wb5, wb6, wb7,jiechefeiyong,kid
       )
     values (#{wid,jdbcType=VARCHAR}, #{gid,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, 
       #{wstate,jdbcType=VARCHAR}, #{wlicense,jdbcType=VARCHAR}, #{wkname,jdbcType=VARCHAR}, 
-      #{wpheno,jdbcType=VARCHAR}, #{wleix,jdbcType=VARCHAR}, #{wkaidate,jdbcType=DATE}, 
-      #{wyudate,jdbcType=DATE}, #{wwandate,jdbcType=DATE}, #{wjiedate,jdbcType=DATE}, 
+      #{wpheno,jdbcType=VARCHAR}, #{wleix,jdbcType=VARCHAR}, NOW(),
+      #{wyudate,jdbcType=DATE}, #{wwandate,jdbcType=DATE}, NOW(),
       #{kprice,jdbcType=INTEGER}, #{wb1,jdbcType=VARCHAR}, #{wb2,jdbcType=VARCHAR}, #{wb3,jdbcType=VARCHAR}, 
-      #{wb4,jdbcType=VARCHAR}, #{wb5,jdbcType=VARCHAR}, #{wb6,jdbcType=VARCHAR}, #{wb7,jdbcType=INTEGER},#{jiechefeiyong}
+      #{wb4,jdbcType=VARCHAR}, #{wb5,jdbcType=VARCHAR}, #{wb6,jdbcType=VARCHAR}, #{wb7,jdbcType=INTEGER},#{jiechefeiyong},#{kid}
       )
   </insert>
   <insert id="insertSelective" parameterType="org.accp.pojo.Wxb" >
@@ -285,7 +285,7 @@
 
 
 <select id="queryWeixiuByStatic" resultType="org.accp.pojo.Wxb">
-	SELECT * FROM `wxb` where wstate = 9 or wstate = 100 
+	SELECT * FROM `wxb` where wstate = 9 or wstate = 100 order by wid desc
 </select>
 
 <select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
@@ -301,9 +301,13 @@
 	</select>
 	
 	<update id="querWeixiuxxBylx" parameterType="org.accp.pojo.Wxb">
-		UPDATE `wxb` SET `wstate` = #{wstate},wkaidate = NOW() WHERE wid =#{wid}
+		UPDATE `wxb` SET `wstate` = #{wstate},wkaidate = NOW(),wjiedate = NOW() WHERE wid =#{wid}
 	</update>
-
+	
+	<update id="querWeixiuxxBylxs" parameterType="org.accp.pojo.Wxb">
+		UPDATE `wxb` SET `wstate` = #{wstate},wkaidate = NOW(),wjiedate = NOW(),wb3 = #{jiefan} WHERE wid =#{wid} 
+	</update>
+	
 
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
 		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9 or wstate=99  ORDER BY a.wid DESC
@@ -318,7 +322,7 @@
 	</update>
 
 	<update id="updatestatcbyjungong" parameterType="org.accp.pojo.Wxb">
-		 UPDATE `wxb` SET `wstate`=9,wkaidate = NOW() WHERE wid = #{wid}
+		 UPDATE `wxb` SET `wstate`=9,wwandate = NOW() WHERE wid = #{wid}
 	</update>
 
 

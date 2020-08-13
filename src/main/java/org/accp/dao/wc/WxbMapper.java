@@ -5,7 +5,9 @@ import java.util.List;
 import org.accp.pojo.Wxb;
 import org.apache.ibatis.annotations.Param;
 
-public interface WxbMapper {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+public interface WxbMapper extends BaseMapper<Wxb>{
     int deleteByPrimaryKey(String wid);
 
     int insert(Wxb record);
@@ -23,6 +25,7 @@ public interface WxbMapper {
     public Wxb querWeixiuxxByid(@Param("wid") String wid);
     
      int querWeixiuxxBylx(@Param("wstate") String wstate ,@Param("wid") String wid);
+     int querWeixiuxxBylxs(@Param("wstate") String wstate ,@Param("wid") String wid,@Param("jiefan") String jiefan);
     List<Wxb> queryWeixiuByStatic();
     
     

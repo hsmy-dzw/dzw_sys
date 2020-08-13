@@ -30,4 +30,11 @@ public class PositionImpl implements PositionService{
 		// TODO Auto-generated method stub
 		return mapper.queryById(id);
 	}
+
+	@Override
+	public PageInfo<Position> queryAlls(Integer pageNum, Integer pageSize) {
+		// TODO Auto-generated method stub
+		PageHelper.startPage(pageNum, pageSize);
+		return new PageInfo<Position>(mapper.queryAlls());
+	}
 }
