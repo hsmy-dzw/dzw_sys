@@ -6,7 +6,22 @@ public class Clxqb {
 	private String mdname;
 	private Integer mdmoney;
 	private Integer mdmoney2;
-    public Integer getMdmoney2() {
+	private Integer num;
+    /**
+	 * @return the num
+	 */
+	public Integer getNum() {
+		return num;
+	}
+
+	/**
+	 * @param num the num to set
+	 */
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+
+	public Integer getMdmoney2() {
 		return mdmoney2;
 	}
 

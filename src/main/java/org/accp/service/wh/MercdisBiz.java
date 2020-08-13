@@ -8,6 +8,7 @@ package org.accp.service.wh;
 import org.accp.dao.wh.MercdisMapper;
 import org.accp.pojo.Mercdis;
 import org.accp.pojo.page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,6 +22,8 @@ import com.github.pagehelper.PageInfo;
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.READ_COMMITTED, readOnly = true)
 public class MercdisBiz extends ServiceImpl<MercdisMapper, Mercdis> {
+	@Autowired
+	private MercdisMapper mercd;
 	// 商品资料
 
 	public PageInfo<Mercdis> pageInfo(page page) {
@@ -73,6 +76,11 @@ public class MercdisBiz extends ServiceImpl<MercdisMapper, Mercdis> {
 		qw.eq("mdid", id);
 		return super.getBaseMapper().delete(qw);
 	}
-
+	
+	public int updatedid(Integer num,Integer mdid) {
+		System.out.println("num"+num);
+		System.out.println("mdid"+mdid);
+		return mercd.updatedid(num, mdid);
+	}
 
 }

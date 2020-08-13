@@ -23,7 +23,7 @@ public class OutCar implements Serializable{
 	@TableId(type = IdType.AUTO,value = "oid")
 	private Integer oid;
 	
-	private String oname;
+	private String otname;
 
     private String onumber;
 

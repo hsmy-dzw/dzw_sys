@@ -43,14 +43,14 @@
       wpheno, wleix, wkaidate, 
       wyudate, wwandate, wjiedate, 
       kprice, wb1, wb2, wb3, 
-      wb4, wb5, wb6, wb7
+      wb4, wb5, wb6, wb7,jiechefeiyong
       )
     values (#{wid,jdbcType=VARCHAR}, #{gid,jdbcType=INTEGER}, #{id,jdbcType=VARCHAR}, 
       #{wstate,jdbcType=VARCHAR}, #{wlicense,jdbcType=VARCHAR}, #{wkname,jdbcType=VARCHAR}, 
       #{wpheno,jdbcType=VARCHAR}, #{wleix,jdbcType=VARCHAR}, #{wkaidate,jdbcType=DATE}, 
       #{wyudate,jdbcType=DATE}, #{wwandate,jdbcType=DATE}, #{wjiedate,jdbcType=DATE}, 
       #{kprice,jdbcType=INTEGER}, #{wb1,jdbcType=VARCHAR}, #{wb2,jdbcType=VARCHAR}, #{wb3,jdbcType=VARCHAR}, 
-      #{wb4,jdbcType=VARCHAR}, #{wb5,jdbcType=VARCHAR}, #{wb6,jdbcType=VARCHAR}, #{wb7,jdbcType=INTEGER}
+      #{wb4,jdbcType=VARCHAR}, #{wb5,jdbcType=VARCHAR}, #{wb6,jdbcType=VARCHAR}, #{wb7,jdbcType=INTEGER},#{jiechefeiyong}
       )
   </insert>
   <insert id="insertSelective" parameterType="org.accp.pojo.Wxb" >
@@ -263,7 +263,8 @@
       wb4 = #{wb4,jdbcType=VARCHAR},
       wb5 = #{wb5,jdbcType=VARCHAR},
       wb6 = #{wb6,jdbcType=VARCHAR},
-      wb7 = #{wb7,jdbcType=INTEGER}
+      wb7 = #{wb7,jdbcType=INTEGER},
+      jiechefeiyong = #{jiechefeiyong,jdbcType=INTEGER}
     where wid = #{wid,jdbcType=VARCHAR}
 
 
@@ -284,7 +285,7 @@
 
 
 <select id="queryWeixiuByStatic" resultType="org.accp.pojo.Wxb">
-	SELECT * FROM `wxb` where wstate = 2 or wstate = 4 
+	SELECT * FROM `wxb` where wstate = 9 or wstate = 100 
 </select>
 
 <select id="querWeixiuxxByid" resultType="org.accp.pojo.Wxb">
@@ -304,9 +305,8 @@
 	</update>
 
 
-	
 	<select id="querWrixiuwanc" resultType="org.accp.pojo.Wxb">
-		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9  ORDER BY a.wid DESC
+		  SELECT * FROM `wxb` as a join `jcb` as b on a.wid = b.id WHERE wstate=2 or wstate=4 or wstate=9 or wstate=99  ORDER BY a.wid DESC
 	</select>
 	
 	<update id="updatejiage" parameterType="org.accp.pojo.Wxb">

@@ -7,10 +7,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.accp.cfg.AlipayConfig;
 import org.accp.pojo.Position;
 import org.accp.pojo.Roots;
+import org.accp.service.tl.AlipayService;
 import org.accp.service.tl.PositionService;
 import org.accp.service.tl.RootsService;
+import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +23,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.github.pagehelper.PageInfo;
 
 @RestController
@@ -25,6 +34,9 @@ import com.github.pagehelper.PageInfo;
 public class PositionAction {
 	@Autowired
 	private PositionService service;
+	
+	 @Autowired
+	 private AlipayService alipayService;
 
 	@Autowired
 	private RootsService rservice;
@@ -151,4 +163,22 @@ public class PositionAction {
 		position.setRoots(tree);
 		return position;
 	}
+	
+	 /**
+     * web 订单支付
+     */
+    @GetMapping("getPagePay/{id}/{p}")
+    public void getPagePay(@PathVariable String id,@PathVariable Integer p,HttpServletResponse response) throws Exception{
+    	
+    	String head = "<html><head><meta http-equiv='Content-Type' content='text/html;charset=UTF-8'></head>";
+
+    	String result = alipayService.webPagePay(new String(id.getBytes("ISO-8859-1"),"UTF-8"), p, new String(id.getBytes("ISO-8859-1"),"UTF-8"));
+
+    	String bottom = "<body></body></html>";
+
+    	//输出
+    	response.setContentType("text/html;charset=UTF-8");
+    	response.getWriter().println(head + result + bottom);
+
+    }
 }

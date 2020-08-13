@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 <mapper namespace="org.accp.dao.wh.ReqaincieMapper" >
   <resultMap id="BaseResultMap" type="org.accp.pojo.Reqaincie" >
     <id column="rvid" property="rvid" jdbcType="INTEGER" />
@@ -12,6 +9,11 @@
     <result column="rvpostscriopnot" property="rvpostscriopnot" jdbcType="VARCHAR" />
     <result column="rvdate" property="rvdate" jdbcType="TIMESTAMP" />
     <result column="rvstatus" property="rvstatus" jdbcType="INTEGER" />
+    <association property="ce" javaType="org.accp.pojo.MaintenService">
+     <id column="msid" property="msid" jdbcType="INTEGER" />
+    <result column="msname" property="msname" jdbcType="VARCHAR" />
+    <result column="msdate" property="msdate" jdbcType="TIMESTAMP" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     rvid, msid, rvname, rvmoney, rvpostscriopnot, rvdate, rvstatus

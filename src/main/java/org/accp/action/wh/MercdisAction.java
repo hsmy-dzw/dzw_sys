@@ -131,6 +131,11 @@ public class MercdisAction {
 		}
 		return map;
 	}
-	
+	@GetMapping("updatemdid/{mdid}/{num}")
+	public int updatemdid(@PathVariable Integer mdid ,@PathVariable Integer num) {
+		System.out.println("mdid:"+mdid+"  "+"num:"+num);
+		System.out.println("进入修改库存");
+		return biz.updatedid(num, mdid);
+	}
 	
 }

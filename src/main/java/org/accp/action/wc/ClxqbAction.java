@@ -29,7 +29,7 @@ public class ClxqbAction {
 	@PostMapping("person")
 	public Map<String, Object> addPerson(@RequestBody Clxqb pojo []) {
 		for (Clxqb clxqb : pojo) {
-			int qian  = clxqb.getMdmoney()*clxqb.getMdmoney2();
+			int qian  = clxqb.getMdmoney()*clxqb.getNum();
 			System.out.println("新增材料钱："+qian);
 			clxqb.setCljiage(Integer.toString(qian) );
 			System.out.println("新增材料成功！");

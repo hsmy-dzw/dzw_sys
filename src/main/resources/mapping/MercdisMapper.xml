@@ -198,5 +198,7 @@
       mdate = #{mdate,jdbcType=DATE}
     where mdid = #{mdid,jdbcType=INTEGER}
   </update>
-  
+  <update id="updatedid">
+  	UPDATE mercdis SET mdmoney2 = mdmoney2- #{num} where mdid = #{mdid}
+  </update>
 </mapper>

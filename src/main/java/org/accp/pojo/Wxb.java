@@ -43,8 +43,18 @@ public class Wxb {
 
     private Integer wb7;
 
+    private Integer jiechefeiyong;
    
-    private String jliex;
+	public Integer getJiechefeiyong() {
+		return jiechefeiyong;
+	}
+
+	
+	public void setJiechefeiyong(Integer jiechefeiyong) {
+		this.jiechefeiyong = jiechefeiyong;
+	}
+
+	private String jliex;
 
     public String getJliex() {
 		return jliex;
